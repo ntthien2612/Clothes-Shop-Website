@@ -67,7 +67,7 @@
 						</tr>
 						<tr>
 							<td><b>Hình sản phẩm: </b></td>
-							<td><input name="image" type="file" path="hinhanh" /></td>
+							<td><form:input type="file" path="hinhanh" /></td>
 						</tr>
 						<tr>
 							<td><b>Mô tả sản phẩm: </b></td>
@@ -88,41 +88,29 @@
 					<b>Thêm chi tiết sản phẩm</b>
 				</h1>
 				<hr>
-				<form action="themchitietsanpham" method="POST" modelAttribute="chitietsanpham">
-					<table style="height: 150px; width: 100%">
+				<form action="themchitietsanpham" method="post"
+					enctype="multipart/form-data">
+					<table  style="height: 150px">
 						<tr>
-							<td style="width: 150px;"><b>Tên sản phẩm: </b></td>
-							<td><select name="id_sp" style="width: 100%; height: 30px">
-							<c:forEach var="tensanpham" items="${tensanpham}" varStatus="index">
-								<option value="${tensanpham.id_sp }" >${tensanpham.ten_sp }</option>
-							</c:forEach>
-							</select></td>
+							<td><b>Tên sản phẩm: </b></td>
+							<td><input type="text" path="tensp"></td>
 						</tr>
 						<tr>
 							<td><b>Size sản phẩm: </b></td>
-							<td><select style="width: 100%; height: 30px" name="size">
-								<option value="S" >S</option>
-								<option value="M" >M</option>
-								<option value="L" >L</option>
-							</select></td>
+							<td><input type="text" path="sizesp"></td>
 						</tr>
 						<tr>
 							<td><b>Số lượng sản phẩm: </b></td>
-							<td><input type="Number" name="soluong" style="width: 100%; height: 30px" min="1" value="1" /></td>
+							<td><input type="text" path="soluongsp"></td>
 						</tr>
 						<tr>
 							<td></td>
-							<td><button type="submit" class="btn block">Lưu</button>
-							<button type="reset" class="btn block">Reset</button></td>
+							<td><input type="submit" value="Lưu"><input
+								type="reset" value="Reset" style="margin-left: 10px"></td>
 						</tr>
 					</table>
 				</form>
 			</div>
-			<c:forEach var="ctsp" items="${ctsp }" varStatus="index">
-				<p>${ctsp.soluong }</p>
-				<p>${ctsp.id_sp }</p>
-				<p>${ctsp.size }</p>
-			</c:forEach>
 			<p style="clear: both"></p>
 
 		</div>

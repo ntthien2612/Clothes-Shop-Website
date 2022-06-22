@@ -19,7 +19,6 @@ import ClothesShop.Service.User.UserHomeImpl;
 public class UserController {
 	@Autowired
 	UserHomeImpl HomeService;
-	public ModelAndView _mvShare = new ModelAndView();
 //trang index
 	@RequestMapping(value = "/")
 	public ModelAndView Index() {
@@ -28,11 +27,5 @@ public class UserController {
 		mv.addObject("danhmuc", HomeService.GetDataDanhMuc());
 		return mv;
 	}
-//trang tim kiem
-//	@RequestMapping(value="/timkiem", method = RequestMethod.GET, produces = "application/x-www-form-urlencoded;charset=UTF-8", params = "ten_sp")
-//	public ModelAndView TimKiem(String ten_sp) {
-//		_mvShare.addObject("sanpham", HomeService.GetDataSanPhamTimKiem(ten_sp));
-//		_mvShare.setViewName("user/timkiem");
-//		return _mvShare;
-//	}
+
 }

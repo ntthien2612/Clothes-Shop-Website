@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="topNav">
 			<div class="container">
@@ -23,7 +22,7 @@
 	<div class="row">
 		<div class="span4">
 			<h1
-				style="color: Blue; text-shadow: yellow 2px -1px 3px, white -2px 1px 2px; position: relative; font-size: 50px; padding-top: 3%;">
+				style="color: #ee4d2d; text-shadow: yellow 2px -1px 3px, white -2px 1px 2px; position: relative; font-size: 50px; padding-top: 3%;">
 				ClothesShop</h1>
 		</div>
 		<div class="span4">
@@ -61,10 +60,10 @@ Navigation Bar Section
 					<li class="active"><a href="./">Trang chủ </a></li>
 					<li class=""><a href="./sanpham">Sản phẩm</a></li>
 				</ul>
-				
-				<form action="timkiem" method="GET" modelAttribute="sanpham" class="navbar-search pull-left" style="margin-left: 25%;">
-					<input type="text" placeholder="Search" class="search-query span2" name="ten_sp" />
-					<button type="submit">Tìm</button>
+				<!--Tìm kiếm sản phẩm -->
+				<form action="sanpham" class="navbar-search pull-left" style="margin-left: 20%; " modelAttribute="sanpham">
+					<input type="text" placeholder="Search" class="search-query span2" name="noidung">
+					<input type="submit" value="Tìm" style="padding: 3px">
 				</form>
 				
 				<ul class="nav pull-right"style="float: right;">

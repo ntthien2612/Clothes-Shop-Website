@@ -65,11 +65,10 @@
 <th colspan="2" style="text-align: center">Tùy chọn</th>
 </tr>
 <c:forEach var="danhsach" items="${danhsach}" varStatus="index">
-<tr><td>${danhsach.ten_dm }</td><td style="width: 20%"><a href="<c:url value='chinhsua?id_chinhsua=${danhsach.id_dm }' />">Chỉnh sửa</a></td>
-<td style="width: 20%"><a href="<c:url value='xoa?id_xoa=${danhsach.id_dm }' />">Xóa</a></td></tr>
+<tr><td>${danhsach.ten_dm }</td><td style="width: 20%"><a href="<c:url value='quanlydanhmucSP?chinhsua=${danhsach.id_dm }' />">Chỉnh sửa</a></td>
+<td style="width: 20%"><a href="<c:url value='quanlydanhmucSP/xoa?id=${danhsach.id_dm }' />">Xóa</a></td></tr>
 				</c:forEach>
 </table>
-
 		</div>
 	</div>
 </div>

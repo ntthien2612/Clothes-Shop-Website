@@ -13,6 +13,9 @@ public interface UserIHome {
 	@Autowired
 	public List<SanPham> GetDataSanPham();
 	public List<DanhMuc> GetDataDanhMuc();
+	//khai bao get san pham theo doanh muc
+	public List<SanPham> GetDataSanPham(int id);
 	public List<SanPham> GetDataChiTiet(int id);
 	public List<ChiTietSanPham> GetDataSizeChiTiet(int id);
+	public List<SanPham> GetDataSanPham(String noidung);
 }

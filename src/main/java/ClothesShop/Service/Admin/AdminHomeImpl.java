@@ -16,7 +16,7 @@ public class AdminHomeImpl implements AdminIHome{
 	public List<DanhMuc> GetDataDanhMuc() {
 		return danhmucDao.GetDataDanhMuc();
 	}
-	
+
 //	public int DeleteDanhMuc(int id) {
 //		return danhmucDao. DeleteDanhMuc(id);
 //	}

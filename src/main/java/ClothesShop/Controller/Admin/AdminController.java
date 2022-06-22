@@ -25,4 +25,11 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView("admin/admin");
 		return mv;
 	}
+	
+
+	@RequestMapping(value = "/admin/dangnhap/")
+	public ModelAndView login() {
+		ModelAndView dangnhap = new ModelAndView("layouts/login");
+		return dangnhap;
+	}
 }

@@ -19,6 +19,15 @@ public class UserHomeImpl implements UserIHome{
 	public List<SanPham> GetDataSanPham() {
 		return sanphamDao.GetDataSanPham();
 	}
+	//khai bao get san pham theo doanh muc
+	public List<SanPham> GetDataSanPham(int id) {
+		return sanphamDao.GetDataSanPham(id);
+	}
+//	tim kiem san pham theo ten
+	public List<SanPham> GetDataSanPham(String noidung) {
+		return sanphamDao.GetDataSanPham(noidung);
+	}
+	
 	public List<DanhMuc> GetDataDanhMuc() {
 		return danhmucDao.GetDataDanhMuc();
 	}
@@ -28,8 +37,5 @@ public class UserHomeImpl implements UserIHome{
 	public List<ChiTietSanPham> GetDataSizeChiTiet(int id) {
 		return sanphamDao.GetDataSizeChiTiet(id);
 	}
-//	public List<SanPham> GetDataSanPhamTimKiem(String ten_sp) {
-//		return sanphamDao.GetDataSanPhamTimKiem(ten_sp);
-//	}
 	
 }

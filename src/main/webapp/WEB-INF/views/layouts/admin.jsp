@@ -59,6 +59,7 @@
 		<%@include file="/WEB-INF/views/layouts/admin/admin_footer.jsp" %>
 
 	</div>
+	
 
 	
 </body>

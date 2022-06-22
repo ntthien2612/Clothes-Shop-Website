@@ -6,8 +6,9 @@ import ClothesShop.Entity.DanhMuc;
 
 public interface IDanhMuc {
 	public int AddDanhMuc(DanhMuc danhmuc);
-	public List<DanhMuc> GetDataXoaDanhMuc(int id_xoa);
-	public List<DanhMuc> GetDataHienDanhMuc();
+	public int XoaDanhMuc(int id);
+	
 	public List<DanhMuc> GetDataSuaDanhMuc(int id_chinhsua);
 	public int ChinhSuaDanhMuc(DanhMuc danhmuc);
+	
 }

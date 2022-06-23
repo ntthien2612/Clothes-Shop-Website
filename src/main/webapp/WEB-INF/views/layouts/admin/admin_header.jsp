@@ -14,7 +14,7 @@
        
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li style="font-size: 30px; padding: 20px;"><a class="nav-link" href=">quanlytaikhoan/logout.php" style="color: blue">Thoát</a></li>
+        <li style="font-size: 30px; padding: 20px;"><a class="nav-link" href="../login/dang-xuat" style="color: blue">Thoát</a></li>
       </ul>
     </div>
   </div>

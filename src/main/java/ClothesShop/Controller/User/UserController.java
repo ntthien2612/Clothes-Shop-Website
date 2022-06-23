@@ -28,5 +28,7 @@ public class UserController {
 		mv.addObject("danhmuc", HomeService.GetDataDanhMuc());
 		return mv;
 	}
+	
+	
 
 }

@@ -43,6 +43,8 @@ public class SanPhamController {
 			_mvShare.addObject("sanpham", new SanPham());
 			return _mvShare;
 		}
+		
+		
 		//xu ly them san pham
 		@RequestMapping(value = "admin/quanlysanpham", method = RequestMethod.POST, produces="application/x-www-form-urlencoded;charset=UTF-8")
 		public ModelAndView CreateSanPham(@ModelAttribute("sanpham") SanPham sanpham, @RequestParam(value = "image", required = false) MultipartFile file, HttpServletRequest request ) {

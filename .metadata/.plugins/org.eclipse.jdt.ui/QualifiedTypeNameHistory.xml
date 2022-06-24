@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Conditional"/>
+<fullyQualifiedTypeName name="ClothesShop.Service.Admin.NguoiDungImpl"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="ClothesShop.Entity.NguoiDung"/>
+<fullyQualifiedTypeName name="ClothesShop.Dao.BaseDao"/>
+<fullyQualifiedTypeName name="ClothesShop.Entity.MapperNguoiDung"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.swing.tree.RowMapper"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="ClothesShop.Service.User.GioHangImpl"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="ClothesShop.Dao.GioHangDao"/>
+<fullyQualifiedTypeName name="ClothesShop.Entity.GioHang"/>
+<fullyQualifiedTypeName name="ClothesShop.Entity.MapperGioHang"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="ClothesShop.Entity.Users"/>
+</qualifiedTypeNameHistroy>

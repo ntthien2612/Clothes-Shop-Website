@@ -1,0 +1,15 @@
+package ClothesShop.Service.User;
+
+import org.springframework.stereotype.Service;
+
+import ClothesShop.Entity.GioHang;
+
+@Service
+public class GioHangImpl {
+
+	public int ThemGioHang(GioHang giohang) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

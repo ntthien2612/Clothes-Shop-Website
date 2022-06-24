@@ -1,0 +1,81 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trang thanh toán</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+button.collapsible{
+  width: 80px;
+  border-radius: 10px;
+  border: 1px solid blue;
+  text-align: center;
+}
+.collapsible {
+  height: 30px;
+  background-color: white;
+  color: blue;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+.content2 {
+  display: none;
+  overflow: hidden;
+}
+#formtt input{
+  height: 30px;
+  border-radius: 15px;
+}
+table.ttdh tr{
+  height: 30px;
+}
+table.ttdh{
+  width: 80%;
+}
+table.ttdh td{
+  text-align: right;
+}
+textarea.ttgg{
+  resize: none; text-align: center; height: 25px; padding: 0; width: 80px; border: none;
+}
+</style>
+</head>
+<body>
+<h1 style="text-align: center"><b>Đơn hàng</b></h1>
+<p>Người nhận: </p>
+<p>Số điện thoại: </p>
+<p>Địa chỉ nhận hàng: </p>
+<button type="button" class="collapsible">Thay đổi</button>
+<div  class="content2">
+          <form action="/doithongtin/" method="post" id="formtt">
+            <input type="text" name="tenup" value="" placeholder="Cập nhật tên người nhận">
+            <input type="text" name="sdtup" value="" placeholder="Cập nhật số điện thoại ">
+            <input type="text" name="diachiup" value="" placeholder="Cập nhật địa chỉ nhận">
+            <button type="submit" class="collapsible">Lưu</button>
+          </form>
+        </div>
+        <script>
+          var coll = document.getElementsByClassName("collapsible");
+          var i;
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var content2 = this.nextElementSibling;
+              if (content2.style.display === "block") {
+                content2.style.display = "none";
+              } else {
+                content2.style.display = "block";
+              }
+            });
+          }
+        </script>
+</body>
+</html>

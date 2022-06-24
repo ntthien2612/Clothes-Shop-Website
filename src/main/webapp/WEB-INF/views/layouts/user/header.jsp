@@ -11,6 +11,7 @@
 							class="icon-youtube"></span></a> <a href="#"><span
 							class="icon-tumblr"></span></a>
 					</div>
+<<<<<<< HEAD
 					<a class="" href="./"> <span class="icon-home"></span>
 						Trang chủ
 					</a> 
@@ -39,6 +40,12 @@
 				</form>
 				</c:if>
 					
+=======
+					<a class="active" href="./"> <span class="icon-home"></span>
+						Trang chủ
+					</a> <a href="#"><span class="icon-user"></span> My Account</a>
+					 <a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s)</a>
+>>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 				</div>
 			</div>
 		</div>
@@ -47,7 +54,11 @@
 	<div class="row">
 		<div class="span4">
 			<h1
+<<<<<<< HEAD
 				style="color: Blue; text-shadow: yellow 2px -1px 3px, white -2px 1px 2px; position: relative; font-size: 50px; padding-top: 3%;">
+=======
+				style="color: #ee4d2d; text-shadow: yellow 2px -1px 3px, white -2px 1px 2px; position: relative; font-size: 50px; padding-top: 3%;">
+>>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 				ClothesShop</h1>
 		</div>
 		<div class="span4">
@@ -59,7 +70,11 @@
 		</div>
 		<div class="span4 alignR">
 			<p>
+<<<<<<< HEAD
 				<br> <strong> Support (24/7) : 0800 1234 678 </strong><br>
+=======
+				<br> <strong>Nhóm 05 </strong><br>
+>>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 				<br>
 			</p>
 			<span class="btn btn-mini">[ 2 ] <span
@@ -82,6 +97,7 @@ Navigation Bar Section
 			</a>
 			<div class="nav-collapse">
 				<ul class="nav">
+<<<<<<< HEAD
 					<li class=""><a href="./">Trang chủ </a></li>
 					<li class=""><a href="./sanpham">Sản phẩm</a></li>
 					<c:if test="${ not empty LoginInfo }">
@@ -95,6 +111,43 @@ Navigation Bar Section
 				</form>
 				
 				
+=======
+					<li class="active"><a href="./">Trang chủ </a></li>
+					<li class=""><a href="./sanpham">Sản phẩm</a></li>
+				</ul>
+				<!--Tìm kiếm sản phẩm -->
+				<form action="sanpham" class="navbar-search pull-left" style="margin-left: 20%; " modelAttribute="sanpham">
+					<input type="text" placeholder="Search" class="search-query span2" name="noidung">
+					<input type="submit" value="Tìm" style="padding: 3px">
+				</form>
+				
+				<ul class="nav pull-right"style="float: right;">
+				<li><a href="./dang-ky"><span class="fa fa-sign-in"></span>
+							Đăng ký </a></li>
+					<li class="dropdown"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#"><span class="icon-lock"></span>
+							Đăng nhập <b class="caret"></b></a>
+						<div class="dropdown-menu">
+							<form class="form-horizontal loginFrm">
+								<div class="control-group">
+									<input type="text" class="span2" id="inputEmail"
+										placeholder="Email">
+								</div>
+								<div class="control-group">
+									<input type="password" class="span2" id="inputPassword"
+										placeholder="Password">
+								</div>
+								<div class="control-group">
+									<label class="checkbox"> <input type="checkbox">
+										Remember me
+									</label>
+									<button type="submit" class="shopBtn btn-block">Sign
+										in</button>
+								</div>
+							</form>
+						</div></li>
+				</ul>
+>>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 			</div>
 		</div>
 	</div>

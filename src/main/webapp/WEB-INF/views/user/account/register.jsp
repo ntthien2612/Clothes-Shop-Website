@@ -39,7 +39,11 @@
 				<div class="span4" style="width: 100%;">
 					<div class="well" style="width: 90%; height: 350px">
 						<h3 style="text-align: center">Đăng ký tài khoản</h3>
+<<<<<<< HEAD
 						<form:form action="dang-ky" method="POST" modelAttribute="user" enctype="multipart/form-data">
+=======
+						<form:form action="dang-ky" method="POST" modelAttribute="user">
+>>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 							<table style="margin-left: 25%">
 								<tr>
 									<td>Email:</td>
@@ -72,6 +76,10 @@
 											ký thành viên</button></td>
 								</tr>
 							</table>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 						</form:form>
 					</div>
 				</div>

@@ -14,7 +14,11 @@
        
       </ul>
       <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
         <li style="font-size: 30px; padding: 20px;"><a class="nav-link" href=">quanlytaikhoan/logout.php" style="color: blue">Thoát</a></li>
+=======
+        <li style="font-size: 30px; padding: 20px;"><a class="nav-link" href="../login/dang-xuat" style="color: blue">Thoát</a></li>
+>>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
       </ul>
     </div>
   </div>

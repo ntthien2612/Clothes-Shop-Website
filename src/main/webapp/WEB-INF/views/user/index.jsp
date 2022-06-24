@@ -10,7 +10,11 @@
 			<div class="well well-small">
 				<ul class="nav nav-list">
 				<c:forEach var="danhmuc" items="${danhmuc }" varStatus="index">
+<<<<<<< HEAD
 					<li><a href="products.html"><span
+=======
+					<li><a href="./sanpham?id=${danhmuc.id_dm }"><span
+>>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 							class="icon-chevron-right"></span>${danhmuc.ten_dm }</a></li>
 				</c:forEach>
 				</ul>

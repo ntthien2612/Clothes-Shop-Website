@@ -7,7 +7,7 @@ private String email_kh;
 private String pass;
 private String diachi;
 private String sdt;
-private String hinhanh;
+
 public NguoiDung() {
 	super();
 }
@@ -47,11 +47,6 @@ public String getSdt() {
 public void setSdt(String sdt) {
 	this.sdt = sdt;
 }
-public String getHinhanh() {
-	return hinhanh;
-}
-public void setHinhanh(String hinhanh) {
-	this.hinhanh = hinhanh;
-}
+
 
 }

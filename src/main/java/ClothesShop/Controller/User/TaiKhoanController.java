@@ -1,5 +1,6 @@
 package ClothesShop.Controller.User;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ClothesShop.Dao.GioHangDao;
 import ClothesShop.Entity.Users;
 import ClothesShop.Service.User.AccountServiceImpl;
 import ClothesShop.Service.User.UserHomeImpl;
@@ -62,7 +64,7 @@ public class TaiKhoanController {
 						session.setAttribute("LoginInfo", user);
 						//lưu id khách hàng vào session
 						session.setAttribute("kh",user.getId_kh());
-						session.setAttribute("count", giohangDao.Count(user.getId_kh()));
+//						session.setAttribute("count", giohangDao.Count(user.getId_kh()));
 					}else {
 						_mvShare.addObject("statusLogin","Đăng nhập thất bại !");
 					}		

@@ -10,7 +10,7 @@ public class Users {
 	public long getId_kh() {
 		return id_kh;
 	}
-	public void setId_kh(long id_kh) {
+	public void setId_kh(int id_kh) {
 		this.id_kh = id_kh;
 	}
 	public String getTen_kh() {

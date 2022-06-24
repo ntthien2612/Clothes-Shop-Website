@@ -14,7 +14,6 @@ public class MapperNguoiDung implements RowMapper<NguoiDung>{
 		nguoidung.setPass(rs.getString("pass"));
 		nguoidung.setDiachi(rs.getString("diachi"));
 		nguoidung.setSdt(rs.getString("sdt"));
-		nguoidung.setHinhanh(rs.getString("hinhanh"));
 		return nguoidung;
 	}
 }

@@ -14,7 +14,6 @@ import ClothesShop.Service.Admin.ISanPham;
 public class SanPhamImpl implements ISanPham{
 	@Autowired
 	SanPhamDao sanphamDao = new SanPhamDao();
-<<<<<<< HEAD
 //them san pham	
 	public int AddSanPham(SanPham sanpham) {
 		return sanphamDao.AddSanPham(sanpham);
@@ -32,34 +31,10 @@ public class SanPhamImpl implements ISanPham{
 		return sanphamDao.KiemTraChiTiet(chitietsp);
 	}
 //update so luong chi tiet san pham
-=======
-	
-	public int AddSanPham(SanPham sanpham) {
-		return sanphamDao.AddSanPham(sanpham);
-	}
-
-	public List<SanPham> GetDataSanPham() {
-		return sanphamDao.GetDataSanPham();
-	}
-
-	public List<ChiTietSanPham>KiemTraChiTiet(int id_sp, int soluong, String size) {
-		return sanphamDao.KiemTraChiTiet(id_sp, soluong, size);
-	}
-
-	public int ThemSanPhamChiTiet(ChiTietSanPham chitietsp) {
-		return sanphamDao.ThemSanPhamChiTiet(chitietsp);
-	}
-
-	public int KiemTraChiTiet(ChiTietSanPham chitietsp) {
-		return sanphamDao.KiemTraChiTiet(chitietsp);
-	}
-
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 	public int UpdateChiTiet(ChiTietSanPham chitietsp) {
 		return sanphamDao.UpdateChiTiet(chitietsp);
 		
 	}
-<<<<<<< HEAD
 //hien danh sach san pham
 	public List<String[]> GetDataDanhSachSanPham() {
 		return sanphamDao.GetDataDanhSachSanPham();
@@ -78,18 +53,4 @@ public class SanPhamImpl implements ISanPham{
 	public List<String[]> TimSanPham(String ten_sp) {
 		return sanphamDao.TimSanPham(ten_sp);
 	}
-=======
-
-//	public int ThemSanPhamChiTiet(ChiTietSanPham chitietsp) {
-//		return sanphamDao.ThemSanPhamChiTiet(chitietsp);
-//	}
-//
-//	public int UpdateSanPhamChiTiet(ChiTietSanPham chitietsp) {
-//		return sanphamDao.UpdateSanPhamChiTiet(chitietsp);
-//	}
-//
-//	public int ThemMoiSanPhamChiTiet(ChiTietSanPham chitietsp) {
-//		return sanphamDao.ThemMoiSanPhamChiTiet(chitietsp);
-//	}
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 }

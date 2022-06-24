@@ -1,10 +1,7 @@
 package ClothesShop.Controller.User;
 
-<<<<<<< HEAD
 import javax.servlet.http.HttpSession;
 
-=======
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,30 +12,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
 import ClothesShop.Dao.GioHangDao;
 import ClothesShop.Entity.DanhMuc;
-=======
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 import ClothesShop.Entity.Users;
 import ClothesShop.Service.User.AccountServiceImpl;
 import ClothesShop.Service.User.UserHomeImpl;
 
 @Controller
-<<<<<<< HEAD
-public class UserController {
-	@Autowired
-	UserHomeImpl HomeService;
-	@Autowired
-	GioHangDao giohangDao;
-	@Autowired
-	HttpSession session;
-=======
 //@RequestMapping(value="/")
 public class UserController {
 	@Autowired
 	UserHomeImpl HomeService;
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 	public ModelAndView _mvShare = new ModelAndView();
 //trang index
 	@RequestMapping(value = "/")
@@ -48,7 +32,6 @@ public class UserController {
 		mv.addObject("danhmuc", HomeService.GetDataDanhMuc());
 		return mv;
 	}
-<<<<<<< HEAD
 //trang chi tiet don hang
 	@RequestMapping(value = "/chitietdonhang")
 	public ModelAndView ChiTietDonHang() {
@@ -62,9 +45,4 @@ public class UserController {
 //		_mvShare.setViewName("user/timkiem");
 //		return _mvShare;
 //	}
-=======
-	
-	
-
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 }

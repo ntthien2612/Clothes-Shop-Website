@@ -11,7 +11,6 @@
 							class="icon-youtube"></span></a> <a href="#"><span
 							class="icon-tumblr"></span></a>
 					</div>
-<<<<<<< HEAD
 					<a class="" href="./"> <span class="icon-home"></span>
 						Trang chủ
 					</a> 
@@ -40,12 +39,6 @@
 				</form>
 				</c:if>
 					
-=======
-					<a class="active" href="./"> <span class="icon-home"></span>
-						Trang chủ
-					</a> <a href="#"><span class="icon-user"></span> My Account</a>
-					 <a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s)</a>
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 				</div>
 			</div>
 		</div>

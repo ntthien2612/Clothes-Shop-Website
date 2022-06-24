@@ -3,10 +3,7 @@ package ClothesShop.Controller.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
-=======
 import org.springframework.web.bind.annotation.RequestMethod;
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 import org.springframework.web.servlet.ModelAndView;
 
 import ClothesShop.Service.User.UserHomeImpl;
@@ -21,8 +18,6 @@ public class SanPhamControl {
 			sp.addObject("sanpham", HomeService.GetDataSanPham());
 			return sp;
 		}
-<<<<<<< HEAD
-=======
 		
 		
 		@RequestMapping(value = "/sanpham", method = RequestMethod.GET, params = "id" )
@@ -40,5 +35,4 @@ public class SanPhamControl {
 				
 			return sp;
 		}
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 }

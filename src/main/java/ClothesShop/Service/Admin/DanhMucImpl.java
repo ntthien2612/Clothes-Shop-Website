@@ -14,7 +14,6 @@ import ClothesShop.Service.Admin.IDanhMuc;
 public class DanhMucImpl implements IDanhMuc {
 	@Autowired
 	DanhMucDao danhmucDao = new DanhMucDao();
-<<<<<<< HEAD
 //them danh muc
 	public int AddDanhMuc(DanhMuc danhmuc) {
 		return danhmucDao.AddDanhMuc(danhmuc);
@@ -32,21 +31,6 @@ public class DanhMucImpl implements IDanhMuc {
 		return danhmucDao.GetDataSuaDanhMuc(id_chinhsua);
 	}
 //xu ly chinh sua
-=======
-
-	public int AddDanhMuc(DanhMuc danhmuc) {
-		return danhmucDao.AddDanhMuc(danhmuc);
-	}
-	public List<DanhMuc> GetDataXoaDanhMuc(int id_xoa) {
-		return danhmucDao.GetDataXoaDanhMuc(id_xoa);
-	}
-	public List<DanhMuc> GetDataHienDanhMuc() {
-		return danhmucDao.GetDataHienDanhMuc();
-	}
-	public List<DanhMuc> GetDataSuaDanhMuc(int id_chinhsua) {
-		return danhmucDao.GetDataSuaDanhMuc(id_chinhsua);
-	}
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 	public int ChinhSuaDanhMuc(DanhMuc danhmuc) {
 		return danhmucDao.ChinhSuaDanhMuc(danhmuc);
 	}

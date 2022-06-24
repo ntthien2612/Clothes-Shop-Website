@@ -11,7 +11,6 @@ import ClothesShop.Entity.ChiTietSanPham;
 import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.MapperChiTietSanPham;
 import ClothesShop.Entity.MapperDanhMuc;
-<<<<<<< HEAD
 import ClothesShop.Entity.MapperDanhSachSanPham;
 import ClothesShop.Entity.MapperNguoiDung;
 import ClothesShop.Entity.MapperSanPham;
@@ -23,39 +22,12 @@ public class SanPhamDao extends BaseDao{
 	@Autowired
 	public JdbcTemplate _jdbcTemplate;
 //hien trang san pham cho user
-=======
-import ClothesShop.Entity.MapperSanPham;
-import ClothesShop.Entity.SanPham;
-
-@Repository
-public class SanPhamDao extends BaseDao {
-	@Autowired
-	public JdbcTemplate _jdbcTemplate;
-
-//hien trang san pham
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 	public List<SanPham> GetDataSanPham() {
 		List<SanPham> list_sp = new ArrayList<SanPham>();
 		String sql_sp = "select * from sanpham";
 		list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
 		return list_sp;
 	}
-<<<<<<< HEAD
-//hien trang chi tiet cho user
-	public List<SanPham> GetDataChiTiet(int id) {
-		List<SanPham> list_sp = new ArrayList<SanPham>();
-		String sql_sp = "select * from sanpham where id_sp="+id;
-		list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
-		return list_sp;
-	}
-//hien size cho trang chi tiet cho user
-	public List<ChiTietSanPham> GetDataSizeChiTiet(int id) {
-		List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
-		String sql_sp = "select * from chitietsanpham where id_sp="+id;
-		list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
-		return list_sp;
-	}
-=======
 
 	// hien thi san pham theo doanh muc
 	public List<SanPham> GetDataSanPham(int id) {
@@ -88,7 +60,6 @@ public class SanPhamDao extends BaseDao {
 		return list_sp;
 	}
 
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 //them san pham
 	public int AddSanPham(SanPham sanpham) {
 		{
@@ -104,15 +75,6 @@ public class SanPhamDao extends BaseDao {
 			sql.append(") ");
 			sql.append("VALUES ");
 			sql.append("( ");
-<<<<<<< HEAD
-			sql.append("	'"+sanpham.getTen_sp()+"', ");
-			sql.append("	'"+sanpham.getId_dm()+"', ");
-			sql.append("	'"+sanpham.getGia()+"', ");
-			sql.append("	'"+sanpham.getHinhanh()+"', ");
-			sql.append("	'"+sanpham.getMota()+"' ");
-			sql.append(")");
-			
-=======
 			sql.append("	'" + sanpham.getTen_sp() + "', ");
 			sql.append("	'" + sanpham.getId_dm() + "', ");
 			sql.append("	'" + sanpham.getGia() + "', ");
@@ -120,15 +82,11 @@ public class SanPhamDao extends BaseDao {
 			sql.append("	'" + sanpham.getMota() + "' ");
 			sql.append(")");
 
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 			int insert = _jdbcTemplate.update(sql.toString());
 			return insert;
 		}
 	}
 
-<<<<<<< HEAD
-//them moi chi tiet san pham
-=======
 //kiem tra san pham	trong csdl chi tiet
 //	public List<SanPham> ThemSanPhamChiTiet(ChiTietSanPham chitietsp) {
 //		//List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
@@ -171,7 +129,6 @@ public class SanPhamDao extends BaseDao {
 		return list_sp;
 	}
 
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 	public int ThemSanPhamChiTiet(ChiTietSanPham chitietsp) {
 		{
 			StringBuffer sql = new StringBuffer();
@@ -184,24 +141,15 @@ public class SanPhamDao extends BaseDao {
 			sql.append(") ");
 			sql.append("VALUES ");
 			sql.append("( ");
-<<<<<<< HEAD
-			sql.append("	"+chitietsp.getId_sp()+", ");
-			sql.append("	"+chitietsp.getSoluong()+", ");
-			sql.append("	'"+chitietsp.getSize()+"' ");
-			sql.append(")");
-			
-=======
 			sql.append("	" + chitietsp.getId_sp() + ", ");
 			sql.append("	" + chitietsp.getSoluong() + ", ");
 			sql.append("	'" + chitietsp.getSize() + "' ");
 			sql.append(")");
 
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 			int insert = _jdbcTemplate.update(sql.toString());
 			return insert;
 		}
 	}
-<<<<<<< HEAD
 	//kiem tra san pham da cho co chi tiet chua
 	public int KiemTraChiTiet(ChiTietSanPham chitietsp) {
 		List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
@@ -249,21 +197,4 @@ public class SanPhamDao extends BaseDao {
 		list = _jdbcTemplate.query(sql, new MapperDanhSachSanPham());
 		return list;
 	}
-=======
-
-	public int KiemTraChiTiet(ChiTietSanPham chitietsp) {
-		String sql_sp = "select * from chitietsanpham where id_sp=" + chitietsp.getId_sp() + " and size='"
-				+ chitietsp.getSize() + "'";
-		int list_sp = _jdbcTemplate.update(sql_sp.toString());
-		return list_sp;
-	}
-
-	public int UpdateChiTiet(ChiTietSanPham chitietsp) {
-		String sql_sp = "update chitietsanpham set soluong=" + chitietsp.getSoluong() + "where id_sp="
-				+ chitietsp.getId_sp() + " and size='" + chitietsp.getSize() + "'";
-		int list_sp = _jdbcTemplate.update(sql_sp.toString());
-		return list_sp;
-	}
-
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 }

@@ -1,7 +1,6 @@
 package ClothesShop.Entity;
 
 public class GioHang {
-<<<<<<< HEAD
 	private int id;
 	private int id_kh;
 	private int id_sp;
@@ -41,43 +40,4 @@ public class GioHang {
 		this.size = size;
 	}
 	
-=======
-	private int quanty;
-	private double totalPrice;
-	private SanPham product;
-	
-	public GioHang() {
-		
-	}
-	
-	public GioHang(int quanty, double totalPrice, SanPham product) {
-		this.quanty = quanty;
-		this.totalPrice = totalPrice;
-		this.product = product;
-	}
-	
-	public int getQuanty() {
-		return quanty;
-	}
-	
-	public void setQuanty(int quanty) {
-		this.quanty = quanty;
-	}
-	
-	public double getTotalPrice() {
-		return totalPrice;
-	}
-	
-	public void setTotalPrice(double totalPrice) {
-		this.totalPrice = totalPrice;
-	}
-	
-	public SanPham getProduct() {
-		return product;
-	}
-	
-	public void setProduct(SanPham product) {
-		this.product = product;
-	}
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 }

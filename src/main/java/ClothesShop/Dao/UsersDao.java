@@ -9,10 +9,7 @@ import ClothesShop.Entity.Users;
 
 @Repository
 public class UsersDao extends BaseDao {
-<<<<<<< HEAD
 	//them khach hang
-=======
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 	public int AddAccount(Users user)
 	{
 		StringBuffer sql = new StringBuffer();
@@ -37,7 +34,6 @@ public class UsersDao extends BaseDao {
 		int insert = _jdbcTemplate.update(sql.toString());
 		return insert;
 	}
-<<<<<<< HEAD
 	//dang nhap
 	public Users GetUserByAcc(Users user)
 	{
@@ -46,17 +42,4 @@ public class UsersDao extends BaseDao {
 		return result;
 	}
 	
-=======
-	public Users GetUserByAcc(Users user)
-	{
-		
-		String sql = "SELECT * FROM khachhang WHERE email_kh = '"+user.getEmail_kh()+"'";
-		Users result = _jdbcTemplate.queryForObject(sql, new MapperUsers());
-		
-		
-		return result;
-	}
-	
-	
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 }

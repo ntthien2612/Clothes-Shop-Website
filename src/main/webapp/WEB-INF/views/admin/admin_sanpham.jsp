@@ -47,7 +47,6 @@
 					<b>Thêm sản phẩm</b>
 				</h1>
 				<hr>
-<<<<<<< HEAD
 				<form:form action="themsanpham" method="POST" modelAttribute="sanpham" enctype="multipart/form-data">
 					<table style="height: 250px">
 						<tr>
@@ -57,17 +56,6 @@
 						<tr>
 							<td><b>Danh mục sản phẩm: </b></td>
 							<td><form:select path="id_dm" style="width: 100%; height: 30px">
-=======
-				<form:form action="quanlysanpham" method="POST" modelAttribute="sanpham" enctype="multipart/form-data">
-					<table style="height: 250px">
-						<tr>
-							<td><b>Tên sản phẩm: </b></td>
-							<td><form:input type="text" path="ten_sp" /></td>
-						</tr>
-						<tr>
-							<td><b>Danh mục sản phẩm: </b></td>
-							<td><form:select path="id_dm">
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 									<c:forEach var="danhmuc" items="${danhmuc }" varStatus="index">
 										<option value="${danhmuc.id_dm }">${danhmuc.ten_dm }</option>
 									</c:forEach>
@@ -75,11 +63,7 @@
 						</tr>
 						<tr>
 							<td><b>Giá sản phẩm: </b></td>
-<<<<<<< HEAD
 							<td><form:input type="text" path="gia" style="width: 100%; height: 30px"/></td>
-=======
-							<td><form:input type="text" path="gia" /></td>
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 						</tr>
 						<tr>
 							<td><b>Hình sản phẩm: </b></td>
@@ -87,11 +71,7 @@
 						</tr>
 						<tr>
 							<td><b>Mô tả sản phẩm: </b></td>
-<<<<<<< HEAD
 							<td><form:textarea type="text" path="mota" style="resize: none; width: 100%; height: 30px"></form:textarea></td>
-=======
-							<td><form:textarea type="text" path="mota" style="resize: none"></form:textarea></td>
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
 						</tr>
 						<tr>
 							<td></td>

@@ -36,7 +36,6 @@
     <div class="col-sm-10 text-left"> 
     <h1 style="text-align: center"><b>Danh sách khách hàng</b></h1>
     <form action="timkiem" method="GET">
-<<<<<<< HEAD
     <input type="text" placeholder="Nhập tên khách hàng.." name="tenkh" style="width: 40%; margin-left: 10%; margin-bottom: 1%;" onchange="this.form.submit()">
     <button type="submit">Tìm</button>
     </form>
@@ -51,19 +50,6 @@
     <tr><td>${khachhang.id_kh }</td><td>${khachhang.ten_kh }</td><td>${khachhang.email_kh }</td><td>${khachhang.sdt }</td><td>${khachhang.diachi }</td></tr>
     </c:forEach>
     
-=======
-    <input type="text" placeholder="Nhập tên khách hàng.." name="tenkh" style="width: 40%; margin-left: 10%; margin-bottom: 1%;" onchange="this.form.submit()">   
-    </form>
-    <table border="1" style="width: 80%; margin-left: 10%;">
-    <tr><th>ID</th><th>Tên khách hàng</th><th>Email</th><th>Số điện thoại</th><th>Địa chỉ</th></tr>
-    <c:forEach var="nguoidung" items="${nguoidung}" varStatus="index">
-    <tr><td>${nguoidung.id_kh }</td><td>${nguoidung.ten_kh }</td><td>${nguoidung.email_kh }</td><td>${nguoidung.sdt }</td><td>${nguoidung.diachi }</td></tr>
-    </c:forEach>
-   
-    <c:forEach var="khachhang" items="${khachhang}" varStatus="index">
-    <tr><td>${khachhang.id_kh }</td><td>${khachhang.ten_kh }</td><td>${khachhang.email_kh }</td><td>${khachhang.sdt }</td><td>${khachhang.diachi }</td></tr>
-    </c:forEach>
->>>>>>> 9d9bc05f613d6ea382e57618d69eb9ab8aa50e3c
     </table>
     </div>
   </div>

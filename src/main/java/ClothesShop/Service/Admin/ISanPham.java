@@ -10,8 +10,9 @@ public interface ISanPham {
 	public int ThemSanPhamChiTiet(ChiTietSanPham chitietsp);
 	public int UpdateChiTiet(ChiTietSanPham chitietsp);
 	public int KiemTraChiTiet(ChiTietSanPham chitietsp);
-//	public List<ChiTietSanPham>KiemTraChiTiet(int id_sp, int soluong, String size);
-//	public List<SanPham> ThemSanPhamChiTiet(ChiTietSanPham chitietsp);
-//	public int UpdateSanPhamChiTiet(ChiTietSanPham chitietsp);
-//	public int ThemMoiSanPhamChiTiet(ChiTietSanPham chitietsp);
+	public List<String[]> GetDataDanhSachSanPham();
+	public List<SanPham> GetDataXoaSanPham(int id_xoa);
+	public List<String[]> GetDataSuaSanPham(int id_chinhsua);
+	public int UpdateSanPham(SanPham sanpham);
+	public List<String[]> TimSanPham(String ten_sp);
 }

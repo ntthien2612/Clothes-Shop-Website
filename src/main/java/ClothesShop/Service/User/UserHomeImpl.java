@@ -2,13 +2,17 @@ package ClothesShop.Service.User;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ClothesShop.Dao.DanhMucDao;
+import ClothesShop.Dao.GioHangDao;
 import ClothesShop.Dao.SanPhamDao;
 import ClothesShop.Entity.ChiTietSanPham;
 import ClothesShop.Entity.DanhMuc;
+import ClothesShop.Entity.GioHang;
 import ClothesShop.Entity.SanPham;
 @Service
 public class UserHomeImpl implements UserIHome{
@@ -41,5 +45,9 @@ public class UserHomeImpl implements UserIHome{
 //	public List<SanPham> GetDataSanPhamTimKiem(String ten_sp) {
 //		return sanphamDao.GetDataSanPhamTimKiem(ten_sp);
 //	}
+//	public List<GioHang>  GetGioHang() {
+//		return giohangDao.GetGioHang();
+//	}
+//	
 	
 }

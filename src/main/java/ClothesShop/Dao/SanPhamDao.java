@@ -11,15 +11,17 @@ import ClothesShop.Entity.ChiTietSanPham;
 import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.MapperChiTietSanPham;
 import ClothesShop.Entity.MapperDanhMuc;
+import ClothesShop.Entity.MapperDanhSachSanPham;
+import ClothesShop.Entity.MapperNguoiDung;
 import ClothesShop.Entity.MapperSanPham;
+import ClothesShop.Entity.NguoiDung;
 import ClothesShop.Entity.SanPham;
 
 @Repository
-public class SanPhamDao extends BaseDao {
+public class SanPhamDao extends BaseDao{
 	@Autowired
 	public JdbcTemplate _jdbcTemplate;
-
-//hien trang san pham
+//hien trang san pham cho user
 	public List<SanPham> GetDataSanPham() {
 		List<SanPham> list_sp = new ArrayList<SanPham>();
 		String sql_sp = "select * from sanpham";
@@ -148,19 +150,51 @@ public class SanPhamDao extends BaseDao {
 			return insert;
 		}
 	}
-
+	//kiem tra san pham da cho co chi tiet chua
 	public int KiemTraChiTiet(ChiTietSanPham chitietsp) {
-		String sql_sp = "select * from chitietsanpham where id_sp=" + chitietsp.getId_sp() + " and size='"
-				+ chitietsp.getSize() + "'";
-		int list_sp = _jdbcTemplate.update(sql_sp.toString());
-		return list_sp;
+		List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
+		String sql_sp = "select * from chitietsanpham where id_sp="+chitietsp.getId_sp()+" and size='"+chitietsp.getSize()+"'";
+		list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
+		return list_sp.size();
 	}
-
+	//update lai so luong trong chi tiet san pham
 	public int UpdateChiTiet(ChiTietSanPham chitietsp) {
-		String sql_sp = "update chitietsanpham set soluong=" + chitietsp.getSoluong() + "where id_sp="
-				+ chitietsp.getId_sp() + " and size='" + chitietsp.getSize() + "'";
+		String sql_sp = "update chitietsanpham set soluong=soluong+"+chitietsp.getSoluong()+" where id_sp="+chitietsp.getId_sp()+" and size='"+chitietsp.getSize()+"'";
 		int list_sp = _jdbcTemplate.update(sql_sp.toString());
 		return list_sp;
 	}
-
+	//hien danh sach trang pham cho admin
+	public List<String[]> GetDataDanhSachSanPham() {
+		List<String[]> list_sp = new ArrayList<String[]>();
+		String sql_sp = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm";
+		list_sp = _jdbcTemplate.query(sql_sp, new MapperDanhSachSanPham());
+		return list_sp;
+	}
+	//xoa san pham
+	public List<SanPham> GetDataXoaSanPham(int id_xoa) {
+		List<SanPham> list_sp = new ArrayList<SanPham>();
+		String sql_sp = "delete from sanpham where id_sp="+id_xoa;
+		int delete = _jdbcTemplate.update(sql_sp.toString());
+		return list_sp;
+	}
+	//hien trang chinh sua
+	public List<String[]> GetDataSuaSanPham(int id_chinhsua) {
+		List<String[]> list_sp = new ArrayList<String[]>();
+		String sql_sp = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm and id_sp="+id_chinhsua;
+		list_sp = _jdbcTemplate.query(sql_sp, new MapperDanhSachSanPham());
+		return list_sp;
+	}
+	//xu ly chinh sua san pham
+	public int UpdateSanPham(SanPham sanpham) {
+		String sql = "UPDATE sanpham SET `id_dm`="+sanpham.getId_dm()+",`ten_sp`='"+sanpham.getTen_sp()+"',`gia`="+sanpham.getGia()+",`hinhanh`='"+sanpham.getHinhanh()+"',`mota`='"+sanpham.getMota()+"' WHERE id_sp="+sanpham.getId_sp();
+		int list = _jdbcTemplate.update(sql.toString());
+		return list;
+		
+	}
+	public List<String[]> TimSanPham(String ten_sp) {
+		List<String[]> list = new ArrayList<String[]>();
+		String sql = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm and ten_sp LIKE '%"+ten_sp+"%'";
+		list = _jdbcTemplate.query(sql, new MapperDanhSachSanPham());
+		return list;
+	}
 }

@@ -1,0 +1,102 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trang thanh toán</title>
+</head>
+<body>
+	
+			
+			<div class="row">
+			
+				<div class="span4" style="width: 100%;">
+					<div class="well" style="width: 90%; height: 100%">
+					<h3>Chi tiết sản phẩm </h3>
+<table class="table table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <th>Hình ảnh</th>
+                  <th>Tên Sản Phẩm</th>
+                  <th>Giá bán</th>
+                  <th>Số lượng </th>
+              
+                  <th>Tổng tiền</th>
+				</tr>
+              </thead>
+              <tbody>
+              
+				<c:forEach var="item" items="${ Cart }">
+					<tr>
+	                  <td><img width="100" src="<c:url value=""/>" alt=""></td>
+	                  <td></td>
+	             
+	                  <td><fmt:formatNumber type="number" groupingUsed="true" value=""/> ₫</td>
+	                  <td>
+						
+					  </td>
+
+	                  <td><fmt:formatNumber type="number" groupingUsed="true" value=""/> ₫</td>
+	                </tr>
+				</c:forEach>
+                
+				</tbody>
+            </table>
+					
+						<form:form action="checkout" method="POST" modelAttribute="bills" class="">
+							<table style="margin-left: 0%">
+								<tr>
+								
+									<td>Email:</td>
+									<td><form:input type="email" path="email_kh" class="span3"
+											placeholder="Mời nhập email" value=""/></td>
+								</tr>
+								<tr>
+									<td>Họ và tên:</td>
+									<td><form:input type="text" path="ten_kh" class="span3"
+											placeholder="Mời nhập họ và tên" value="" /></td>
+								</tr>
+								<tr>
+									<td>SĐT:</td>
+									<td><form:input type="text" path="sdt" class="span3"
+											placeholder="Mời nhập SDT" value=""/></td>
+								</tr>
+								<tr>
+									<td>Địa chỉ:</td>
+									<td><form:input type="text" path="diachi" class="span3"
+											placeholder="Mời nhập địa chỉ" value="" /></td>
+								</tr>
+								
+								<tr>
+									<td>Trạng thái:</td>
+									<td><form:input readonly="true" type="text" path="trangthai" class="span3"
+											placeholder="Trạng thái" value="Chua xac nhan" /></td>
+								</tr>
+								
+								<tr>
+									<td>Tổng tiền:</td>
+									<td></td>
+								</tr>
+								
+								<tr>
+									<td></td>
+									<td><button type="submit" class="btn block">Thanh Toán</button></td>
+								</tr>
+								
+							
+								
+								
+							</table>
+
+						</form:form>
+					</div>
+				</div>
+				<div class="span1">&nbsp;</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

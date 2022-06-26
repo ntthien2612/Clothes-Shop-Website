@@ -53,6 +53,7 @@ public class DanhMucDao extends BaseDao{
 		int delete = _jdbcTemplate.update(sql_sp.toString());
 		return list_sp;
 	}
+//hien trang chinh sua
 	public List<DanhMuc> GetDataSuaDanhMuc(int id_chinhsua) {
 		List<DanhMuc> list = new ArrayList<DanhMuc>();
 		String sql = "select * from danhmuc where id_dm="+id_chinhsua;

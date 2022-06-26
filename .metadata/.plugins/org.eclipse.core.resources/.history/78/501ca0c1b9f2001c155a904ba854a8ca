@@ -1,0 +1,51 @@
+package ClothesShop.Dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Repository;
+
+import ClothesShop.Entity.DanhMuc;
+import ClothesShop.Entity.GioHang;
+import ClothesShop.Entity.MapperDanhMuc;
+import ClothesShop.Entity.MapperGioHang;
+import ClothesShop.Entity.Users;
+@Repository
+public class GioHangDao extends BaseDao{
+
+	public int ThemGioHang(GioHang giohang) {
+		{
+			StringBuffer sql = new StringBuffer();
+			sql.append("INSERT ");
+			sql.append("INTO giohang ");
+			sql.append("( ");
+			sql.append("	id_kh, ");
+			sql.append("	id_sp, ");
+			sql.append("	size, ");
+			sql.append("	soluong_them ");
+			sql.append(") ");
+			sql.append("VALUES ");
+			sql.append("( ");
+			sql.append("	"+giohang.getId_kh()+", ");
+			sql.append("	"+giohang.getId_sp()+", ");
+			sql.append("	'"+giohang.getSize()+"', ");
+			sql.append("	"+giohang.getSoluong_them()+" ");
+			sql.append(")");
+			
+			int insert = _jdbcTemplate.update(sql.toString());
+			return insert;
+		}
+	}
+
+	public List<GioHang> GetGioHang(HttpSession session) {
+		List<GioHang> list = new ArrayList<GioHang>();
+		Users kh=(Users)session.getAttribute("LoginInfo");
+		String sql = "select * from giohang where id_kh="+session;
+		list = _jdbcTemplate.query(sql, new MapperGioHang());
+		System.out.print(session);
+		return list;
+	}
+
+}

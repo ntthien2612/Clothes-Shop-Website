@@ -1,0 +1,11 @@
+package ClothesShop.Service.User;
+
+import java.util.List;
+
+import ClothesShop.Entity.GioHang;
+
+public interface IGioHang {
+	public int ThemGioHang(GioHang giohang);
+	public List<GioHang> HienGioHang(int id_kh);
+	public List<GioHang> CongGioHang(int idsp);
+}

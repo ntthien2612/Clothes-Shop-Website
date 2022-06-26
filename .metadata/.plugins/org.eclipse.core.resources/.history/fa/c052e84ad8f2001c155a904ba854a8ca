@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trang thanh toán</title>
+</head>
+<body>
+<h1 style="text-align: center"><b>Đơn hàng</b></h1>
+<p>Người nhận: </p>
+</body>
+</html>

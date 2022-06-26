@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import ClothesShop.Entity.ChiTietSanPham;
 import ClothesShop.Entity.DanhMuc;
+import ClothesShop.Entity.GioHang;
 import ClothesShop.Entity.SanPham;
 
 public interface UserIHome {

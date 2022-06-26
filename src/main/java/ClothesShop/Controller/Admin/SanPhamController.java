@@ -34,8 +34,15 @@ public class SanPhamController {
 	public ModelAndView _mvShare = new ModelAndView();
 	@Autowired
 	SanPhamImpl sanphamHomeImpl = new SanPhamImpl();
+	//trang hien danh sach san pham
+	@RequestMapping(value = "/admin/quanlysanpham", method = RequestMethod.GET, produces="application/x-www-form-urlencoded;charset=UTF-8")
+	public ModelAndView DanhSachSanPham() {
+		_mvShare.setViewName("admin/admin_danhsachsanpham");
+		_mvShare.addObject("danhsachsanpham", sanphamHomeImpl.GetDataDanhSachSanPham());
+		return _mvShare;
+	}
 	// trang them san pham
-		@RequestMapping(value = "/admin/quanlysanpham", method = RequestMethod.GET, produces="application/x-www-form-urlencoded;charset=UTF-8")
+		@RequestMapping(value = "/admin/themsanpham", method = RequestMethod.GET, produces="application/x-www-form-urlencoded;charset=UTF-8")
 		public ModelAndView SanPham() {
 			_mvShare.setViewName("admin/admin_sanpham");
 			_mvShare.addObject("danhmuc", HomeService.GetDataDanhMuc());
@@ -43,26 +50,20 @@ public class SanPhamController {
 			_mvShare.addObject("sanpham", new SanPham());
 			return _mvShare;
 		}
-		
-		
 		//xu ly them san pham
-		@RequestMapping(value = "admin/quanlysanpham", method = RequestMethod.POST, produces="application/x-www-form-urlencoded;charset=UTF-8")
-		public ModelAndView CreateSanPham(@ModelAttribute("sanpham") SanPham sanpham, @RequestParam(value = "image", required = false) MultipartFile file, HttpServletRequest request ) {
-			
+		@RequestMapping(value = "admin/themsanpham", method = RequestMethod.POST, produces="application/x-www-form-urlencoded;charset=UTF-8")
+		public ModelAndView CreateSanPham(@ModelAttribute("sanpham") SanPham sanpham, @RequestParam(value = "image", required = false) MultipartFile file, HttpServletRequest request ) {		
 			String pathdir = request.getSession().getServletContext().getRealPath("/")+"assets\\user\\img\\";
 			System.out.println(pathdir);
 			String filename =  String.valueOf(new Date().getTime())+ file.getOriginalFilename();
-			
-			
 				try {
 					byte[] bytes = file.getBytes();
-					//File dir = new File(pathdir);
-					//if( !dir.exists()) {
-					//	dir.mkdir();
-					//}
-					
+					File dir = new File(pathdir);
+					if( !dir.exists()) {
+						dir.mkdir();
+					}
 					File serverFile = new File(pathdir+File.separator+filename);
-					//System.out.println(serverFile.getAbsolutePath());
+					System.out.println(serverFile.getAbsolutePath());
 					BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
 					stream.write(bytes);
 					stream.close();
@@ -73,9 +74,6 @@ public class SanPhamController {
 					
 					e.printStackTrace();
 				}
-			
-			
-			
 			int count = sanphamHomeImpl.AddSanPham(sanpham);
 			if (count > 0) {
 				_mvShare.addObject("status", "Thêm sản phẩm thành công !");
@@ -83,7 +81,7 @@ public class SanPhamController {
 			} else {
 				_mvShare.addObject("status", "Thêm sản phẩm thất bại !");
 			}
-		_mvShare.setViewName("/admin/admin_sanpham");
+		_mvShare.setViewName("redirect: ./quanlysanpham");
 			return _mvShare;
 		}
 		//xu ly them chi tiet san pham
@@ -99,18 +97,60 @@ public class SanPhamController {
 			 _mvShare.setViewName("redirect:/admin/quanlysanpham");
 			return _mvShare;
 		}
-//		@RequestMapping(value = "admin/themchitietsanpham", method = RequestMethod.GET, produces="application/x-www-form-urlencoded;charset=UTF-8", params = "id_sp, soluong, size")
-//		public ModelAndView ThemChiTiet(int id_sp, int soluong, String size) {
-//			ModelAndView chitiet = new ModelAndView("admin/admin_sanpham");
-//			chitiet.addObject("ctsp", sanphamHomeImpl.KiemTraChiTiet(id_sp, soluong, size));
-//			System.out.print(id_sp);
-////			if (count >0) {
-////				sanphamHomeImpl.UpdateSanPhamChiTiet(id_sp, soluong, size);
-////
-////			} else {
-////				sanphamHomeImpl.ThemMoiSanPhamChiTiet(id_sp, soluong, size);
-////			}
-//			_mvShare.setViewName("redirect:/admin/quanlysanpham");
-//			return _mvShare;
-//			}
+	//xoa san pham
+		@RequestMapping(value = "/admin/xoa_sp", method = RequestMethod.GET, params = "id_xoa")
+		public ModelAndView XoaSanPham(int id_xoa) {
+		_mvShare.addObject(sanphamHomeImpl.GetDataXoaSanPham(id_xoa));
+		_mvShare.addObject("danhsachsanpham", sanphamHomeImpl.GetDataDanhSachSanPham());
+		_mvShare.setViewName("admin/admin_danhsachsanpham");
+		return _mvShare;
+		}
+	//hien trang chinh sua san pham
+		@RequestMapping(value = "/admin/chinhsua_sp", method = RequestMethod.GET, params = "id_chinhsua")
+		public ModelAndView ChinhSuaSanPham(int id_chinhsua) {
+			_mvShare.addObject("edit_sanpham",sanphamHomeImpl.GetDataSuaSanPham(id_chinhsua));
+			_mvShare.addObject("danhmuc", HomeService.GetDataDanhMuc());
+			_mvShare.setViewName("admin/chinhsua_sanpham");
+				return _mvShare;
+		}
+		//xu ly chinh sua san pham
+		@RequestMapping(value ="/admin/chinhsua", method = RequestMethod.POST)
+		public ModelAndView SuaSanPham(@ModelAttribute("sanpham") SanPham sanpham,
+				@RequestParam(value = "image", required = false) MultipartFile file, HttpServletRequest request) {
+			
+			String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
+			System.out.println(pathdir);
+			String filename = String.valueOf(new Date().getTime()) + file.getOriginalFilename();
+
+			try {
+				byte[] bytes = file.getBytes();
+				File dir = new File(pathdir);
+				if (!dir.exists()) {
+					dir.mkdir();
+				}
+
+				File serverFile = new File(pathdir + File.separator + filename);
+				System.out.println(serverFile.getAbsolutePath());
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+				stream.write(bytes);
+				stream.close();
+
+				sanpham.setHinhanh(filename);
+
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+
+			int count = sanphamHomeImpl.UpdateSanPham(sanpham);
+			_mvShare.setViewName("redirect:/admin/quanlysanpham");	
+			return _mvShare;
+		}
+//tim kiem san pham trang admin
+		@RequestMapping(value ="admin/timsp", method = RequestMethod.GET, params = "ten_sp", produces = "application/x-www-form-urlencoded;charset=UTF-8")
+		public ModelAndView TimKiemSanPham(String ten_sp) {
+			ModelAndView sanpham = new ModelAndView("admin/admin_danhsachsanpham");
+			sanpham.addObject("sanphamtim", sanphamHomeImpl.TimSanPham(ten_sp));
+			return sanpham;
+			}
 }

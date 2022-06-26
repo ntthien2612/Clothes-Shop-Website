@@ -1,0 +1,12 @@
+package ClothesShop.Entity;
+
+public class Users {
+	private int id_kh;
+	private String ten_kh;
+	private String pass;
+	private String email_kh;
+	private String diachi;
+	private String sdt;
+	private String hinhanh;
+	
+}

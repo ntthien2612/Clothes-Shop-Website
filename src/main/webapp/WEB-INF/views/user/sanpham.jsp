@@ -23,13 +23,13 @@
 				<ul style="list-style: none;">
 					<li
 						style="width: 150px; height: 300px; float: left; margin: 10px; border: 1px solid blue; border-radius: 10px">
-						<img style="width: 100%; height: 55%; border-radius: 10px"
-						src="<c:url value= "${sanpham.hinhanh }"/>">
+						<img style="width: 100%; height: 170px; border-radius: 10px"
+						src="<c:url value= "/assets/user/img/${sanpham.hinhanh}"/>">
 						<p
 							style="color: #000; text-align: center; font-size: 12px; height: 50px; margin-top: 15px">
 							<b> ${sanpham.ten_sp } </b>
 						</p>
-						<p style="color: red; text-align: center;">
+						<p style="color: red; text-align: center; height: 30px;">
 							<b>Giá: ${sanpham.gia } VND</b>
 						</p>
 						<p style="text-align: center;">

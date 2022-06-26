@@ -72,7 +72,6 @@
 											ký thành viên</button></td>
 								</tr>
 							</table>
-
 						</form:form>
 					</div>
 				</div>

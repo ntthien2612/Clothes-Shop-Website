@@ -1,0 +1,12 @@
+package ClothesShop.Entity;
+
+public class NguoiDung {
+private int id_kh;
+private String ten_kh;
+private String email_kh;
+private String pass;
+private String diachi;
+private String sdt;
+private String hinhanh;
+
+}

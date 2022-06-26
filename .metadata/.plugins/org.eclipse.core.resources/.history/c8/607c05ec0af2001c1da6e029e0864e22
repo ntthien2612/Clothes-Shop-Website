@@ -1,0 +1,14 @@
+package ClothesShop.Service.Admin;
+
+import java.util.List;
+
+import ClothesShop.Entity.ChiTietSanPham;
+import ClothesShop.Entity.SanPham;
+
+public interface ISanPham {
+	public int AddSanPham(SanPham sanpham);
+	public int ThemSanPhamChiTiet(ChiTietSanPham chitietsp);
+	public int UpdateChiTiet(ChiTietSanPham chitietsp);
+	public List<ChiTietSanPham> KiemTraChiTiet(ChiTietSanPham chitietsp);
+	public List<SanPham> GetDataDanhSachSanPham();
+}

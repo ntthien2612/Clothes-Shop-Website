@@ -9,6 +9,7 @@ import ClothesShop.Entity.ChiTietSanPham;
 import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.GioHang;
 import ClothesShop.Entity.SanPham;
+import ClothesShop.Entity.Users;
 
 public interface UserIHome {
 	@Autowired
@@ -19,4 +20,7 @@ public interface UserIHome {
 	public List<SanPham> GetDataChiTiet(int id);
 	public List<ChiTietSanPham> GetDataSizeChiTiet(int id);
 	public List<SanPham> GetDataSanPham(String noidung);
+	public List<Users> GetDataChiTietKhachHang(int id_kh);
+	public int ChinhSuaKhachHang(Users khachhang);
+	
 }

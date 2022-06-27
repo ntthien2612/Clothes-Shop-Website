@@ -2,6 +2,9 @@ package ClothesShop.Dao;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import ClothesShop.Entity.MapperUsers;
@@ -35,11 +38,32 @@ public class UsersDao extends BaseDao {
 		return insert;
 	}
 	//dang nhap
-	public Users GetUserByAcc(Users user)
-	{
+	public Users GetUserByAcc(Users user){	
 		String sql = "SELECT * FROM khachhang WHERE email_kh = '"+user.getEmail_kh()+"'";
-		Users result = _jdbcTemplate.queryForObject(sql, new MapperUsers());
+		Users result = _jdbcTemplate.queryForObject(sql, new MapperUsers());	
 		return result;
 	}
 	
+	public List<Users> GetDataChiTietKhachHang(int id_kh) {
+		List<Users> list_kh = new ArrayList<Users>();
+		String sql_kh = "select * from khachhang where id_kh = "+id_kh;
+		list_kh = _jdbcTemplate.query(sql_kh, new MapperUsers());
+		return list_kh;
+	}
+	
+	public int ChinhSuaKhachHang(Users khachhang) {
+		String sql = "update khachhang set ten_kh='"+khachhang.getTen_kh()+"',diachi='"+khachhang.getDiachi()+"',sdt='"+khachhang.getSdt()+"'where id_kh="+khachhang.getId_kh();
+//		System.out.println(sql);
+		int update = _jdbcTemplate.update(sql.toString());
+		return update;
+	}
+	
+	
+	//kiem tra email trung
+	public int Count(String email) {
+			int count=0;
+			String sql = "SELECT COUNT(*) FROM khachhang where email_kh='"+email+"'";
+			count = _jdbcTemplate.queryForObject(sql,Integer.class);
+			return count;
+		}
 }

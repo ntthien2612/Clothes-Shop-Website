@@ -10,14 +10,22 @@ import ClothesShop.Entity.Users;
 
 @Service
 public class AdminAccountImpl implements AdminIAccount {
-	
+
 	@Autowired
-	
+
 	AdminDao adminDao = new AdminDao();
-	
-	
+// add tài khoan
+	public int AddAccountAdmin(Admin admin) {
+
+		admin.setPass(BCrypt.hashpw(admin.getPass(), BCrypt.gensalt(12)));
+
+		return adminDao.AddAccountAdmin(admin);
+	}
+
+//	check tài khoản
 	public Admin CheckAccount(Admin admin) {
 		String pass = admin.getPass();
+		String taikhoan = admin.getTaikhoan();
 		admin = adminDao.GetAdminByAcc(admin);
 		if (admin != null) {
 			if (admin.getPass().equals(pass)) {
@@ -29,6 +37,7 @@ public class AdminAccountImpl implements AdminIAccount {
 		return null;
 
 	}
+	
 	
 
 }

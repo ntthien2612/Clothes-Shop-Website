@@ -22,7 +22,7 @@
 			<div>
 				<ul style="list-style: none;">
 					<li
-						style="width: 150px; height: 300px; float: left; margin: 10px; border: 1px solid blue; border-radius: 10px">
+						style="width: 150px; height: 320px; float: left; margin: 10px; border: 1px solid blue; border-radius: 10px">
 						<img style="width: 100%; height: 170px; border-radius: 10px"
 						src="<c:url value= "/assets/user/img/${sanpham.hinhanh}"/>">
 						<p
@@ -34,8 +34,7 @@
 						</p>
 						<p style="text-align: center;">
 							<a href="./chitietsanpham?id=${sanpham.id_sp }"><button
-									style="border: none; width: 100px; font-weight: border; border-radius: 10px; background: #02b702; color: white">Chi
-									tiết</button></a>
+									style="border: none; width: 100px; font-weight: border; border-radius: 10px; background: #02b702; color: white">Chi tiết</button></a>
 						</p>
 					</li>
 				</ul>

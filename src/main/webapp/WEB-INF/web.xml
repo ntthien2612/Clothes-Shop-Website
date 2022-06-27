@@ -21,7 +21,8 @@
 			<param-value>/WEB-INF/clothesshop-config-servlet.xml</param-value>
 		</init-param>
 	</filter>
-
+	
+	
 	<filter-mapping>
 		<filter-name>sitemesh</filter-name>
 		<url-pattern>/*</url-pattern>

@@ -10,16 +10,25 @@ import org.springframework.stereotype.Service;
 import ClothesShop.Dao.DanhMucDao;
 import ClothesShop.Dao.GioHangDao;
 import ClothesShop.Dao.SanPhamDao;
+import ClothesShop.Dao.UsersDao;
 import ClothesShop.Entity.ChiTietSanPham;
 import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.GioHang;
 import ClothesShop.Entity.SanPham;
+import ClothesShop.Entity.Users;
 @Service
 public class UserHomeImpl implements UserIHome{
 	@Autowired
 	private SanPhamDao sanphamDao;
 	@Autowired
 	private DanhMucDao danhmucDao;
+	
+	@Autowired
+	private UsersDao usersDao;
+	@Autowired
+	private GioHangDao giohangDao;
+	
+	
 	public List<SanPham> GetDataSanPham() {
 		return sanphamDao.GetDataSanPham();
 	}
@@ -42,12 +51,14 @@ public class UserHomeImpl implements UserIHome{
 	public List<ChiTietSanPham> GetDataSizeChiTiet(int id) {
 		return sanphamDao.GetDataSizeChiTiet(id);
 	}
-//	public List<SanPham> GetDataSanPhamTimKiem(String ten_sp) {
-//		return sanphamDao.GetDataSanPhamTimKiem(ten_sp);
-//	}
-//	public List<GioHang>  GetGioHang() {
-//		return giohangDao.GetGioHang();
-//	}
-//	
+	
+	
+	public List<Users> GetDataChiTietKhachHang(int id_kh) {
+		return usersDao.GetDataChiTietKhachHang(id_kh);
+	}
+	
+	public int ChinhSuaKhachHang(Users khachhang) {
+		return usersDao.ChinhSuaKhachHang(khachhang);
+	}
 	
 }

@@ -22,10 +22,12 @@ import ClothesShop.Service.User.AccountServiceImpl;
 
 @Controller
 public class AdminController {
+	
 	@Autowired
 	AdminHomeImpl HomeService;
 	public ModelAndView _mvShare = new ModelAndView();
 	
+//	chuyển hướng đến trang admin
 	@RequestMapping(value = "/admin/")
 	public ModelAndView Admin(HttpSession session, HttpServletRequest request) {
 		if(session.getAttribute("AdminLoginInfo") != null) {

@@ -10,7 +10,7 @@ import ClothesShop.Entity.Users;
 public class AccountServiceImpl implements IAccountService {
 	@Autowired
 	UsersDao usersDao = new UsersDao();
-	
+// thêm người dùng	
 	public int AddAccount(Users user) {
 		
 		user.setPass(BCrypt.hashpw(user.getPass(), BCrypt.gensalt(12)));

@@ -14,6 +14,7 @@ public class AdminAccountImpl implements AdminIAccount {
 	@Autowired
 
 	AdminDao adminDao = new AdminDao();
+
 // add tài khoan
 	public int AddAccountAdmin(Admin admin) {
 
@@ -37,7 +38,5 @@ public class AdminAccountImpl implements AdminIAccount {
 		return null;
 
 	}
-	
-	
 
 }

@@ -24,10 +24,11 @@
               <i class="bi bi-people-fill"></i>
               Quản Lý Người Dùng
             </a></p>
-            <p><a class="nav-link" href="#">
-              <i class="bi bi-question-circle-fill"></i>
-              Quản Lý Phản Hồi
-            </a></p>
+            <p>
+				<a class="nav-link" href="quanlynhanvien"> <i
+					class="bi bi-question-circle-fill"></i> Quản Lý Nhân Viên
+				</a>
+			</p>
             <p><a class="nav-link" href="baocao">
               <i class="bi bi-bar-chart-line"></i>
               Báo Cáo

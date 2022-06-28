@@ -10,6 +10,5 @@ INDEX VERSION 1.4+C:\DevPrograms\ClothesShop\.metadata\.plugins\org.eclipse.wst.
 1649374148.index
 1008737265.index
 3060496032.index
-2754821656.index
 3570782709.index
 886543256.index

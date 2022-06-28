@@ -31,8 +31,8 @@
 				</a>
 			</p>
 			<p>
-				<a class="nav-link" href="#"> <i
-					class="bi bi-question-circle-fill"></i> Quản Lý Phản Hồi
+				<a class="nav-link" href="quanlynhanvien"> <i
+					class="bi bi-question-circle-fill"></i> Quản Lý Nhân Viên
 				</a>
 			</p>
 			<p>

@@ -28,7 +28,7 @@ public class AdminController {
 	public ModelAndView _mvShare = new ModelAndView();
 	
 //	chuyển hướng đến trang admin
-	@RequestMapping(value = "/admin/")
+	@RequestMapping(value = "/admin/*")
 	public ModelAndView Admin(HttpSession session, HttpServletRequest request) {
 		if(session.getAttribute("AdminLoginInfo") != null) {
 			_mvShare.setViewName("admin/admin");

@@ -55,5 +55,12 @@ public class AdminDao extends BaseDao {
 		 
 		
 	}
+	//Kiem tra tai khoan trung
+	public int Count(String email) {
+		int count = 0;
+		String sql = "SELECT COUNT(*) FROM admin where taikhoan='" + email + "'";
+		count = _jdbcTemplate.queryForObject(sql, Integer.class);
+		return count;
+	}
 
 }

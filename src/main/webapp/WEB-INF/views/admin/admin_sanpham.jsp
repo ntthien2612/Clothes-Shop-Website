@@ -47,15 +47,18 @@
 					<b>Thêm sản phẩm</b>
 				</h1>
 				<hr>
-				<form:form action="themsanpham" method="POST" modelAttribute="sanpham" enctype="multipart/form-data">
+				<form:form action="themsanpham" method="POST"
+					modelAttribute="sanpham" enctype="multipart/form-data">
 					<table style="height: 250px">
 						<tr>
 							<td><b>Tên sản phẩm: </b></td>
-							<td><form:input type="text" path="ten_sp" style="width: 100%; height: 30px"/></td>
+							<td><form:input type="text" path="ten_sp"
+									style="width: 100%; height: 30px" /></td>
 						</tr>
 						<tr>
 							<td><b>Danh mục sản phẩm: </b></td>
-							<td><form:select path="id_dm" style="width: 100%; height: 30px">
+							<td><form:select path="id_dm"
+									style="width: 100%; height: 30px">
 									<c:forEach var="danhmuc" items="${danhmuc }" varStatus="index">
 										<option value="${danhmuc.id_dm }">${danhmuc.ten_dm }</option>
 									</c:forEach>
@@ -63,7 +66,8 @@
 						</tr>
 						<tr>
 							<td><b>Giá sản phẩm: </b></td>
-							<td><form:input type="text" path="gia" style="width: 100%; height: 30px"/></td>
+							<td><form:input type="text" path="gia"
+									style="width: 100%; height: 30px" /></td>
 						</tr>
 						<tr>
 							<td><b>Hình sản phẩm: </b></td>
@@ -71,12 +75,13 @@
 						</tr>
 						<tr>
 							<td><b>Mô tả sản phẩm: </b></td>
-							<td><form:textarea type="text" path="mota" style="resize: none; width: 100%; height: 30px"></form:textarea></td>
+							<td><form:textarea type="text" path="mota"
+									style="resize: none; width: 100%; height: 30px"></form:textarea></td>
 						</tr>
 						<tr>
 							<td></td>
 							<td><button type="submit" class="btn block">Lưu</button>
-							<button type="reset" class="btn block">Reset</button></td>
+								<button type="reset" class="btn block">Reset</button></td>
 						</tr>
 					</table>
 				</form:form>
@@ -88,32 +93,35 @@
 					<b>Thêm chi tiết sản phẩm</b>
 				</h1>
 				<hr>
-				<form action="themchitietsanpham" method="POST" modelAttribute="chitietsanpham">
+				<form action="themchitietsanpham" method="POST"
+					modelAttribute="chitietsanpham">
 					<table style="height: 150px; width: 100%">
 						<tr>
 							<td style="width: 150px;"><b>Tên sản phẩm: </b></td>
 							<td><select name="id_sp" style="width: 100%; height: 30px">
-							<c:forEach var="tensanpham" items="${tensanpham}" varStatus="index">
-								<option value="${tensanpham.id_sp }" >${tensanpham.ten_sp }</option>
-							</c:forEach>
+									<c:forEach var="tensanpham" items="${tensanpham}"
+										varStatus="index">
+										<option value="${tensanpham.id_sp }">${tensanpham.ten_sp }</option>
+									</c:forEach>
 							</select></td>
 						</tr>
 						<tr>
 							<td><b>Size sản phẩm: </b></td>
 							<td><select style="width: 100%; height: 30px" name="size">
-								<option value="S" >S</option>
-								<option value="M" >M</option>
-								<option value="L" >L</option>
+									<option value="S">S</option>
+									<option value="M">M</option>
+									<option value="L">L</option>
 							</select></td>
 						</tr>
 						<tr>
 							<td><b>Số lượng sản phẩm: </b></td>
-							<td><input type="Number" name="soluong" style="width: 100%; height: 30px" min="1" value="1" /></td>
+							<td><input type="Number" name="soluong"
+								style="width: 100%; height: 30px" min="1" value="1" /></td>
 						</tr>
 						<tr>
 							<td></td>
 							<td><button type="submit" class="btn block">Lưu</button>
-							<button type="reset" class="btn block">Reset</button></td>
+								<button type="reset" class="btn block">Reset</button></td>
 						</tr>
 					</table>
 				</form>

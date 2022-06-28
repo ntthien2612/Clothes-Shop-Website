@@ -1,0 +1,16 @@
+package ClothesShop.Dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import ClothesShop.Entity.DonHang;
+
+@Repository
+public class DonHangDao {
+
+	public List<DonHang> DanhSachDonHang() {
+		
+	}
+
+}

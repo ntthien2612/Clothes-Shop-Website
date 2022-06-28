@@ -1,0 +1,21 @@
+package ClothesShop.Entity;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class MapperDonHang implements RowMapper<String[]> {
+	
+		public String[] mapRow(ResultSet rs, int rowNum) throws SQLException {
+			String[] list = new String[7];
+			list[0] = String.valueOf(rs.getInt("donhang.id_dh"));
+			list[1] = String.valueOf(rs.getInt("donhang.tongtien"));
+			list[2] = rs.getString("donhang.trangthai");
+			list[4] = rs.getString("khachhang.ten_kh");
+			list[5] = rs.getString("mota");
+			list[6] = rs.getString("ten_dm");
+			return list;
+		}
+	}
+

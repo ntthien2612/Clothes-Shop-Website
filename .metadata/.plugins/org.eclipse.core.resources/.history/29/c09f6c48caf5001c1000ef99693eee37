@@ -1,0 +1,12 @@
+package ClothesShop.Entity;
+
+import java.util.Date;
+
+public class DonHang {
+	private int id_dh;
+	private int id_kh;
+	private Date thoigianmua;
+	private int tongtien;
+	private String trangthai;
+	
+}

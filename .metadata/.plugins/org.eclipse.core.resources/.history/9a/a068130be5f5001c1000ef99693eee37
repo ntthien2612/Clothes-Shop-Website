@@ -1,0 +1,26 @@
+package ClothesShop.Entity;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class MapperChiTietDonHang implements RowMapper<String[]>{
+	public String[] mapRow(ResultSet rs, int rowNum) throws SQLException {
+		String[] list = new String[];
+		list[0] = String.valueOf(rs.getInt("donhang.id_dh"));
+		list[1] = String.valueOf(rs.getInt("donhang.id_kh"));
+		list[2] = String.valueOf(rs.getInt("chitietdonhang.id_sp"));
+		list[3] = String.valueOf(rs.getInt("donhang.tongtien"));
+		list[4] = rs.getString("sanpham.hinhanh");
+		list[5] = String.valueOf(rs.getInt("chitietdonhang.soluong"));
+		list[6] = rs.getString("chitietdonhang.size");
+		list[7] = String.valueOf(rs.getInt("chitietdonhang.gia"));
+		list[8] = rs.getString("sanpham.ten_sp");
+		list[9] = rs.getString("khachhang.ten_kh");
+		list[10] = rs.getString("khachhang.email_kh");
+		list[11] = rs.getString("khachhang.diachi");
+		list[12] = rs.getString("khachhang.sdt");
+		return list;
+	}
+}

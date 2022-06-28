@@ -1,0 +1,17 @@
+package ClothesShop.Service.User;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ClothesShop.Dao.GioHangDao;
+import ClothesShop.Entity.GioHang;
+
+@Service
+public class GioHangImpl {
+	@Autowired
+	GioHangDao giohangDao;
+	public int ThemGioHang(GioHang giohang) {
+		return giohangDao.ThemGioHang(giohang);
+	}
+
+}

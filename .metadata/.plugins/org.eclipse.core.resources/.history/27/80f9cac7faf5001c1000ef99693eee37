@@ -1,0 +1,19 @@
+package ClothesShop.Controller.Admin;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import ClothesShop.Entity.DanhMuc;
+
+@Controller
+public class BaoCaoController {
+	@RequestMapping(value = "/admin/baocao", method = RequestMethod.GET)
+	public ModelAndView DanhMuc() {
+		_mvShare.addObject("danhmuc", new DanhMuc());// tao 1 doi tuong danh muc moi
+		_mvShare.addObject("danhsach", danhmucHomeImpl.GetDataHienDanhMuc());//danhsach do ra o var va items ben file jsp
+		_mvShare.setViewName("admin/admin_danhmuc");
+		return _mvShare;
+	}
+}

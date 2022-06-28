@@ -1,0 +1,17 @@
+package ClothesShop.Service.Admin;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import ClothesShop.Entity.DanhMuc;
+
+@Service
+public class DonHangImpl {
+
+	public List<DonHang> DanhSachDonHang() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

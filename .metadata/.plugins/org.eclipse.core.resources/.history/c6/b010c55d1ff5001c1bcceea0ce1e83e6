@@ -1,0 +1,12 @@
+package ClothesShop.Service.User;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ThanhToanImpl {
+
+	public Object MuaHang(int id) {
+		
+	}
+
+}

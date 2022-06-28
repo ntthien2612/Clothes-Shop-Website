@@ -1,0 +1,7 @@
+package ClothesShop.Service.User;
+
+import java.util.List;
+
+public interface IThanhToan {
+	public String[] MuaHang(String[] id);
+}

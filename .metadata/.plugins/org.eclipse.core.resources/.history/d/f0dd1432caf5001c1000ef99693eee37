@@ -1,0 +1,44 @@
+package ClothesShop.Entity;
+
+import java.util.Date;
+
+public class DonHang {
+	private int id_dh;
+	private int id_kh;
+	private Date thoigianmua;
+	private int tongtien;
+	private String trangthai;
+	public DonHang() {
+		super();
+	}
+	public int getId_dh() {
+		return id_dh;
+	}
+	public void setId_dh(int id_dh) {
+		this.id_dh = id_dh;
+	}
+	public int getId_kh() {
+		return id_kh;
+	}
+	public void setId_kh(int id_kh) {
+		this.id_kh = id_kh;
+	}
+	public String getThoigianmua() {
+		return thoigianmua;
+	}
+	public void setThoigianmua(String string) {
+		this.thoigianmua = string;
+	}
+	public int getTongtien() {
+		return tongtien;
+	}
+	public void setTongtien(int tongtien) {
+		this.tongtien = tongtien;
+	}
+	public String getTrangthai() {
+		return trangthai;
+	}
+	public void setTrangthai(String trangthai) {
+		this.trangthai = trangthai;
+	}
+}

@@ -1,0 +1,17 @@
+package ClothesShop.Entity;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.tree.RowMapper;
+
+public class MapperGioHang implements RowMapper<GioHang>{
+	public GioHang mapRow(ResultSet rs, int rowNum) throws SQLException {
+		GioHang giohang = new GioHang();
+		giohang.setId(rs.getInt("id"));
+		giohang.setId_kh(rs.getInt("id_kh"));
+		giohang.setId_sp(rs.getInt("id_sp"));
+		giohang.setSoluong_them(rs.getInt("id"));
+		return giohang;
+	}
+}

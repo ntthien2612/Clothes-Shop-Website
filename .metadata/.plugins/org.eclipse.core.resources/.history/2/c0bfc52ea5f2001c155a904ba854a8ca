@@ -1,0 +1,8 @@
+package ClothesShop.Entity;
+
+public class GioHang {
+	private int id;
+	private int id_kh;
+	private int id_sp;
+	private int soluong_them;
+}

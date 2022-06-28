@@ -1,0 +1,9 @@
+package ClothesShop.Service.Admin;
+
+import java.util.List;
+
+import ClothesShop.Entity.DonHang;
+
+public interface IDonHang {
+	public List<DonHang> DanhSachDonHang();
+}

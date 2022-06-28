@@ -1,0 +1,7 @@
+package ClothesShop.Service.User;
+
+import ClothesShop.Entity.GioHang;
+
+public interface IGioHang {
+	public int ThemGioHang(GioHang giohang);
+}

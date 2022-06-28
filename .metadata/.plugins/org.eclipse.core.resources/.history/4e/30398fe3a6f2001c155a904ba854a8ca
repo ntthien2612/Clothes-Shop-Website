@@ -1,0 +1,14 @@
+package ClothesShop.Service.User;
+
+import org.springframework.stereotype.Service;
+
+import ClothesShop.Entity.GioHang;
+
+@Service
+public class GioHangImpl {
+
+	public int ThemGioHang(GioHang giohang) {
+		return giohangDao.AddDanhMuc(danhmuc);
+	}
+
+}

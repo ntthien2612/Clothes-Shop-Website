@@ -109,6 +109,12 @@ public class TaiKhoanController {
 			return chitiet;
 		}
 		
+		@RequestMapping(value="/chinh-sua-chi-tiet", method=RequestMethod.GET, params="id_kh")
+		public ModelAndView ChinhSuaChiTiet(int id_kh) {
+			ModelAndView chitiet = new ModelAndView("user/account/chinhsuachitiet");
+			chitiet.addObject("khachhang", HomeService.GetDataChiTietKhachHang(id_kh));
+			return chitiet;
+		}
 
 		//lưu chỉnh sửa chi tiết khách hàng
 		@RequestMapping(value = "/luuchinhsuachitietkhachhang", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")

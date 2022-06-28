@@ -1,5 +1,7 @@
 package ClothesShop.Controller.Admin;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ClothesShop.Dao.DanhMucDao;
 import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Service.Admin.AdminHomeImpl;
 import ClothesShop.Service.Admin.DanhMucImpl;
@@ -19,11 +22,15 @@ public class DanhMucController {
 	AdminHomeImpl AdminService;
 	@Autowired
 	DanhMucImpl danhmucHomeImpl = new DanhMucImpl();
+	@Autowired
+	DanhMucDao danhmucDao;
 	public ModelAndView _mvShare = new ModelAndView();
+	
 //xu ly them danh muc
 		@RequestMapping(value = "admin/quanlydanhmucSP", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
 		public ModelAndView CreateDanhMuc(@ModelAttribute("danhmuc") DanhMuc danhmuc) {
 			int count = danhmucHomeImpl.AddDanhMuc(danhmuc);
+			int check = danhmucDao.Count(danhmuc.getTen_dm());
 			if (count > 0) {// them it nhat dc 1 dong
 				_mvShare.addObject("status", "Thêm danh mục thành công !");
 
@@ -36,10 +43,10 @@ public class DanhMucController {
 // trang danh muc
 	@RequestMapping(value = "/admin/quanlydanhmucSP", method = RequestMethod.GET)
 	public ModelAndView DanhMuc() {
-		_mvShare.addObject("danhmuc", new DanhMuc());// tao 1 doi tuong danh muc moi
-		_mvShare.addObject("danhsach", danhmucHomeImpl.GetDataHienDanhMuc());//danhsach do ra o var va items ben file jsp
-		_mvShare.setViewName("admin/admin_danhmuc");
-		return _mvShare;
+			_mvShare.addObject("danhmuc", new DanhMuc());// tao 1 doi tuong danh muc moi
+			_mvShare.addObject("danhsach", danhmucHomeImpl.GetDataHienDanhMuc());//danhsach do ra o var va items ben file jsp
+			_mvShare.setViewName("admin/admin_danhmuc");
+			return _mvShare;
 	}
 //xoa danh muc
 	@RequestMapping(value = "/admin/xoa", method = RequestMethod.GET, params = "id_xoa")

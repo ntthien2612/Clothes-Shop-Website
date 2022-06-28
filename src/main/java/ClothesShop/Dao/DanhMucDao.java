@@ -65,4 +65,11 @@ public class DanhMucDao extends BaseDao{
 		int update = _jdbcTemplate.update(sql.toString());
 		return update;
 	}
+	
+	public int Count(String tendm) {
+		int count = 0;
+		String sql = "SELECT COUNT(*) FROM danhmuc where ten_dm='" + tendm + "'";
+		count = _jdbcTemplate.queryForObject(sql, Integer.class);
+		return count;
+	}
 }

@@ -44,7 +44,7 @@ public class TaiKhoanController {
 			int email = usersDao.Count(user.getEmail_kh());
 			String h = user.getSdt();
 			if(email!=0) {
-				session.setAttribute("notification","Đã tồn tại địa chỉ email này");
+				session.setAttribute("notification", "Đã tồn tại địa chỉ email này");
 				return _mvShare;
 			}else if(h.length()>10){
 				session.setAttribute("notification","Số điện thoại bạn nhập không được vượt quá 10 chữ số");

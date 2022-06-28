@@ -37,7 +37,6 @@ public class AdminDangNhapController {
 	@RequestMapping(value = "/login/dang-nhap", method = RequestMethod.GET)
 	public ModelAndView Admin_Login(HttpSession session, @ModelAttribute("admin") Admin admin) {
 		admin = adminAccount.CheckAccount(admin);
-		
 		if (admin != null) {
 			_mvShare.setViewName("redirect:/admin/");
 			session.setAttribute("AdminLoginInfo", admin);
@@ -56,5 +55,7 @@ public class AdminDangNhapController {
 		session.removeAttribute("AdminLoginInfo");
 		return "redirect:/login/";
 	}
+	
+	
 
 }

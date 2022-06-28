@@ -87,47 +87,15 @@ public class SanPhamDao extends BaseDao{
 		}
 	}
 
-//kiem tra san pham	trong csdl chi tiet
-//	public List<SanPham> ThemSanPhamChiTiet(ChiTietSanPham chitietsp) {
-//		//List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
-//		String sql_sp = "select * from chitietsanpham where id_sp="+chitietsp.getId_sp();
-//		int list_sp = _jdbcTemplate.update(sql_sp, new MapperChiTietSanPham());
-//		return list_sp;
-//	}
-////neu ton tai thi update so luong
-//	public int UpdateSanPhamChiTiet(ChiTietSanPham chitietsp) {
-//		String sql = "update chitietsanpham set soluong="+chitietsp.getSoluong()+"where id_sp="+chitietsp.getId_sp();
-//		int list = _jdbcTemplate.update(sql.toString());
-//		return list;
-//	}
-////chua ton tai thi them moi
-//	public int ThemMoiSanPhamChiTiet(ChiTietSanPham chitietsp) {
-//		{
-//			StringBuffer sql = new StringBuffer();
-//			sql.append("INSERT ");
-//			sql.append("INTO chitietsanpham ");
-//			sql.append("( ");
-//			sql.append("	id_sp, ");
-//			sql.append("	soluong, ");
-//			sql.append("	size ");
-//			sql.append(") ");
-//			sql.append("VALUES ");
-//			sql.append("( ");
-//			sql.append("	"+chitietsp.getId_sp()+", ");
-//			sql.append("	"+chitietsp.getSoluong()+", ");
-//			sql.append("	'"+chitietsp.getSize()+"' ");
-//			sql.append(")");
-//			
-//			int insert = _jdbcTemplate.update(sql.toString());
-//			return insert;
-//		}
-//	}
+// chi tiết sản phẩm
 	public List<ChiTietSanPham> KiemTraChiTiet(int id_sp, int soluong, String size) {
 		List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
 		String sql_sp = "select * from chitietsanpham where id_sp=" + id_sp;
 		list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
 		return list_sp;
 	}
+	
+//	thêm chi tiết sản phẩm
 
 	public int ThemSanPhamChiTiet(ChiTietSanPham chitietsp) {
 		{
@@ -191,6 +159,8 @@ public class SanPhamDao extends BaseDao{
 		return list;
 		
 	}
+	
+//	tìm sản phẩm theo tên
 	public List<String[]> TimSanPham(String ten_sp) {
 		List<String[]> list = new ArrayList<String[]>();
 		String sql = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm and ten_sp LIKE '%"+ten_sp+"%'";

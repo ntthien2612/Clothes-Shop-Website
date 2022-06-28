@@ -22,6 +22,8 @@ public ModelAndView _mvShare = new ModelAndView();
 		_mvShare.setViewName("admin/admin_nguoidung");
 		return _mvShare;
 	}
+	
+//	tìm kiếm người dùng
 	@RequestMapping(value = "/admin/timkiem", method = RequestMethod.GET, params = "tenkh", produces = "application/x-www-form-urlencoded;charset=UTF-8")
 	public ModelAndView TimKiemNguoiDung(String tenkh) {
 		ModelAndView nguoidung = new ModelAndView("admin/admin_nguoidung");

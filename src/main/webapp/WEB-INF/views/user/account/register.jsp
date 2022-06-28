@@ -19,19 +19,6 @@
 				</ul>
 			</div>
 
-			<div class="well well-small alert alert-warning cntr">
-				<h2>50% Discount</h2>
-				<p>
-					only valid for online order. <br> <br> <a
-						class="defaultBtn" href="#">Click here </a>
-				</p>
-			</div>
-			<div class="well well-small">
-				<a href="#"><img
-					src="<c:url value="/assets/user/img/paypal.jpg"/>"
-					alt="payment method paypal"></a>
-			</div>
-
 		</div>
 		<div class="span9">
 

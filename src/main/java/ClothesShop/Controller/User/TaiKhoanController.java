@@ -51,14 +51,18 @@ public class TaiKhoanController {
 		public ModelAndView CreateAcc(HttpSession session, @ModelAttribute("user") Users user) {
 			int email = usersDao.Count(user.getEmail_kh());
 			String h = user.getSdt();
-			if(email!=0) {
-				session.setAttribute("notification", "Đã tồn tại địa chỉ email này");
+			int check=usersDao.checkLogin(user);
+			if(check==0){
+				session.setAttribute("notification","Vui lòng nhập đầy đủ các thông tin bên dưới!");
 				return _mvShare;
 			}else if(h.length()>10){
-				session.setAttribute("notification","Số điện thoại bạn nhập không được vượt quá 10 chữ số");
+				session.setAttribute("notification","Số điện thoại bạn nhập không được vượt quá 10 chữ số!");
+				return _mvShare;
+			}else if(email!=0){
+				session.setAttribute("notification", "Đã tồn tại địa chỉ email này!");
 				return _mvShare;
 			}else {
-				session.setAttribute("notification","Đăng ký tài khoản thành công");
+				session.setAttribute("notification","Đăng ký tài khoản thành công!");
 				accountService.AddAccount(user);
 				return _mvShare;
 			}
@@ -76,15 +80,15 @@ public class TaiKhoanController {
 		
 		@RequestMapping(value = "/dang-nhap", method = RequestMethod.POST )
 		public ModelAndView Login(HttpSession session,@ModelAttribute("user") Users user) {
-			 user = accountService.CheckAccount(user);
-			if(user !=null ){
+			user = accountService.CheckAccount(user);
+			if(user!=null){
 				_mvShare.setViewName("redirect:/");
 				session.setAttribute("LoginInfo", user);
 				//lưu id khách hàng vào session
 				session.setAttribute("kh",user.getId_kh());
-//				session.setAttribute("count", giohangDao.Count(user.getId_kh()));
+				session.setAttribute("count", giohangDao.Count(user.getId_kh()));
 			}else {
-				_mvShare.addObject("statusLogin","Đăng nhập thất bại !");
+				session.setAttribute("notification","Email hoặc mật khẩu bạn nhập chưa đúng. Vui lòng thử lại!");
 			}		
 			return _mvShare;	
 		}

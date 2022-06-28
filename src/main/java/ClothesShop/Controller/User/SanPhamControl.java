@@ -18,6 +18,7 @@ public class SanPhamControl {
 	public ModelAndView Product() {
 		ModelAndView sp = new ModelAndView("user/sanpham");
 		sp.addObject("sanpham", HomeService.GetDataSanPham());
+		sp.addObject("danhmuc", HomeService.GetDataDanhMuc());
 		return sp;
 	}
 // hiển thị sản phẩm theo danh mục
@@ -25,7 +26,7 @@ public class SanPhamControl {
 	public ModelAndView Product(int id) {
 		ModelAndView sp = new ModelAndView("user/sanpham");
 		sp.addObject("sanpham", HomeService.GetDataSanPham(id));
-
+		sp.addObject("danhmuc", HomeService.GetDataDanhMuc());
 		return sp;
 	}
 // tìm kiếm sản phẩm theo tên
@@ -33,7 +34,7 @@ public class SanPhamControl {
 	public ModelAndView Product(String noidung) {
 		ModelAndView sp = new ModelAndView("user/sanpham");
 		sp.addObject("sanpham", HomeService.GetDataSanPham(noidung));
-
+		sp.addObject("danhmuc", HomeService.GetDataDanhMuc());
 		return sp;
 	}
 }

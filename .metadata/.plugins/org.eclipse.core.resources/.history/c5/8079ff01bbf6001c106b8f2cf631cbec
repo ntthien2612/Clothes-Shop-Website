@@ -91,7 +91,7 @@ Navigation Bar Section
 				</ul>
 				
 				<form action="sanpham" method="GET" modelAttribute="sanpham" class="navbar-search pull-left" style="margin-left: 25%;">
-					<input type="text" placeholder="Search" class="search-query span2" name="noidung" />
+					<input type="text" placeholder="Search" class="search-query span2" name="ten_sp" />
 					<button type="submit">Tìm</button>
 				</form>
 				

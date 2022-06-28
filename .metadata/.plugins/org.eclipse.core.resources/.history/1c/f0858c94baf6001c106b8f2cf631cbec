@@ -27,7 +27,20 @@ public class SanPhamDao extends BaseDao{
 		list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
 		return list_sp;
 	}
-
+//hien trang chi tiet cho user
+	public List<SanPham> GetDataChiTiet(int id) {
+		List<SanPham> list_sp = new ArrayList<SanPham>();
+		String sql_sp = "select * from sanpham where id_sp="+id;
+		list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
+		return list_sp;
+	}
+//hien size cho trang chi tiet cho user
+	public List<ChiTietSanPham> GetDataSizeChiTiet(int id) {
+		List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
+		String sql_sp = "select * from chitietsanpham where id_sp="+id;
+		list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
+		return list_sp;
+	}
 
 	// hien thi san pham theo doanh muc
 	public List<SanPham> GetDataSanPham(int id) {

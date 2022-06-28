@@ -28,19 +28,13 @@
               <i class="bi bi-question-circle-fill"></i>
               Quản Lý Phản Hồi
             </a></p>
-<<<<<<< HEAD
             <p><a class="nav-link" href="baocao">
               <i class="bi bi-bar-chart-line"></i>
               Báo Cáo
-=======
-            <p><a class="nav-link" href="quanlydonhang">
-              <i class="bi bi-bar-chart-line"></i>
-              Báo Cáo Doanh Thu
->>>>>>> 7eec99238d933f9b96258fa63ed27dbec064ad08
             </a></p>
     </div>
     <div class="col-sm-10 text-left"> 
-     noi dung
+		<h3>Nhóm 05</h3>
     </div>
   </div>
 </div>

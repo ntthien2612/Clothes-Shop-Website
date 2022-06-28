@@ -40,7 +40,6 @@ public class UsersDao extends BaseDao {
 
 	// dang nhap
 	public Users GetUserByAcc(Users user) {
-
 		try {
 			String sql = "SELECT * FROM khachhang WHERE email_kh = '" + user.getEmail_kh() + "'";
 			Users result = _jdbcTemplate.queryForObject(sql, new MapperUsers());
@@ -63,7 +62,6 @@ public class UsersDao extends BaseDao {
 	public int ChinhSuaKhachHang(Users khachhang) {
 		String sql = "update khachhang set ten_kh='" + khachhang.getTen_kh() + "',diachi='" + khachhang.getDiachi()
 				+ "',sdt='" + khachhang.getSdt() + "'where id_kh=" + khachhang.getId_kh();
-//		System.out.println(sql);
 		int update = _jdbcTemplate.update(sql.toString());
 		return update;
 	}
@@ -74,5 +72,18 @@ public class UsersDao extends BaseDao {
 		String sql = "SELECT COUNT(*) FROM khachhang where email_kh='" + email + "'";
 		count = _jdbcTemplate.queryForObject(sql, Integer.class);
 		return count;
+	}
+	
+//	public void checkLogin(Users kh) throws Exception {
+//		if(kh.getEmail_kh()==""||kh.getTen_kh()==""||kh.getDiachi()==""||kh.getPass()==""||kh.getSdt()=="") 
+//			throw new Exception("ma so sv khong duoc nho hon 0!");
+//	}
+	
+	public int checkLogin(Users kh) {
+		int check;
+		if(kh.getEmail_kh()==""||kh.getTen_kh()==""||kh.getDiachi()==""||kh.getPass()==""||kh.getSdt()=="") 
+			check=0;
+		else check=1;
+		return check;
 	}
 }

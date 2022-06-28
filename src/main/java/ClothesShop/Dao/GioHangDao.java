@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.GioHang;
@@ -14,29 +15,17 @@ import ClothesShop.Entity.MapperGioHang;
 import ClothesShop.Entity.Users;
 @Repository
 public class GioHangDao extends BaseDao{
-//them san pham gio hang
+	
+//	public int Count(String email) {
+//		int count = 0;
+//		String sql = "SELECT COUNT(*) FROM khachhang where email_kh='" + email + "'";
+//		count = _jdbcTemplate.queryForObject(sql, Integer.class);
+//		return count;
+//	}
 	public int ThemGioHang(GioHang giohang) {
-		{
-			StringBuffer sql = new StringBuffer();
-			sql.append("INSERT ");
-			sql.append("INTO giohang ");
-			sql.append("( ");
-			sql.append("	id_kh, ");
-			sql.append("	id_sp, ");
-			sql.append("	size, ");
-			sql.append("	soluong_them ");
-			sql.append(") ");
-			sql.append("VALUES ");
-			sql.append("( ");
-			sql.append("	"+giohang.getId_kh()+", ");
-			sql.append("	"+giohang.getId_sp()+", ");
-			sql.append("	'"+giohang.getSize()+"', ");
-			sql.append("	"+giohang.getSoluong_them()+" ");
-			sql.append(")");
-			
-			int insert = _jdbcTemplate.update(sql.toString());
-			return insert;
-		}
+			String sql_sp="insert into giohang (id_kh, id_sp, size, soluong_them) values("+giohang.getId_kh()+","+giohang.getId_sp()+",'"+giohang.getSize()+"',"+giohang.getSoluong_them()+")";
+			int list_sp = _jdbcTemplate.update(sql_sp.toString());
+			return list_sp;
 	}
 //hien thi gio hang
 	public List<GioHang> HienGioHang(int id_kh) {

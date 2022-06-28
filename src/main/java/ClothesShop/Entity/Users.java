@@ -7,7 +7,7 @@ public class Users {
 	private String email_kh;
 	private String diachi;
 	private String sdt;
-	public long getId_kh() {
+	public int getId_kh() {
 		return id_kh;
 	}
 	public void setId_kh(int id_kh) {

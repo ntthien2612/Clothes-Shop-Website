@@ -12,9 +12,7 @@ public class AccountServiceImpl implements IAccountService {
 	UsersDao usersDao = new UsersDao();
 // thêm người dùng	
 	public int AddAccount(Users user) {
-		
 		user.setPass(BCrypt.hashpw(user.getPass(), BCrypt.gensalt(12)));
-		
 		return usersDao.AddAccount(user);
 	}
 //dang nhap

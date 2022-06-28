@@ -31,8 +31,7 @@
 										<tr>
 											<td><input type="checkbox" id="vehicle1" name="id" value="${giohang[0] }">
 											</td>
-											<td><img style="width: 70px; height: 70px;" src="<c:url value= "
-													/assets/user/img/${giohang[4] }" />"></td>
+											<td><img style="width: 70px; height: 70px;" src="<c:url value= "/assets/user/img/${giohang[4] }" />"></td>
 											<td>${giohang[2] }</td>
 											<td>${giohang[6] }</td>
 											<td>${giohang[3] }</td>

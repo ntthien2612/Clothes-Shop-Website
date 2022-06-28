@@ -47,8 +47,8 @@ tr:nth-child(even) {
 				</a>
 			</p>
 			<p>
-				<a class="nav-link" href="quanlynguoidung"> <i
-					class="bi bi-people-fill"></i> Quản Lý Người Dùng
+				<a class="nav-link" href="quanlynhanvien"> <i
+					class="bi bi-question-circle-fill"></i> Quản Lý Nhân Viên
 				</a>
 			</p>
 			<p>

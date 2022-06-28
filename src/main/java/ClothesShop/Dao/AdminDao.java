@@ -1,11 +1,18 @@
 package ClothesShop.Dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 
 import ClothesShop.Entity.Admin;
+import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.MapperAdmin;
+import ClothesShop.Entity.MapperDanhMuc;
+import ClothesShop.Entity.MapperNguoiDung;
 import ClothesShop.Entity.MapperUsers;
+import ClothesShop.Entity.NguoiDung;
 import ClothesShop.Entity.Users;
 
 @Repository
@@ -61,6 +68,21 @@ public class AdminDao extends BaseDao {
 		String sql = "SELECT COUNT(*) FROM admin where taikhoan='" + email + "'";
 		count = _jdbcTemplate.queryForObject(sql, Integer.class);
 		return count;
+	}
+
+	//danh sach admin
+	public List<Admin> GetDataDanhSachAdmin() {
+		List<Admin> list = new ArrayList<Admin>();
+		String sql = "select * from admin";
+		list = _jdbcTemplate.query(sql, new MapperAdmin());
+		return list;
+	}
+
+	public List<Admin> GetDataTimKiemAdmin(String tenad) {
+		 List<Admin> list = new ArrayList<Admin>();
+		String sql = "select * from admin where hoten LIKE '%" +tenad+"%'";
+		list = _jdbcTemplate.query(sql, new MapperAdmin());
+		return list;
 	}
 
 }

@@ -32,8 +32,8 @@
 				</a>
 			</p>
 			<p>
-				<a class="nav-link" href="#"> <i
-					class="bi bi-question-circle-fill"></i> Quản Lý Phản Hồi
+				<a class="nav-link" href="quanlynhanvien"> <i
+					class="bi bi-question-circle-fill"></i> Quản Lý Nhân Viên
 				</a>
 			</p>
 			<p>
@@ -54,13 +54,12 @@
 							<option>
 								<%
 									Date d = new Date();
-										SimpleDateFormat f = new SimpleDateFormat("M");
-										out.print("<h2 align=\"center\">" + f.format(d) + "</h2>");
+									SimpleDateFormat f = new SimpleDateFormat("M");
+									out.print("<h2 align=\"center\">" + f.format(d) + "</h2>");
 								%>
 							</option>
 						</c:if>
 						<option>${thang_dh }</option>
-
 						<%
 							for (int i = 1; i <= 12; i++) {
 						%>

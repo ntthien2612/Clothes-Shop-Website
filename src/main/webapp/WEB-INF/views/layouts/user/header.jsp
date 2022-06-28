@@ -90,8 +90,8 @@ Navigation Bar Section
 					</c:if>
 				</ul>
 				
-				<form action="sanpham" method="GET" modelAttribute="sanpham" class="navbar-search pull-left" style="margin-left: 25%;">
-					<input type="text" placeholder="Search" class="search-query span2" name="noidung" />
+				<form action="sanpham" method="GET" modelAttribute="sanpham" class="navbar-search pull-left" style="float: right">
+					<input type="text" placeholder="Search" class="search-query span2" name="noidung" style="width: 300px"/>
 					<button type="submit">Tìm</button>
 				</form>
 				

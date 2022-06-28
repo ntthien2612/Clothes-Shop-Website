@@ -16,9 +16,8 @@ import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.GioHang;
 import ClothesShop.Entity.SanPham;
 import ClothesShop.Entity.Users;
-
 @Service
-public class UserHomeImpl implements UserIHome {
+public class UserHomeImpl implements UserIHome{
 	@Autowired
 	private SanPhamDao sanphamDao;
 	@Autowired

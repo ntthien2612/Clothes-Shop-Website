@@ -1,0 +1,13 @@
+package ClothesShop.Controller.Admin;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class DonHangController {
+	@Autowired
+	DonHangImpl donhangImpl;
+	public ModelAndView _mvShare = new ModelAndView();
+	admin/quanlydonhang
+}

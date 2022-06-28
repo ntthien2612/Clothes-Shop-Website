@@ -28,26 +28,28 @@
 						class="icon-edit"></span> Đăng xuất
 					</a>
 					<script>
-				function abc(){
-		              document.getElementById("item").submit();
-		          }
-				</script>
-				<span class="btn btn-mini" onclick="return abc()"><span class="icon-shopping-cart" onclick="return abc()" style="color: red"> ${count} sản phẩm</span>
-				</span>
-				<form action="giohang" method="get" id="item" modelAttribute="giohang">
-				<input name="id_kh" value="${LoginInfo.id_kh}" hidden>
-				</form>
+						function abc() {
+							document.getElementById("item").submit();
+						}
+					</script>
+					<span class="btn btn-mini" onclick="return abc()"><span
+						class="icon-shopping-cart" onclick="return abc()"
+						style="color: red"> ${count} sản phẩm</span> </span>
+					<form action="giohang" method="get" id="item"
+						modelAttribute="giohang">
+						<input name="id_kh" value="${LoginInfo.id_kh}" hidden>
+					</form>
 				</c:if>
-					
-				</div>
+
 			</div>
 		</div>
 	</div>
+</div>
 <header id="header">
 	<div class="row">
 		<div class="span4">
 			<h1
-				style="color: Blue; text-shadow: yellow 2px -1px 3px, white -2px 1px 2px; position: relative; font-size: 50px; padding-top: 3%;">
+				style="color: #ee4d2d; text-shadow: yellow 2px -1px 3px, white -2px 1px 2px; position: relative; font-size: 50px; padding-top: 3%;">
 				ClothesShop</h1>
 		</div>
 		<div class="span4">
@@ -59,13 +61,12 @@
 		</div>
 		<div class="span4 alignR">
 			<p>
-				<br> <strong> Support (24/7) : 0800 1234 678 </strong><br>
-				<br>
+
+				<br> <strong> Support (24/7) : 0383835251 </strong><br>
+
+				<br> <strong>Nhóm 05 </strong><br> <br>
 			</p>
-			<span class="btn btn-mini">[ 2 ] <span
-				class="icon-shopping-cart"></span></span> <span
-				class="btn btn-warning btn-mini">$</span> <span class="btn btn-mini">&pound;</span>
-			<span class="btn btn-mini">&euro;</span>
+			
 		</div>
 	</div>
 </header>
@@ -89,8 +90,8 @@ Navigation Bar Section
 					</c:if>
 				</ul>
 				
-				<form action="timkiem" method="GET" modelAttribute="sanpham" class="navbar-search pull-left" style="margin-left: 25%;">
-					<input type="text" placeholder="Search" class="search-query span2" name="ten_sp" />
+				<form action="sanpham" method="GET" modelAttribute="sanpham" class="navbar-search pull-left" style="margin-left: 25%;">
+					<input type="text" placeholder="Search" class="search-query span2" name="noidung" />
 					<button type="submit">Tìm</button>
 				</form>
 				

@@ -1,5 +1,6 @@
-
 package ClothesShop.Controller.User;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,25 +9,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ClothesShop.Dao.GioHangDao;
+import ClothesShop.Dao.UsersDao;
 import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.GioHang;
+import ClothesShop.Service.User.AccountServiceImpl;
 import ClothesShop.Service.User.GioHangImpl;
 
 @Controller
 public class GioHangController{
 	@Autowired
 	GioHangImpl giohangImpl;
+	@Autowired
+	GioHangDao giohangDao;
 	public ModelAndView _mvShare = new ModelAndView();
+	@Autowired
+	AccountServiceImpl accountService = new AccountServiceImpl();
+	//chuc nang them gio hang
 	@RequestMapping(value = "themgiohang", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-	public ModelAndView CreateDanhMuc(@ModelAttribute("giohang") GioHang giohang) {
-		int count = giohangImpl.ThemGioHang(giohang);
-		if (count > 0) {// them it nhat dc 1 dong
-			_mvShare.addObject("status", "Thêm giỏ hàng thành công !");
-
+	public ModelAndView CreateGioHang(HttpSession session,@ModelAttribute("giohang") GioHang giohang) {
+		int count = giohangImpl.KiemTraGioHang(giohang);
+		if (count > 0) {
+			giohangImpl.UpdateGioHang(giohang);
 		} else {
-			_mvShare.addObject("status", "Thêm giỏ hàng thất bại !");
+			giohangImpl.ThemGioHang(giohang);
+			session.setAttribute("kh",giohang.getId_kh());
+			session.setAttribute("count", giohangDao.Count(giohang.getId_kh()));
 		}
-		_mvShare.setViewName("redirect:/");
+		_mvShare.setViewName("redirect:/giohang?id_kh="+giohang.getId_kh());
 		return _mvShare;
 	}
 	//trang gio hang
@@ -52,10 +62,11 @@ public class GioHangController{
 		}
 	//xoa san pham
 		@RequestMapping(value = "/xoagiohang", method = RequestMethod.GET, params = "id")
-		public ModelAndView XoaGioHang(int id, int idkh) {
+		public ModelAndView XoaGioHang(HttpSession session,int id, int idkh) {
 			_mvShare.addObject(giohangImpl.XoaGioHang(id, idkh));
+			session.setAttribute("kh",idkh);
+			session.setAttribute("count", giohangDao.Count(idkh));
 			_mvShare.setViewName("redirect:/giohang?id_kh="+idkh);
 			return _mvShare;
 		}
 }
-

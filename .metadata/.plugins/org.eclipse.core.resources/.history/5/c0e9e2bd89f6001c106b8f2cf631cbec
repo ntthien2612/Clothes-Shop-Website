@@ -1,0 +1,21 @@
+package ClothesShop.Dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+
+import ClothesShop.Entity.MapperThongKe;
+
+@Repository
+public class BaoCaoDao extends BaseDao{
+
+	public List<String[]> ThongKe() {
+		List<String[]> list = new ArrayList<String[]>();
+		String sql = "SELECT chitietdonhang.id_sp, sanpham.ten_sp, sum(chitietdonhang.soluong) FROM chitietdonhang join sanpham where sanpham.id_sp=chitietdonhang.id_sp group by chitietdonhang.id_sp";
+		list = _jdbcTemplate.query(sql, new MapperThongKe());
+		return list;
+	}
+
+}

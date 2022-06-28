@@ -6,8 +6,10 @@ import ClothesShop.Entity.GioHang;
 
 public interface IGioHang {
 	public int ThemGioHang(GioHang giohang);
-	public List<GioHang> HienGioHang(int id_kh);
+	public List<String[]> HienGioHang(int id_kh);
 	public int CongGioHang(int idsp, int idkh);
 	public int TruGioHang(int idsp, int idkh);
 	public int XoaGioHang(int id, int idkh);
+	public int Count(int id_kh);
+	public int KiemTraGioHang(GioHang giohang);
 }

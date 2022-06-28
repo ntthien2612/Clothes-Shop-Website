@@ -6,8 +6,7 @@ import java.util.List;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 
-import ClothesShop.Entity.Admin;
-import ClothesShop.Entity.MapperAdmin;
+
 import ClothesShop.Entity.MapperUsers;
 import ClothesShop.Entity.Users;
 

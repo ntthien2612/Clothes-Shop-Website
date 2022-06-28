@@ -23,20 +23,21 @@ public class AdminAccountImpl implements AdminIAccount {
 		return adminDao.AddAccountAdmin(admin);
 	}
 
+
 //	check tài khoản
 	public Admin CheckAccount(Admin admin) {
 		String pass = admin.getPass();
-		String taikhoan = admin.getTaikhoan();
 		admin = adminDao.GetAdminByAcc(admin);
 		if (admin != null) {
-			if (admin.getPass().equals(pass)) {
+			if (BCrypt.checkpw(pass, admin.getPass())) {
 				return admin;
 			} else {
 				return null;
 			}
 		}
 		return null;
+		
+
 
 	}
-
 }

@@ -28,9 +28,9 @@
               <i class="bi bi-question-circle-fill"></i>
               Quản Lý Phản Hồi
             </a></p>
-            <p><a class="nav-link" href="quanlydonhang">
+            <p><a class="nav-link" href="baocao">
               <i class="bi bi-bar-chart-line"></i>
-              Báo Cáo Doanh Thu
+              Báo Cáo
             </a></p>
     </div>
     <div class="col-sm-10 text-left"> 

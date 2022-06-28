@@ -31,13 +31,13 @@
 				</a>
 			</p>
 			<p>
-				<a class="nav-link" href="#"> <i
-					class="bi bi-question-circle-fill"></i> Quản Lý Phản Hồi
+				<a class="nav-link" href="quanlynhanvien"> <i
+					class="bi bi-question-circle-fill"></i> Quản Lý Nhân Viên
 				</a>
 			</p>
 			<p>
-				<a class="nav-link" href="quanlydonhang"> <i
-					class="bi bi-bar-chart-line"></i> Báo Cáo Doanh Thu
+				<a class="nav-link" href="baocao"> <i
+					class="bi bi-bar-chart-line"></i> Báo Cáo
 				</a>
 			</p>
 		</div>
@@ -46,18 +46,18 @@
 		<b>Thêm danh mục</b>
 	</h1>
 	<hr>
-	<form:form action="quanlydanhmucSP" method="POST" modelAttribute="danhmuc" >
+	<form action="quanlydanhmucSP" method="POST" modelAttribute="danhmuc" >
 		<table style="margin-left: 30%; height: 70px">
 			<tr>
 				<td><b>Tên danh mục: </b></td>
-				<td><form:input type="text" path="ten_dm" placeholder="Nhập tên danh mục sản phẩm" style="width: 300px"/></td>
+				<td><input type="text" name="ten_dm" placeholder="Nhập tên danh mục sản phẩm" style="width: 300px"/></td>
 			</tr>
 			<tr>
 			<td></td><td><button type="submit" class="btn block">Lưu</button>
 							<button type="reset" class="btn block">Reset</button></td>
 			</tr>
 		</table>
-	</form:form>	
+	</form>	
 	<hr>
 <h1 style="text-align: center"><b>Danh sách danh mục</b></h1><hr>
 <table border="1" style="width: 50%; margin-left: 25%; text-align: center">

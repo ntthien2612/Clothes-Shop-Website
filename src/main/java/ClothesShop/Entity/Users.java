@@ -7,6 +7,9 @@ public class Users {
 	private String email_kh;
 	private String diachi;
 	private String sdt;
+	public Users() {
+		super();
+	}
 	public int getId_kh() {
 		return id_kh;
 	}
@@ -43,9 +46,5 @@ public class Users {
 	public void setSdt(String sdt) {
 		this.sdt = sdt;
 	}
-	public Users() {
-		super();
-	}
-	
 	
 }

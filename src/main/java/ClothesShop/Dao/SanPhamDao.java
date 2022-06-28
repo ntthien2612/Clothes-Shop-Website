@@ -19,8 +19,7 @@ import ClothesShop.Entity.SanPham;
 
 @Repository
 public class SanPhamDao extends BaseDao{
-	@Autowired
-	public JdbcTemplate _jdbcTemplate;
+
 //hien trang san pham cho user
 	public List<SanPham> GetDataSanPham() {
 		List<SanPham> list_sp = new ArrayList<SanPham>();
@@ -28,6 +27,7 @@ public class SanPhamDao extends BaseDao{
 		list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
 		return list_sp;
 	}
+
 
 	// hien thi san pham theo doanh muc
 	public List<SanPham> GetDataSanPham(int id) {
@@ -75,13 +75,13 @@ public class SanPhamDao extends BaseDao{
 			sql.append(") ");
 			sql.append("VALUES ");
 			sql.append("( ");
-			sql.append("	'" + sanpham.getTen_sp() + "', ");
-			sql.append("	'" + sanpham.getId_dm() + "', ");
-			sql.append("	'" + sanpham.getGia() + "', ");
-			sql.append("	'" + sanpham.getHinhanh() + "', ");
-			sql.append("	'" + sanpham.getMota() + "' ");
+			sql.append("	'"+sanpham.getTen_sp()+"', ");
+			sql.append("	'"+sanpham.getId_dm()+"', ");
+			sql.append("	'"+sanpham.getGia()+"', ");
+			sql.append("	'"+sanpham.getHinhanh()+"', ");
+			sql.append("	'"+sanpham.getMota()+"' ");
 			sql.append(")");
-
+			
 			int insert = _jdbcTemplate.update(sql.toString());
 			return insert;
 		}

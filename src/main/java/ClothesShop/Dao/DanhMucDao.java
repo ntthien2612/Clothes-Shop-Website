@@ -13,8 +13,7 @@ import ClothesShop.Entity.MapperChiTietSanPham;
 import ClothesShop.Entity.MapperDanhMuc;
 @Repository
 public class DanhMucDao extends BaseDao{
-	@Autowired
-	public JdbcTemplate _jdbcTemplate;
+
 //hien danh muc
 	public List<DanhMuc> GetDataDanhMuc() {
 		List<DanhMuc> list = new ArrayList<DanhMuc>();

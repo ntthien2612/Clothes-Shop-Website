@@ -9,5 +9,4 @@ import ClothesShop.Entity.DanhMuc;
 public interface AdminIHome {
 	@Autowired
 	public List<DanhMuc> GetDataDanhMuc();
-
 }

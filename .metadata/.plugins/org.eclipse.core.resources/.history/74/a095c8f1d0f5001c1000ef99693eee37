@@ -1,0 +1,10 @@
+package ClothesShop.Entity;
+
+import java.util.Date;
+
+public class NhatKy {
+private int id;
+private int id_dh;
+private Date thoigianupdate;
+private String trangthai;
+}

@@ -1,5 +1,11 @@
 package ClothesShop.Controller.User;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,14 +14,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import ClothesShop.Dao.GioHangDao;
 import ClothesShop.Dao.UsersDao;
+import ClothesShop.Entity.SanPham;
 import ClothesShop.Entity.Users;
 import ClothesShop.Service.User.AccountServiceImpl;
 import ClothesShop.Service.User.UserHomeImpl;
-
 @Controller
 public class TaiKhoanController {
 	@Autowired
@@ -101,13 +109,6 @@ public class TaiKhoanController {
 			return chitiet;
 		}
 		
-		//trả về trang chỉnh sửa chi tiết
-		@RequestMapping(value="/chinh-sua-chi-tiet", method=RequestMethod.GET, params="id_kh")
-		public ModelAndView ChinhSua(int id_kh) {
-			ModelAndView chitiet = new ModelAndView("user/account/chinhsuachitiet");
-			chitiet.addObject("khachhang", HomeService.GetDataChiTietKhachHang(id_kh));
-			return chitiet;
-		}
 
 		//lưu chỉnh sửa chi tiết khách hàng
 		@RequestMapping(value = "/luuchinhsuachitietkhachhang", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")

@@ -4,6 +4,13 @@
 <fullyQualifiedTypeName name="ClothesShop.Service.Admin.NguoiDungImpl"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="ClothesShop.Entity.NguoiDung"/>
+<<<<<<< HEAD
+<fullyQualifiedTypeName name="ClothesShop.Entity.MapperNguoiDung"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.swing.tree.RowMapper"/>
+<fullyQualifiedTypeName name="ClothesShop.Service.User.GioHangImpl"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+=======
 <fullyQualifiedTypeName name="ClothesShop.Dao.BaseDao"/>
 <fullyQualifiedTypeName name="ClothesShop.Entity.MapperNguoiDung"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
@@ -15,8 +22,32 @@
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="ClothesShop.Dao.GioHangDao"/>
+>>>>>>> 7eec99238d933f9b96258fa63ed27dbec064ad08
 <fullyQualifiedTypeName name="ClothesShop.Entity.GioHang"/>
 <fullyQualifiedTypeName name="ClothesShop.Entity.MapperGioHang"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="ClothesShop.Entity.Users"/>
+<<<<<<< HEAD
+<fullyQualifiedTypeName name="ClothesShop.Entity.MapperDanhSachSanPham"/>
+<fullyQualifiedTypeName name="ClothesShop.Dao.GioHangDao"/>
+<fullyQualifiedTypeName name="ClothesShop.Dao.UsersDao"/>
+<fullyQualifiedTypeName name="ClothesShop.Service.User.ThanhToanImpl"/>
+<fullyQualifiedTypeName name="ClothesShop.Dao.ThanhToanDao"/>
+<fullyQualifiedTypeName name="ClothesShop.Dao.BaseDao"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="ClothesShop.Service.Admin.DonHangImpl"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="ClothesShop.Dao.DonHangDao"/>
+<fullyQualifiedTypeName name="ClothesShop.Entity.DonHang"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="ClothesShop.Entity.MapperChiTietDonHang"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="ClothesShop.Service.Admin.BaoCaoImpl"/>
+=======
+>>>>>>> 7eec99238d933f9b96258fa63ed27dbec064ad08
 </qualifiedTypeNameHistroy>

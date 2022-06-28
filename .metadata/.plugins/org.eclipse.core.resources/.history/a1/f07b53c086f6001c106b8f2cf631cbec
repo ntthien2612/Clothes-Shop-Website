@@ -1,0 +1,14 @@
+package ClothesShop.Dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class BaoCaoDao {
+
+	public List<String[]> ThongKe() {
+		
+	}
+
+}

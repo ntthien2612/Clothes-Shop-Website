@@ -36,8 +36,8 @@
 				</a>
 			</p>
 			<p>
-				<a class="nav-link" href="quanlydonhang"> <i
-					class="bi bi-bar-chart-line"></i> Báo Cáo Doanh Thu
+				<a class="nav-link" href="baocao"> <i
+					class="bi bi-bar-chart-line"></i> Báo Cáo
 				</a>
 			</p>
 		</div>

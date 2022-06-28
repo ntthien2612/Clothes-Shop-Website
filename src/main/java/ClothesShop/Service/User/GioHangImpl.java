@@ -7,15 +7,16 @@ import org.springframework.stereotype.Service;
 
 import ClothesShop.Dao.GioHangDao;
 import ClothesShop.Entity.GioHang;
+import ClothesShop.Service.Admin.IDanhMuc;
 
 @Service
-public class GioHangImpl {
+public class GioHangImpl implements IGioHang{
 	@Autowired
 	GioHangDao giohangDao;
 	public int ThemGioHang(GioHang giohang) {
 		return giohangDao.ThemGioHang(giohang);
 	}
-	public List<GioHang> HienGioHang(int id_kh) {
+	public List<String[]> HienGioHang(int id_kh) {
 		return giohangDao. HienGioHang(id_kh);
 	}
 	public int CongGioHang(int idsp, int idkh) {
@@ -27,5 +28,14 @@ public class GioHangImpl {
 	public int XoaGioHang(int id, int idkh) {
 		return giohangDao.XoaGioHang(id, idkh);
 	}
-
+	public int Count(int id_kh) {
+		return giohangDao.Count(id_kh);
+	}
+	public int KiemTraGioHang(GioHang giohang) {
+		return giohangDao.KiemTraGioHang(giohang);
+	}
+	public int UpdateGioHang(GioHang giohang) {
+		return giohangDao.UpdateGioHang(giohang);
+	}
+	
 }

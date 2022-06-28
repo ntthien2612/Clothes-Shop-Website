@@ -1,0 +1,12 @@
+package ClothesShop.Controller.User;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import ClothesShop.Service.User.ThanhToanImpl;
+
+@Controller
+public class ThanhToanController {
+@Autowired
+ThanhToanImpl thanhtoanImpl;
+}

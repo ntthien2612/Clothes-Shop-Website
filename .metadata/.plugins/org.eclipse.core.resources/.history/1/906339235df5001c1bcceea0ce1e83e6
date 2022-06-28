@@ -1,0 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp" %>   
+<head>
+<title>Thanh Toán</title>
+</head>
+<body>
+<div class="row" style="margin-top: 20px;">
+	<div class="col-md-12">
+		<h3>Chi Tiết Đơn Hàng</h3>
+	</div>
+	<div class="col-md-8 table-responsive">
+		<table class="table table-bordered table-hover" style="margin-top: 20px;">
+			<thead>
+				<tr>
+					<th>Hình Sản Phẩm</th>
+					<th>Tên Sản Phẩm</th>
+					<th>Size</th>
+					<th>Giá</th>
+					<th>Số Lượng</th>
+					<th>Tổng Giá</th>
+				</tr>
+			</thead>
+			<tbody>
+			<c:forEach var="giohang" items="${ giohang }">
+					<tr>
+					<td><img style="width: 70px; height: 70px;"
+						src="<c:url value= "/assets/user/img/${giohang[4] }"/>"></td>
+	                  <td>${giohang[2] }</td>
+	                  <td>${giohang[6] }</td>
+	                  <td>${giohang[3] }</td>
+	                  <td>${giohang[7] }</td>
+	                  <td>${giohang[7] * giohang[3] } ₫</td>
+	                </tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+    <div class="col-md-4">
+		<table class="table table-bordered table-hover" style="margin-top: 20px;">
+			<tr>
+				<th style="width: 150px">Họ & Tên: </th>
+				<td>${LoginInfo.ten_kh}</td>
+			</tr>
+			<tr>
+				<th>Email: </th>
+				<td>${LoginInfo.email_kh}</td>
+			</tr>
+			<tr>
+				<th>Địa Chỉ: </th>
+				<td>${LoginInfo.diachi}</td>
+			</tr>
+			<tr>
+				<th>Phone: </th>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</div>
+</body>

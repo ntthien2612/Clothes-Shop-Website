@@ -11,6 +11,8 @@ C:\DevPrograms\ClothesShop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch
 \ClothesShop\src\main\resources
 C:\DevPrograms\ClothesShop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1649374148.index
 \ClothesShop\src\main\resources
+C:\DevPrograms\ClothesShop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2036575089.index
+\ClothesShop\src\main\resources
 C:\Users\Administrator\Desktop\ClothesShop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1649374148.index
 \ClothesShop\src\main\resources
 C:\DevPrograms\ClothesShop\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2348909049.index

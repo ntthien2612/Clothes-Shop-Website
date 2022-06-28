@@ -36,7 +36,8 @@ public class DanhMucController {
 // trang danh muc
 	@RequestMapping(value = "/admin/quanlydanhmucSP", method = RequestMethod.GET)
 	public ModelAndView DanhMuc() {
-		_mvShare.addObject("danhsach", danhmucHomeImpl.GetDataHienDanhMuc());
+		_mvShare.addObject("danhmuc", new DanhMuc());// tao 1 doi tuong danh muc moi
+		_mvShare.addObject("danhsach", danhmucHomeImpl.GetDataHienDanhMuc());//danhsach do ra o var va items ben file jsp
 		_mvShare.setViewName("admin/admin_danhmuc");
 		return _mvShare;
 	}

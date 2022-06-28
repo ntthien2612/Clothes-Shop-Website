@@ -28,10 +28,17 @@
 						class="icon-edit"></span> Đăng xuất
 					</a>
 					<script>
+<<<<<<< HEAD
 						function abc(){
 				              document.getElementById("item").submit();
 				          }
 						</script>
+=======
+				function abc(){
+		              document.getElementById("item").submit();
+		          }
+				</script>
+>>>>>>> 7eec99238d933f9b96258fa63ed27dbec064ad08
 				<span class="btn btn-mini" onclick="return abc()"><span class="icon-shopping-cart" onclick="return abc()" style="color: red"> ${count} sản phẩm</span>
 				</span>
 				<form action="giohang" method="get" id="item" modelAttribute="giohang">

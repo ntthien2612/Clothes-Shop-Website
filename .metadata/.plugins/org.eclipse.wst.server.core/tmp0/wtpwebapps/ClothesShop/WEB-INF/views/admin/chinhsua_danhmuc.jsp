@@ -36,8 +36,13 @@
 				</a>
 			</p>
 			<p>
+<<<<<<< HEAD
 				<a class="nav-link" href="baocao"> <i
 					class="bi bi-bar-chart-line"></i> Báo Cáo
+=======
+				<a class="nav-link" href="quanlydonhang"> <i
+					class="bi bi-bar-chart-line"></i> Báo Cáo Doanh Thu
+>>>>>>> 7eec99238d933f9b96258fa63ed27dbec064ad08
 				</a>
 			</p>
 		</div>

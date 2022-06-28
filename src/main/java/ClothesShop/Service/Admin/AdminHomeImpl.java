@@ -10,14 +10,12 @@ import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Service.Admin.AdminIHome;
 
 @Service
-public class AdminHomeImpl implements AdminIHome{
+public class AdminHomeImpl implements AdminIHome {
 	@Autowired
 	private DanhMucDao danhmucDao;
+
 	public List<DanhMuc> GetDataDanhMuc() {
 		return danhmucDao.GetDataDanhMuc();
 	}
-	
-//	public int DeleteDanhMuc(int id) {
-//		return danhmucDao. DeleteDanhMuc(id);
-//	}
+
 }

@@ -55,6 +55,7 @@ public class GioHangDao extends BaseDao{
 		count = _jdbcTemplate.queryForObject(sql,Integer.class);
 		return count;
 	}
+<<<<<<< HEAD
 //kiem tra san pham co ton tai trong gio hang chua
 	public int KiemTraGioHang(GioHang giohang) {
 		List<String[]> list_sp = new ArrayList<String[]>();
@@ -69,4 +70,6 @@ public class GioHangDao extends BaseDao{
 		return list_sp;
 	}
 	
+=======
+>>>>>>> 7eec99238d933f9b96258fa63ed27dbec064ad08
 }

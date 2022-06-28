@@ -42,6 +42,38 @@ public class SanPhamDao extends BaseDao{
 		list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
 		return list_sp;
 	}
+
+	// hien thi san pham theo doanh muc
+	public List<SanPham> GetDataSanPham(int id) {
+		List<SanPham> list_sp = new ArrayList<SanPham>();
+		String sql_sp = "select * from sanpham where id_dm = " + id;
+		list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
+		return list_sp;
+	}
+
+	// tim kiem san pham theo ten
+	public List<SanPham> GetDataSanPham(String noidung) {
+		List<SanPham> list_sp = new ArrayList<SanPham>();
+		String sql_sp = "select * from sanpham where ten_sp LIKE '%" + noidung + "%'";
+		list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
+		return list_sp;
+	}
+
+//hien trang chi tiet
+	public List<SanPham> GetDataChiTiet(int id) {
+		List<SanPham> list_sp = new ArrayList<SanPham>();
+		String sql_sp = "select * from sanpham where id_sp=" + id;
+		list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
+		return list_sp;
+	}
+
+	public List<ChiTietSanPham> GetDataSizeChiTiet(int id) {
+		List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
+		String sql_sp = "select * from chitietsanpham where id_sp=" + id;
+		list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
+		return list_sp;
+	}
+
 //them san pham
 	public int AddSanPham(SanPham sanpham) {
 		{
@@ -69,7 +101,16 @@ public class SanPhamDao extends BaseDao{
 		}
 	}
 
-//them moi chi tiet san pham
+// chi tiết sản phẩm
+	public List<ChiTietSanPham> KiemTraChiTiet(int id_sp, int soluong, String size) {
+		List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
+		String sql_sp = "select * from chitietsanpham where id_sp=" + id_sp;
+		list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
+		return list_sp;
+	}
+	
+//	thêm chi tiết sản phẩm
+
 	public int ThemSanPhamChiTiet(ChiTietSanPham chitietsp) {
 		{
 			StringBuffer sql = new StringBuffer();
@@ -82,11 +123,11 @@ public class SanPhamDao extends BaseDao{
 			sql.append(") ");
 			sql.append("VALUES ");
 			sql.append("( ");
-			sql.append("	"+chitietsp.getId_sp()+", ");
-			sql.append("	"+chitietsp.getSoluong()+", ");
-			sql.append("	'"+chitietsp.getSize()+"' ");
+			sql.append("	" + chitietsp.getId_sp() + ", ");
+			sql.append("	" + chitietsp.getSoluong() + ", ");
+			sql.append("	'" + chitietsp.getSize() + "' ");
 			sql.append(")");
-			
+
 			int insert = _jdbcTemplate.update(sql.toString());
 			return insert;
 		}
@@ -132,6 +173,8 @@ public class SanPhamDao extends BaseDao{
 		return list;
 		
 	}
+	
+//	tìm sản phẩm theo tên
 	public List<String[]> TimSanPham(String ten_sp) {
 		List<String[]> list = new ArrayList<String[]>();
 		String sql = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm and ten_sp LIKE '%"+ten_sp+"%'";

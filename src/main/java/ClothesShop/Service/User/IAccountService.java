@@ -1,5 +1,6 @@
 package ClothesShop.Service.User;
 
+import ClothesShop.Entity.Admin;
 import ClothesShop.Entity.Users;
 
 public interface IAccountService {

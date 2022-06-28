@@ -1,0 +1,20 @@
+package ClothesShop.Controller.User;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import ClothesShop.Service.User.GioHangImpl;
+
+@Controller
+public class GioHangController {
+	@Autowired
+	GioHangImpl giohangImpl;
+	@RequestMapping(value = "/themgiohang", method = RequestMethod.POST)
+	public ModelAndView ChiTiet(int id) {
+		ModelAndView chitiet = new ModelAndView("user/chitietsanpham");
+		chitiet.addObject("sanpham", HomeService.GetDataChiTiet(id));
+		chitiet.addObject("chitietsanpham", HomeService.GetDataSizeChiTiet(id));
+		return chitiet;
+	}
+}

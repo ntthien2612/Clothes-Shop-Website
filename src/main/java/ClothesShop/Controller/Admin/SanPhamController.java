@@ -34,8 +34,9 @@ public class SanPhamController {
 	public ModelAndView _mvShare = new ModelAndView();
 	@Autowired
 	SanPhamImpl sanphamHomeImpl = new SanPhamImpl();
-	//trang hien danh sach san pham
-	@RequestMapping(value = "/admin/quanlysanpham", method = RequestMethod.GET, produces="application/x-www-form-urlencoded;charset=UTF-8")
+
+	// trang hien danh sach san pham
+	@RequestMapping(value = "/admin/quanlysanpham", method = RequestMethod.GET, produces = "application/x-www-form-urlencoded;charset=UTF-8")
 	public ModelAndView DanhSachSanPham() {
 		_mvShare.setViewName("admin/admin_danhsachsanpham");
 		_mvShare.addObject("danhsachsanpham", sanphamHomeImpl.GetDataDanhSachSanPham());

@@ -34,7 +34,7 @@
             </a></p>
     </div>
     <div class="col-sm-10 text-left"> 
-     noi dung
+		<h3>Nhóm 05</h3>
     </div>
   </div>
 </div>

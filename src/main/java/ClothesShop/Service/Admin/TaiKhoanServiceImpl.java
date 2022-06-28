@@ -1,31 +1,20 @@
 package ClothesShop.Service.Admin;
 
 import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import ClothesShop.Dao.AdminDao;
 import ClothesShop.Entity.Admin;
-import ClothesShop.Entity.Users;
 
-@Service
-public class AdminAccountImpl implements AdminIAccount {
-
-	@Autowired
-
+public class TaiKhoanServiceImpl {
 	AdminDao adminDao = new AdminDao();
-
-// add tài khoan
-	public int AddAccountAdmin(Admin admin) {
-
+	public int AddAccount(Admin admin) {
+		
 		admin.setPass(BCrypt.hashpw(admin.getPass(), BCrypt.gensalt(12)));
-
+		
 		return adminDao.AddAccountAdmin(admin);
 	}
-
-
-//	check tài khoản
-	public Admin CheckAccount(Admin admin) {
+	public Admin CheckAccountAdmin(Admin admin) {
+		
 		String pass = admin.getPass();
 		admin = adminDao.GetAdminByAcc(admin);
 		if (admin != null) {
@@ -37,7 +26,6 @@ public class AdminAccountImpl implements AdminIAccount {
 		}
 		return null;
 		
-
 
 	}
 }

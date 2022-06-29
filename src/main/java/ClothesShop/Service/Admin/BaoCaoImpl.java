@@ -25,7 +25,7 @@ BaoCaoDao baocaoDao;
 		return baocaoDao.TongDH();
 	}
 	public int DemTongSP() {
-		return baocaoDao. DemTongSP();
+		return baocaoDao.DemTongSP();
 	}
 	public List<DonHang> TKDH_thang(int thang_dh) {
 		return baocaoDao.TKDH_thang(thang_dh);

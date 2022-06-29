@@ -1,0 +1,19 @@
+package ClothesShop.Controller.User;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class DonHangControll {
+//	@Autowired
+//	DonHangImpl donHangImpl;
+	public ModelAndView _mvShare = new ModelAndView();
+	@RequestMapping(value = "/donhang", method = RequestMethod.GET)
+	public ModelAndView HienThiDonHang() {
+		_mvShare.setViewName("user/donhang");
+		_mvShare.addObject("donhang", donHangImpl.getDonHang());
+		return _mvShare;
+	}
+}

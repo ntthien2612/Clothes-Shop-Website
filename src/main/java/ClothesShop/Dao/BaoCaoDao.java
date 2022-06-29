@@ -44,7 +44,7 @@ public class BaoCaoDao extends BaseDao {
 			String sql = "SELECT count(*) FROM donhang where month(thoigian_mua)=month(now())";
 			count = _jdbcTemplate.queryForObject(sql, Integer.class);
 			return count;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -56,7 +56,7 @@ public class BaoCaoDao extends BaseDao {
 			String sql = "SELECT sum(tongtien) FROM donhang where month(thoigian_mua)=month(now())";
 			tong = _jdbcTemplate.queryForObject(sql, Integer.class);
 			return tong;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -68,7 +68,7 @@ public class BaoCaoDao extends BaseDao {
 			String sql = "SELECT sum(soluong) FROM chitietdonhang join donhang where donhang.id_dh=chitietdonhang.id_dh and month(donhang.thoigian_mua)=month(now())";
 			tong = _jdbcTemplate.queryForObject(sql, Integer.class);
 			return tong;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -92,7 +92,7 @@ public class BaoCaoDao extends BaseDao {
 			String sql = "SELECT count(*) FROM donhang where month(thoigian_mua)=" + thang_dh;
 			count = _jdbcTemplate.queryForObject(sql, Integer.class);
 			return count;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -108,7 +108,7 @@ public class BaoCaoDao extends BaseDao {
 				tong = _jdbcTemplate.queryForObject(sql, Integer.class);
 			}
 			return tong;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -137,7 +137,7 @@ public class BaoCaoDao extends BaseDao {
 				tong = _jdbcTemplate.queryForObject(sql, Integer.class);
 			}
 			return tong;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}

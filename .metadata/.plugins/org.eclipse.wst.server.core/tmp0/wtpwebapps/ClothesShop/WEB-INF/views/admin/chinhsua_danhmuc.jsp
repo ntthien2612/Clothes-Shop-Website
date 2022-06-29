@@ -50,19 +50,19 @@
 		<td><b>Tên danh mục: </b></td>
 		<c:forEach var="edit_danhmuc" items="${edit_danhmuc}" varStatus="index">
 		<td style="border: 1px solid black">${edit_danhmuc.ten_dm}</td>
-		<form:form action="chinhsuadanhmuc" method="POST" modelAttribute="danhmuc" >
-		<td><form:input type="text" path="id_dm" value="${edit_danhmuc.id_dm}" style="visibility: hidden;" /></td>
+		<form action="chinhsuadanhmuc" method="POST" modelAttribute="danhmuc" >
+		<td><input type="text" path="id_dm" value="${edit_danhmuc.id_dm}" style="visibility: hidden;" /></td>
 		</tr>
 			<tr>
 				<td><b>Tên chỉnh sửa: </b></td>
-				<td><form:input type="text" path="ten_dm" placeholder="Nhập tên danh mục sản phẩm chỉnh sửa" style="width: 300px"/></td>
+				<td><input type="text" path="ten_dm" placeholder="Nhập tên danh mục sản phẩm chỉnh sửa" style="width: 300px" required/></td>
 			</tr>
 			<tr>
 			<td></td><td><button type="submit" class="btn block">Lưu</button>
 							<button type="reset" class="btn block">Reset</button></td>
 			</tr>
 		</table>
-	</form:form>
+	</form>
 </c:forEach>
 		</div>
 	</div>

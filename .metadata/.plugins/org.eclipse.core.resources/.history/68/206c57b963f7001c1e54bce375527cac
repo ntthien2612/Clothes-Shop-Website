@@ -1,0 +1,245 @@
+package ClothesShop.Dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import ClothesShop.Entity.ChiTietSanPham;
+import ClothesShop.Entity.DanhMuc;
+import ClothesShop.Entity.MapperChiTietSanPham;
+import ClothesShop.Entity.MapperDanhMuc;
+import ClothesShop.Entity.MapperDanhSachSanPham;
+import ClothesShop.Entity.MapperNguoiDung;
+import ClothesShop.Entity.MapperSanPham;
+import ClothesShop.Entity.NguoiDung;
+import ClothesShop.Entity.SanPham;
+
+@Repository
+public class SanPhamDao extends BaseDao {
+
+//hien trang san pham cho user
+	public List<SanPham> GetDataSanPham() {
+		try {
+			List<SanPham> list_sp = new ArrayList<SanPham>();
+			String sql_sp = "select * from sanpham";
+			list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
+			return list_sp;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	// hien thi san pham theo doanh muc
+	public List<SanPham> GetDataSanPham(int id) {
+		try {
+			List<SanPham> list_sp = new ArrayList<SanPham>();
+			String sql_sp = "select * from sanpham where id_dm = " + id;
+			list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
+			return list_sp;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	// tim kiem san pham theo ten
+	public List<SanPham> GetDataSanPham(String noidung) {
+		try {
+			List<SanPham> list_sp = new ArrayList<SanPham>();
+			String sql_sp = "select * from sanpham where ten_sp LIKE '%" + noidung + "%'";
+			list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
+			return list_sp;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+//hien trang chi tiet
+	public List<SanPham> GetDataChiTiet(int id) {
+		try {
+			List<SanPham> list_sp = new ArrayList<SanPham>();
+			String sql_sp = "select * from sanpham where id_sp=" + id;
+			list_sp = _jdbcTemplate.query(sql_sp, new MapperSanPham());
+			return list_sp;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	public List<ChiTietSanPham> GetDataSizeChiTiet(int id) {
+		try {
+			List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
+			String sql_sp = "select * from chitietsanpham where id_sp=" + id;
+			list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
+			return list_sp;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+//them san pham
+	public int AddSanPham(SanPham sanpham) {
+		{
+			StringBuffer sql = new StringBuffer();
+			sql.append("INSERT ");
+			sql.append("INTO sanpham ");
+			sql.append("( ");
+			sql.append("	ten_sp, ");
+			sql.append("	id_dm, ");
+			sql.append("	gia, ");
+			sql.append("	hinhanh, ");
+			sql.append("	mota ");
+			sql.append(") ");
+			sql.append("VALUES ");
+			sql.append("( ");
+			sql.append("	'" + sanpham.getTen_sp() + "', ");
+			sql.append("	'" + sanpham.getId_dm() + "', ");
+			sql.append("	'" + sanpham.getGia() + "', ");
+			sql.append("	'" + sanpham.getHinhanh() + "', ");
+			sql.append("	'" + sanpham.getMota() + "' ");
+			sql.append(")");
+
+			int insert = _jdbcTemplate.update(sql.toString());
+			return insert;
+		}
+	}
+
+// chi tiết sản phẩm
+	public List<ChiTietSanPham> KiemTraChiTiet(int id_sp, int soluong, String size) {
+		try {
+			List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
+			String sql_sp = "select * from chitietsanpham where id_sp=" + id_sp;
+			list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
+			return list_sp;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+//	thêm chi tiết sản phẩm
+
+	public int ThemSanPhamChiTiet(ChiTietSanPham chitietsp) {
+		{
+			StringBuffer sql = new StringBuffer();
+			sql.append("INSERT ");
+			sql.append("INTO chitietsanpham ");
+			sql.append("( ");
+			sql.append("	id_sp, ");
+			sql.append("	soluong, ");
+			sql.append("	size ");
+			sql.append(") ");
+			sql.append("VALUES ");
+			sql.append("( ");
+			sql.append("	" + chitietsp.getId_sp() + ", ");
+			sql.append("	" + chitietsp.getSoluong() + ", ");
+			sql.append("	'" + chitietsp.getSize() + "' ");
+			sql.append(")");
+
+			int insert = _jdbcTemplate.update(sql.toString());
+			return insert;
+		}
+	}
+
+	// kiem tra san pham da cho co chi tiet chua
+	public int KiemTraChiTiet(ChiTietSanPham chitietsp) {
+		try {
+			List<ChiTietSanPham> list_sp = new ArrayList<ChiTietSanPham>();
+			String sql_sp = "select * from chitietsanpham where id_sp=" + chitietsp.getId_sp() + " and size='"
+					+ chitietsp.getSize() + "'";
+			list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
+			return list_sp.size();
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+
+	// update lai so luong trong chi tiet san pham
+	public int UpdateChiTiet(ChiTietSanPham chitietsp) {
+		try {
+			String sql_sp = "update chitietsanpham set soluong=soluong+" + chitietsp.getSoluong() + " where id_sp="
+					+ chitietsp.getId_sp() + " and size='" + chitietsp.getSize() + "'";
+			int list_sp = _jdbcTemplate.update(sql_sp.toString());
+			return list_sp;
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+
+	// hien danh sach trang pham cho admin
+	public List<String[]> GetDataDanhSachSanPham() {
+		try {
+			List<String[]> list_sp = new ArrayList<String[]>();
+			String sql_sp = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm";
+			list_sp = _jdbcTemplate.query(sql_sp, new MapperDanhSachSanPham());
+			return list_sp;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	// xoa san pham
+	public List<SanPham> GetDataXoaSanPham(int id_xoa) {
+		try {
+			List<SanPham> list_sp = new ArrayList<SanPham>();
+			String sql_sp = "delete from sanpham where id_sp=" + id_xoa;
+			int delete = _jdbcTemplate.update(sql_sp.toString());
+			return list_sp;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	// hien trang chinh sua
+	public List<String[]> GetDataSuaSanPham(int id_chinhsua) {
+		try {
+			List<String[]> list_sp = new ArrayList<String[]>();
+			String sql_sp = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm and id_sp="
+					+ id_chinhsua;
+			list_sp = _jdbcTemplate.query(sql_sp, new MapperDanhSachSanPham());
+			return list_sp;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	// xu ly chinh sua san pham
+	public int UpdateSanPham(SanPham sanpham) {
+		try {
+			String sql = "UPDATE sanpham SET `id_dm`=" + sanpham.getId_dm() + ",`ten_sp`='" + sanpham.getTen_sp()
+					+ "',`gia`=" + sanpham.getGia() + ",`hinhanh`='" + sanpham.getHinhanh() + "',`mota`='"
+					+ sanpham.getMota() + "' WHERE id_sp=" + sanpham.getId_sp();
+			int list = _jdbcTemplate.update(sql.toString());
+			return list;
+		} catch (Exception e) {
+			return 0;
+		}
+
+	}
+
+//	tìm sản phẩm theo tên
+	public List<String[]> TimSanPham(String ten_sp) {
+		try {
+			List<String[]> list = new ArrayList<String[]>();
+			String sql = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm and ten_sp LIKE '%"
+					+ ten_sp + "%'";
+			list = _jdbcTemplate.query(sql, new MapperDanhSachSanPham());
+			return list;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	public List<String[]> LocDanhMuc(int dm) {
+		try {
+			List<String[]> list = new ArrayList<String[]>();
+			String sql = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm and id_dm="+dm;
+			list = _jdbcTemplate.query(sql, new MapperDanhSachSanPham());
+			return list;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+}

@@ -151,7 +151,7 @@ public class SanPhamDao extends BaseDao {
 					+ chitietsp.getSize() + "'";
 			list_sp = _jdbcTemplate.query(sql_sp, new MapperChiTietSanPham());
 			return list_sp.size();
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -163,7 +163,7 @@ public class SanPhamDao extends BaseDao {
 					+ chitietsp.getId_sp() + " and size='" + chitietsp.getSize() + "'";
 			int list_sp = _jdbcTemplate.update(sql_sp.toString());
 			return list_sp;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -214,7 +214,7 @@ public class SanPhamDao extends BaseDao {
 			else sql = "UPDATE sanpham SET `id_dm`="+sanpham.getId_dm()+",`ten_sp`='"+sanpham.getTen_sp()+"',`gia`="+sanpham.getGia()+",`mota`='"+sanpham.getMota()+"' WHERE id_sp="+sanpham.getId_sp();
 			int list = _jdbcTemplate.update(sql.toString());
 			return list;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 
@@ -227,6 +227,17 @@ public class SanPhamDao extends BaseDao {
 			List<String[]> list = new ArrayList<String[]>();
 			String sql = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm and ten_sp LIKE '%"
 					+ ten_sp + "%'";
+			list = _jdbcTemplate.query(sql, new MapperDanhSachSanPham());
+			return list;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	public List<String[]> LocDanhMuc(int dm) {
+		try {
+			List<String[]> list = new ArrayList<String[]>();
+			String sql = "SELECT id_sp, sanpham.id_dm, ten_sp, gia, hinhanh, mota, ten_dm from sanpham join danhmuc where sanpham.id_dm=danhmuc.id_dm and sanpham.id_dm="+dm;
 			list = _jdbcTemplate.query(sql, new MapperDanhSachSanPham());
 			return list;
 		} catch (EmptyResultDataAccessException e) {

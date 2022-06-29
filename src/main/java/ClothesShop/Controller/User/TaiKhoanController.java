@@ -64,6 +64,7 @@ public class TaiKhoanController {
 			}else {
 				session.setAttribute("notification","Đăng ký tài khoản thành công!");
 				accountService.AddAccount(user);
+				_mvShare.setViewName("redirect: ./dang-nhap");
 				return _mvShare;
 			}
 		}

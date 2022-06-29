@@ -86,7 +86,7 @@ Navigation Bar Section
 					<li><a href="./">Trang chủ </a></li>
 					<li class=""><a href="./sanpham">Sản phẩm</a></li>
 					<c:if test="${ not empty LoginInfo }">
-					<li class=""><a href="./donhang">Đơn hàng</a></li>
+					<li class=""><a href="./donhang?idkh=${LoginInfo.id_kh}">Đơn hàng</a></li>
 					</c:if>
 				</ul>
 				

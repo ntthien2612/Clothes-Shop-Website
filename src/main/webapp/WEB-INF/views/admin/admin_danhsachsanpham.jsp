@@ -1,35 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<div class="container-fluid text-center" style="border: 1px solid black">
-	<div class="row content">
-		<div class="col-sm-2 sidenav" style="text-align: left">
-			<p>
-				<a class="nav-link active" href="./"> <i
-					class="bi bi-house-fill"></i> Trang Chủ
-				</a>
-			</p>
-			<p>
-				<a class="nav-link" href="quanlydanhmucSP"> <i
-					class="bi bi-folder"></i> Danh Mục Sản Phẩm
-				</a>
-			</p>
-			<p>
-				<a class="nav-link" href="quanlysanpham"> <i
-					class="bi bi-file-earmark-text"></i> Sản Phẩm
-				</a>
-			</p>
-			<p>
-				<a class="nav-link" href="quanlydonhang"> <i
-					class="bi bi-minecart"></i> Quản Lý Đơn Hàng
-				</a>
-			</p>
-			<p>
-				<a class="nav-link" href="quanlynguoidung"> <i
-					class="bi bi-people-fill"></i> Quản Lý Người Dùng
-				</a>
-			</p>
-			<p>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid ;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	
+}
+</style>
+<div class="container-fluid text-center" style="border: 1px solid black">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav" style="text-align: left;height:150%">
+      <p><a class="nav-link active" href="./">
+              <i class="bi bi-house-fill"></i>
+              Trang Chủ
+            </a></p>
+      <p><a class="nav-link" href="quanlydanhmucSP">
+              <i class="bi bi-folder"></i>
+              Danh Mục Sản Phẩm
+            </a></p>
+      <p><a class="nav-link" href="quanlysanpham">
+              <i class="bi bi-file-earmark-text"></i>
+              Sản Phẩm
+            </a></p>
+            <p><a class="nav-link" href="quanlydonhang">
+              <i class="bi bi-minecart"></i>
+              Quản Lý Đơn Hàng
+            </a></p>
+            <p><a class="nav-link" href="quanlynguoidung">
+              <i class="bi bi-people-fill"></i>
+              Quản Lý Người Dùng
+            </a></p>
+            <p>
 				<a class="nav-link" href="quanlynhanvien"> <i
 					class="bi bi-question-circle-fill"></i> Quản Lý Nhân Viên
 				</a>
@@ -50,6 +62,10 @@
 					<td><a href="./themsanpham"><button
 								style="margin-bottom: 1%;">Thêm sản phẩm</button></a></td>
 					<td style="padding-top: 10px">
+						<c:if test="${not empty notification}">
+						<p style="color: red; font-size: 16px;"><i>${notification }</i></p>
+						<%session.setAttribute("notification", null); %>
+					</c:if>
 						<form action="timsp" method="get" style="margin-bottom: 10px">
 							<input type="text" name="ten_sp" placeholder="Vui lòng nhập tên sản phẩm" style="width: 300px" onchange="this.form.submit()">
 							<button type="submit">Tìm</button>

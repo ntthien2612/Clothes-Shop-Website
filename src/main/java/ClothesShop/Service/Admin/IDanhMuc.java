@@ -10,4 +10,5 @@ public interface IDanhMuc {
 	public List<DanhMuc> GetDataHienDanhMuc();
 	public List<DanhMuc> GetDataSuaDanhMuc(int id_chinhsua);
 	public int ChinhSuaDanhMuc(DanhMuc danhmuc);
+	public int Count(String tendm);
 }

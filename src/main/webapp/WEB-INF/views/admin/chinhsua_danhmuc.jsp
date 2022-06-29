@@ -4,7 +4,7 @@
 <%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
 <div class="container-fluid text-center" style="border: 1px solid black">
 	<div class="row content">
-		<div class="col-sm-2 sidenav" style="text-align: left">
+		<div class="col-sm-2 sidenav" style="text-align: left;height:150%">
 			<p>
 				<a class="nav-link active" href="./"> <i
 					class="bi bi-house-fill"></i> Trang Chủ
@@ -49,21 +49,25 @@
 		<tr>
 		<td><b>Tên danh mục: </b></td>
 		<c:forEach var="edit_danhmuc" items="${edit_danhmuc}" varStatus="index">
-		<td style="border: 1px solid black">${edit_danhmuc.ten_dm}</td>
+		<td style="">${edit_danhmuc.ten_dm}</td>
 		<form action="chinhsuadanhmuc" method="POST" modelAttribute="danhmuc" >
-		<td><input type="text" path="id_dm" value="${edit_danhmuc.id_dm}" style="visibility: hidden;" /></td>
+		<td><input type="text" name="id_dm" value="${edit_danhmuc.id_dm}" style="visibility: hidden;" /></td>
 		</tr>
 			<tr>
 				<td><b>Tên chỉnh sửa: </b></td>
-				<td><input type="text" path="ten_dm" placeholder="Nhập tên danh mục sản phẩm chỉnh sửa" style="width: 300px" required/></td>
+				<td><input type="text" name="ten_dm" placeholder="Nhập tên danh mục sản phẩm chỉnh sửa" style="width: 300px" required/></td>
 			</tr>
+			<tr><td></td><td><c:if test="${not empty notification}">
+						<p style="color: red; font-size: 16px;"><i>${notification }</i></p>
+						<%session.setAttribute("notification",null); %>
+					</c:if></td></tr>
 			<tr>
 			<td></td><td><button type="submit" class="btn block">Lưu</button>
 							<button type="reset" class="btn block">Reset</button></td>
 			</tr>
+		</form>
+		</c:forEach>
 		</table>
-	</form>
-</c:forEach>
 		</div>
 	</div>
 </div>

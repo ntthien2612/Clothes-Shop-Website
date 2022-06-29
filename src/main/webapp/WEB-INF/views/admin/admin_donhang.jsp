@@ -25,7 +25,7 @@ tr:nth-child(even) {
 
 <div class="container-fluid text-center" style="border: 1px solid black">
 	<div class="row content">
-		<div class="col-sm-2 sidenav" style="text-align: left">
+		<div class="col-sm-2 sidenav" style="text-align: left;height:150%">
 			<p>
 				<a class="nav-link active" href="./"> <i
 					class="bi bi-house-fill"></i> Trang Chủ
@@ -64,7 +64,7 @@ tr:nth-child(even) {
 		</div>
 		<div class="col-sm-10 text-left">
 
-			<h2>Danh sách đơn hàng</h2>
+			<h1 style="text-align: center"><b>Danh sách đơn hàng</b></h1><hr>
 				<table>
 					<tr>
 						<th style="text-align: center">ID Đơn hàng</th>

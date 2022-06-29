@@ -4,7 +4,7 @@
 <%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
 <div class="container-fluid text-center" style="border: 1px solid black">
 	<div class="row content">
-		<div class="col-sm-2 sidenav" style="text-align: left">
+		<div class="col-sm-2 sidenav" style="text-align: left;height:150%">
 			<p>
 				<a class="nav-link active" href="./"> <i
 					class="bi bi-house-fill"></i> Trang Chủ

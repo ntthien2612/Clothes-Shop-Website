@@ -2,9 +2,27 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
+<style>
+tablea{
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
+
 <div class="container-fluid text-center" style="border: 1px solid black">
 	<div class="row content">
-		<div class="col-sm-2 sidenav" style="text-align: left">
+		<div class="col-sm-2 sidenav" style="text-align: left;height:150%">
 			<p>
 				<a class="nav-link active" href="./"> <i
 					class="bi bi-house-fill"></i> Trang Chủ
@@ -47,10 +65,12 @@
 	</h1>
 	<hr>
 	<form action="quanlydanhmucSP" method="POST" modelAttribute="danhmuc" >
-		<table style="margin-left: 30%; height: 70px">
+		<tablea a style="margin-left: 20%; height: 70px">
 			<tr>
 				<td><b>Tên danh mục: </b></td>
-				<td><input type="text" name="ten_dm" placeholder="Nhập tên danh mục sản phẩm" style="width: 300px" required></td>
+
+				<td><input type="text" name="ten_dm" placeholder="Nhập tên danh mục sản phẩm" style="width: 300px" required/></td>
+
 			</tr>
 			<tr><td></td><td><c:if test="${not empty notification}">
 						<p style="color: red; font-size: 16px;"><i>${notification }</i></p>
@@ -60,17 +80,17 @@
 			<td></td><td><button type="submit" class="btn block">Lưu</button>
 							<button type="reset" class="btn block">Reset</button></td>
 			</tr>
-		</table>
+		</tablea>
 	</form>	
-	<hr>
+	
 <h1 style="text-align: center"><b>Danh sách danh mục</b></h1><hr>
-<table border="1" style="width: 50%; margin-left: 25%; text-align: center">
-<tr><th style="text-align: center">Tên danh mục</th>
+<table border="1" style="width: 70%; margin-left: 10%; text-align: center">
+<tr><th style="text-align: center;width: 40%">Tên danh mục</th>
 <th colspan="2" style="text-align: center">Tùy chọn</th>
 </tr>
 <c:forEach var="danhsach" items="${danhsach}" varStatus="index">
-<tr><td>${danhsach.ten_dm }</td><td style="width: 20%"><a href="<c:url value='chinhsua?id_chinhsua=${danhsach.id_dm }' />">Chỉnh sửa</a></td>
-<td style="width: 20%"><a href="<c:url value='xoa?id_xoa=${danhsach.id_dm }' />">Xóa</a></td></tr>
+<tr><td style="width: 35%">${danhsach.ten_dm }</td><td style="width: 15%;text-align:center"><a href="<c:url value='chinhsua?id_chinhsua=${danhsach.id_dm }' />">Chỉnh sửa</a></td>
+<td style="width: 10%;text-align:center"><a href="<c:url value='xoa?id_xoa=${danhsach.id_dm }' />">Xóa</a></td></tr>
 				</c:forEach>
 </table>
 

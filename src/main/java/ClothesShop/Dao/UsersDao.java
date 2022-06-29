@@ -84,10 +84,6 @@ public class UsersDao extends BaseDao {
 		}
 	}
 
-//	public void checkLogin(Users kh) throws Exception {
-//		if(kh.getEmail_kh()==""||kh.getTen_kh()==""||kh.getDiachi()==""||kh.getPass()==""||kh.getSdt()=="") 
-//			throw new Exception("ma so sv khong duoc nho hon 0!");
-//	}
 
 	public int checkLogin(Users kh) {
 		try {

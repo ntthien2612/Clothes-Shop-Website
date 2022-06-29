@@ -11,7 +11,23 @@
 
 	<div style="margin-bottom: 300px">
 
-			
+			<div class="well well-small">
+			<form action="sanpham" method="get">
+			<select name="id" onchange="this.form.submit()">
+				
+				<c:forEach var="tendanhmuc" items="${tendanhmuc}"
+									varStatus="index">
+									<option value="${tendanhmuc.id_dm }">${tendanhmuc.ten_dm }</option>
+								</c:forEach>
+								<c:forEach var="danhmuc" items="${danhmuc }" varStatus="index">
+				<option value="${danhmuc.id_dm }">${danhmuc.ten_dm }</option>
+				</c:forEach>
+				
+				</select>
+				</form>
+				
+			</div>
+
 		<c:forEach var="sanpham" items="${sanpham }" varStatus="index">
 			<div>
 				<ul style="list-style: none;">

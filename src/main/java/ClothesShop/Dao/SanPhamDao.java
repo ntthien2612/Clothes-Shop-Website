@@ -17,6 +17,7 @@ import ClothesShop.Entity.MapperNguoiDung;
 import ClothesShop.Entity.MapperSanPham;
 import ClothesShop.Entity.NguoiDung;
 import ClothesShop.Entity.SanPham;
+import ClothesShop.Entity.Users;
 
 @Repository
 public class SanPhamDao extends BaseDao {
@@ -244,4 +245,27 @@ public class SanPhamDao extends BaseDao {
 			return null;
 		}
 	}
+	
+	// kiểm tra sản phẩm
+		public int Count(String tensp) {
+			try {
+				int count = 0;
+				String sql = "SELECT COUNT(*) FROM sanpham where ten_sp='" + tensp + "'";
+				count = _jdbcTemplate.queryForObject(sql, Integer.class);
+				return count;
+			} catch (EmptyResultDataAccessException e) {
+				return 0;
+			}
+		}
+		
+		public List<DanhMuc> laytenDanhMuc(int id) { 
+			try {
+				List<DanhMuc> list = new ArrayList<DanhMuc>();
+				String sql = "select * from danhmuc where id_dm=" + id;
+				list = _jdbcTemplate.query(sql, new MapperDanhMuc());
+				return list;
+			} catch (EmptyResultDataAccessException e) {
+				return null;
+			}
+		}
 }

@@ -4,7 +4,7 @@
 <%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
 <div class="container-fluid text-center" style="border: 1px solid black">
 	<div class="row content">
-		<div class="col-sm-2 sidenav" style="text-align: left">
+		<div class="col-sm-2 sidenav" style="text-align: left;height:150%">
 			<p>
 				<a class="nav-link active" href="./"> <i
 					class="bi bi-house-fill"></i> Trang Chủ
@@ -50,7 +50,7 @@
 		<table style="width: 60%; margin-left: 20%; height: 300px">
 		<tr><td style="width: 25%"><b>Tên sản phẩm: </b></td>
 		<input type="text" name="id_sp" value="${edit_sanpham[0] }" hidden/>
-		<td><textarea name="ten_sp" style="resize: none;width: 100%">${edit_sanpham[2] }</textarea></td></tr>
+		<td><textarea name="ten_sp" style="resize: none;width: 100%" required>${edit_sanpham[2] }</textarea></td></tr>
 		<tr><td><b>Danh mục: </b></td>
 		<td><select name="id_dm" style="width: 100%; height: 30px">
 				<option value="${edit_sanpham[1] }">${edit_sanpham[6] }</option>
@@ -59,12 +59,13 @@
 			</c:forEach>
 		</select></td></tr>
 		<tr ><td><b>Giá sản phẩm: </b></td>
-		<td><input type="text" name="gia" value="${edit_sanpham[3] }" style="width: 100%"></td></tr>
+		<td><input type="text" name="gia" value="${edit_sanpham[3] }" style="width: 100%" required></td></tr>
 		<tr><td><b>Hình sản phẩm: </b></td>
 		<td><img style="width: 100px; height: 100px; border-radius: 10px" src="<c:url value= "/image/${edit_sanpham[4] }"/>"><input 
 		 name="image" type="file" path="hinhanh" /></td></tr>
+
 		<tr><td><b>Mô tả sản phẩm: </b></td>
-		<td><textarea name="mota" style="resize: none; width: 100%;">${edit_sanpham[5] }</textarea></td></tr>
+		<td><textarea name="mota" style="resize: none; width: 100%;" required>${edit_sanpham[5] }</textarea></td></tr>
 		<tr><td></td><td><button type="submit">Lưu</button></td></tr>
 		</table>
 		</c:forEach>

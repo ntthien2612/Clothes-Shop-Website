@@ -66,4 +66,8 @@ public class UserHomeImpl implements UserIHome{
 		return usersDao.ChinhSuaKhachHang(khachhang);
 	}
 
+	public List<DanhMuc> laytenDanhMuc(int id) { 
+		return sanphamDao.laytenDanhMuc(id);
+	}
+
 }

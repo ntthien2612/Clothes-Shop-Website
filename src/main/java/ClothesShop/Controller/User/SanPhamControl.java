@@ -27,6 +27,7 @@ public class SanPhamControl {
 		ModelAndView sp = new ModelAndView("user/sanpham");
 		sp.addObject("sanpham", HomeService.GetDataSanPham(id));
 		sp.addObject("danhmuc", HomeService.GetDataDanhMuc());
+		sp.addObject("tendanhmuc", HomeService.laytenDanhMuc(id));
 		return sp;
 	}
 // tìm kiếm sản phẩm theo tên

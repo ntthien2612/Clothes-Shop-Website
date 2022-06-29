@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import ClothesShop.Dao.SanPhamDao;
 import ClothesShop.Entity.ChiTietSanPham;
 import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.SanPham;
@@ -35,6 +36,8 @@ public class SanPhamController {
 	public ModelAndView _mvShare = new ModelAndView();
 	@Autowired
 	SanPhamImpl sanphamHomeImpl = new SanPhamImpl();
+	@Autowired
+	SanPhamDao sanphamDao;
 
 	// trang hien danh sach san pham
 	@RequestMapping(value = "/admin/quanlysanpham", method = RequestMethod.GET, produces = "application/x-www-form-urlencoded;charset=UTF-8")
@@ -67,38 +70,38 @@ public class SanPhamController {
 
 	// xu ly them san pham
 	@RequestMapping(value = "admin/themsanpham", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-	public ModelAndView CreateSanPham(@ModelAttribute("sanpham") SanPham sanpham,
-			@RequestParam(value = "image", required = false) MultipartFile file, HttpServletRequest request) {
-//		String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
-//		System.out.println(pathdir);
-		String pathdir = System.getProperty("catalina.home")+"/img/";
-		String filename = String.valueOf(new Date().getTime()) + file.getOriginalFilename();
-		try {
-			byte[] bytes = file.getBytes();
-			File dir = new File(pathdir);
-			if (!dir.exists()) {
-				dir.mkdir();
+
+	public ModelAndView CreateSanPham(HttpSession session, @ModelAttribute("sanpham") SanPham sanpham,
+		@RequestParam(value = "image", required = false) MultipartFile file, HttpServletRequest request) {
+		int check = sanphamDao.Count(sanpham.getTen_sp());
+		if (check!=0) {
+			session.setAttribute("notification", "Tên sản phẩm đã tồn tại");
+			_mvShare.setViewName("redirect:/admin/themsanpham");
+		}else {
+			String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
+			System.out.println(pathdir);
+			String filename = String.valueOf(new Date().getTime()) + file.getOriginalFilename();
+			try {
+				byte[] bytes = file.getBytes();
+				File dir = new File(pathdir);
+				if (!dir.exists()) {
+					dir.mkdir();
+				}
+				File serverFile = new File(pathdir + File.separator + filename);
+				System.out.println(serverFile.getAbsolutePath());
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+				stream.write(bytes);
+				stream.close();
+				sanpham.setHinhanh(filename);
+
+			}catch(IOException e) {
+				e.printStackTrace();
+
 			}
-			File serverFile = new File(pathdir + File.separator + filename);
-			System.out.println(serverFile.getAbsolutePath());
-			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
-			stream.write(bytes);
-			stream.close();
-
-			sanpham.setHinhanh(filename);
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
+			sanphamHomeImpl.AddSanPham(sanpham);
+			session.setAttribute("notification", "Thêm sản phẩm thành công");
+			_mvShare.setViewName("redirect: ./quanlysanpham");
 		}
-		int count = sanphamHomeImpl.AddSanPham(sanpham);
-		if (count > 0) {
-			_mvShare.addObject("status", "Thêm sản phẩm thành công !");
-
-		} else {
-			_mvShare.addObject("status", "Thêm sản phẩm thất bại !");
-		}
-		_mvShare.setViewName("redirect: ./quanlysanpham");
 		return _mvShare;
 	}
 

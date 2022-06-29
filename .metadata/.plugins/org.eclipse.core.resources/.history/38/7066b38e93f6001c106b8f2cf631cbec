@@ -1,0 +1,31 @@
+package ClothesShop.Service.Admin;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ClothesShop.Dao.BaoCaoDao;
+import ClothesShop.Entity.DonHang;
+
+@Service
+public class BaoCaoImpl implements IBaoCao{
+@Autowired
+BaoCaoDao baocaoDao;
+	public List<String[]> ThongKeSanPham() {
+		return baocaoDao.ThongKeSanPham();
+	}
+	public List<DonHang> ThongKeDonHang() {
+		return baocaoDao.ThongKeDonHang();
+	}
+	public int DemTongDH() {
+		return baocaoDao.DemTongDH();
+	}
+	public int TongDH() {
+		return baocaoDao.TongDH();
+	}
+	public int DemTongSP() {
+		return baocaoDao. DemTongSP();
+	}
+
+}

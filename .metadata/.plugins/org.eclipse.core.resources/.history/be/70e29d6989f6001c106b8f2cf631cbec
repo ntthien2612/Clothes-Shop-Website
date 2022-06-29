@@ -1,0 +1,18 @@
+package ClothesShop.Service.Admin;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import ClothesShop.Dao.BaoCaoDao;
+
+@Service
+public class BaoCaoImpl {
+@Autowired
+BaoCaoDao baocaoDao;
+	public List<String[]> ThongKe() {
+		return baocaoDao.ThongKe();
+	}
+
+}

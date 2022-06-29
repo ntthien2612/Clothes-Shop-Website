@@ -9,12 +9,12 @@
         <li><h1
 				style="color: Blue; text-shadow: yellow 2px -1px 3px, white -2px 1px 2px; position: relative; font-size: 30px; margin: 0; padding: 20px">
 				ClothesShop</h1></li>
+				<marquee style="height: 50px; width:75%; margin-top:2%;font-size: 30px; color: Blue; text-shadow: yellow 2px -1px 3px, white -2px 1px 2px; position: relative;">
+				ClothesShop mang sự tự tin, thoải mái cho phái mạnh</marquee>
         <li></li>
-        <li  style="width: 75%; padding: 20px"><input class="form-control form-control-dark w-100" type="text" placeholder="Tìm kiếm" aria-label="Search"></li>
-       
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li style="font-size: 30px; padding: 20px;"><a class="nav-link" href=">quanlytaikhoan/logout.php" style="color: blue">Thoát</a></li>
+        <li style="font-size: 30px; padding: 20px;"><a class="nav-link" href="../login/dang-xuat" style="color: blue">Thoát</a></li>
       </ul>
     </div>
   </div>

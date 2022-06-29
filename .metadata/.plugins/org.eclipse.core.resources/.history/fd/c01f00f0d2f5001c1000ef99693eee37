@@ -1,0 +1,30 @@
+package ClothesShop.Dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import ClothesShop.Entity.DanhMuc;
+import ClothesShop.Entity.DonHang;
+import ClothesShop.Entity.MapperDonHang;
+
+@Repository
+public class DonHangDao extends BaseDao{
+
+	public List<DonHang> DanhSachDonHang() {
+		List<DonHang> list = new ArrayList<DonHang>();
+		String sql = "select * from donhang";
+		list = _jdbcTemplate.query(sql, new MapperDonHang());
+		return list;
+	}
+
+	public int XacNhanDonHang(int don) {
+		String sql_sp = "update donhang set trangthai='Đang giao' where id_dh="+don;
+//		String sql="insert into nhatky(id_dh, thoigianupdate, trangthai) values("+don,
+		System.out.println( java.time.LocalDateTime.now()); 
+		int list_sp = _jdbcTemplate.update(sql_sp.toString());
+		return list_sp;
+	}
+
+}

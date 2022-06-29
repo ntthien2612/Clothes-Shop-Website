@@ -1,0 +1,13 @@
+package ClothesShop.Service.Admin;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class DonHangImpl {
+
+	public Object DanhSachDonHang() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

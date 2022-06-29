@@ -7,7 +7,6 @@ private String email_kh;
 private String pass;
 private String diachi;
 private String sdt;
-
 public NguoiDung() {
 	super();
 }

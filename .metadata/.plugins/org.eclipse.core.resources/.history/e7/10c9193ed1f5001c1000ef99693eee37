@@ -1,0 +1,15 @@
+package ClothesShop.Entity;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class MapperNhatKy implements RowMapper<NhatKy>{
+	public NhatKy mapRow(ResultSet rs, int rowNum) throws SQLException {
+		NhatKy nhatky = new NhatKy();
+		nhatky.setId(rs.getInt("id"));
+		nhatky.setTen_dm(rs.getString("ten_dm"));
+		return nhatky;
+	}
+}

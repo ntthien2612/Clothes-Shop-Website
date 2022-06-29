@@ -1,0 +1,10 @@
+package ClothesShop.Service.User;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class DonHangImpl {
+	public List<DonHang> getDonHang(){
+		return donHangDao.getDonHang();
+	}
+}

@@ -31,13 +31,13 @@
 				</a>
 			</p>
 			<p>
-				<a class="nav-link" href="#"> <i
-					class="bi bi-question-circle-fill"></i> Quản Lý Phản Hồi
+				<a class="nav-link" href="quanlynhanvien"> <i
+					class="bi bi-question-circle-fill"></i> Quản Lý Nhân Viên
 				</a>
 			</p>
 			<p>
-				<a class="nav-link" href="quanlydonhang"> <i
-					class="bi bi-bar-chart-line"></i> Báo Cáo Doanh Thu
+				<a class="nav-link" href="baocao"> <i
+					class="bi bi-bar-chart-line"></i> Báo Cáo
 				</a>
 			</p>
 		</div>
@@ -47,31 +47,31 @@
 					<b>Thêm sản phẩm</b>
 				</h1>
 				<hr>
-				<form:form action="themsanpham" method="POST" modelAttribute="sanpham" enctype="multipart/form-data">
+				<form action="themsanpham" method="POST" modelAttribute="sanpham" enctype="multipart/form-data">
 					<table style="height: 250px">
 						<tr>
 							<td><b>Tên sản phẩm: </b></td>
-							<td><form:input type="text" path="ten_sp" style="width: 100%; height: 30px"/></td>
+							<td><input type="text" name="ten_sp" style="width: 100%; height: 30px" required/></td>
 						</tr>
 						<tr>
 							<td><b>Danh mục sản phẩm: </b></td>
-							<td><form:select path="id_dm" style="width: 100%; height: 30px">
+							<td><select name="id_dm" style="width: 100%; height: 30px">
 									<c:forEach var="danhmuc" items="${danhmuc }" varStatus="index">
 										<option value="${danhmuc.id_dm }">${danhmuc.ten_dm }</option>
 									</c:forEach>
-								</form:select></td>
+								</select></td>
 						</tr>
 						<tr>
 							<td><b>Giá sản phẩm: </b></td>
-							<td><form:input type="text" path="gia" style="width: 100%; height: 30px"/></td>
+							<td><input type="text" name="gia" style="width: 100%; height: 30px" required/></td>
 						</tr>
 						<tr>
 							<td><b>Hình sản phẩm: </b></td>
-							<td><input name="image" type="file" path="hinhanh" /></td>
+							<td><input name="image" type="file" path="hinhanh" required/></td>
 						</tr>
 						<tr>
 							<td><b>Mô tả sản phẩm: </b></td>
-							<td><form:textarea type="text" path="mota" style="resize: none; width: 100%; height: 30px"></form:textarea></td>
+							<td><textarea type="text" name="mota" style="resize: none; width: 100%; height: 30px" required></textarea></td>
 						</tr>
 						<tr>
 							<td></td>
@@ -79,7 +79,7 @@
 							<button type="reset" class="btn block">Reset</button></td>
 						</tr>
 					</table>
-				</form:form>
+				</form>
 			</div>
 			<div style="float: right; width: 49%; height: 100%">
 

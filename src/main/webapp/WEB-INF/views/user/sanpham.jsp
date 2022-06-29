@@ -11,12 +11,22 @@
 
 	<div style="margin-bottom: 300px">
 
-		<%-- 		<c:forEach var="danhmuc" items="${ danhmuc }" varStatus="index"> --%>
-		<!-- 			<div -->
-		<!-- 				style="font-weight: border:; color: #fff; background-color: #ee4d2d; font-size: 20px; height: 50px; width: 100px; padding-left: 20px; line-height: 50px; margin: 15px 0px"> -->
-		<%-- 				${ danhmuc.ten_dm }</div> --%>
-
-		<%-- 		</c:forEach> --%>
+			<div class="well well-small">
+			<form action="sanpham" method="get">
+			<select name="id" onchange="this.form.submit()">
+				
+				<c:forEach var="tendanhmuc" items="${tendanhmuc}"
+									varStatus="index">
+									<option value="${tendanhmuc.id_dm }">${tendanhmuc.ten_dm }</option>
+								</c:forEach>
+								<c:forEach var="danhmuc" items="${danhmuc }" varStatus="index">
+				<option value="${danhmuc.id_dm }">${danhmuc.ten_dm }</option>
+				</c:forEach>
+				
+				</select>
+				</form>
+				
+			</div>
 
 		<c:forEach var="sanpham" items="${sanpham }" varStatus="index">
 			<div>
@@ -24,7 +34,7 @@
 					<li
 						style="width: 150px; height: 320px; float: left; margin: 10px; border: 1px solid blue; border-radius: 10px">
 						<img style="width: 100%; height: 170px; border-radius: 10px"
-						src="<c:url value= "/assets/user/img/${sanpham.hinhanh}"/>">
+						src="<c:url value= "image/${sanpham.hinhanh}"/>">
 						<p
 							style="color: #000; text-align: center; font-size: 12px; height: 50px; margin-top: 15px">
 							<b> ${sanpham.ten_sp } </b>

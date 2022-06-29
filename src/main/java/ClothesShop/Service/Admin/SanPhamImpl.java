@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ClothesShop.Dao.DanhMucDao;
 import ClothesShop.Dao.SanPhamDao;
 import ClothesShop.Entity.ChiTietSanPham;
 import ClothesShop.Entity.DanhMuc;
@@ -14,6 +15,8 @@ import ClothesShop.Service.Admin.ISanPham;
 public class SanPhamImpl implements ISanPham{
 	@Autowired
 	SanPhamDao sanphamDao = new SanPhamDao();
+	@Autowired
+	DanhMucDao danhmucDao;
 //them san pham	
 	public int AddSanPham(SanPham sanpham) {
 		return sanphamDao.AddSanPham(sanpham);
@@ -52,5 +55,11 @@ public class SanPhamImpl implements ISanPham{
 	}
 	public List<String[]> TimSanPham(String ten_sp) {
 		return sanphamDao.TimSanPham(ten_sp);
+	}
+	public List<String[]> LocDanhMuc(int dm) {
+		return sanphamDao.LocDanhMuc(dm);
+	}
+	public List<DanhMuc> TenDanhMuc(int dm) {
+		return danhmucDao.TenDanhMuc(dm);
 	}
 }

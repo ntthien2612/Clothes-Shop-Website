@@ -1,7 +1,7 @@
 package ClothesShop.Entity;
 
 public class Admin {
-	private long id_ad;
+	private int id_ad;
 	private String taikhoan;
 	private String pass;
 	private String hoten;
@@ -9,7 +9,7 @@ public class Admin {
 	public long getId_ad() {
 		return id_ad;
 	}
-	public void setId_ad(long id_ad) {
+	public void setId_ad(int id_ad) {
 		this.id_ad = id_ad;
 	}
 	public String getTaikhoan() {

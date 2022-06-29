@@ -1,5 +1,11 @@
 package ClothesShop.Controller.User;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,14 +14,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import ClothesShop.Dao.GioHangDao;
 import ClothesShop.Dao.UsersDao;
+import ClothesShop.Entity.SanPham;
 import ClothesShop.Entity.Users;
 import ClothesShop.Service.User.AccountServiceImpl;
 import ClothesShop.Service.User.UserHomeImpl;
-
 @Controller
 public class TaiKhoanController {
 	@Autowired
@@ -43,15 +51,20 @@ public class TaiKhoanController {
 		public ModelAndView CreateAcc(HttpSession session, @ModelAttribute("user") Users user) {
 			int email = usersDao.Count(user.getEmail_kh());
 			String h = user.getSdt();
-			if(email!=0) {
-				session.setAttribute("notification", "Đã tồn tại địa chỉ email này");
+			int check=usersDao.checkLogin(user);
+			if(check==0){
+				session.setAttribute("notification","Vui lòng nhập đầy đủ các thông tin bên dưới!");
 				return _mvShare;
 			}else if(h.length()>10){
-				session.setAttribute("notification","Số điện thoại bạn nhập không được vượt quá 10 chữ số");
+				session.setAttribute("notification","Số điện thoại bạn nhập không được vượt quá 10 chữ số!");
+				return _mvShare;
+			}else if(email!=0){
+				session.setAttribute("notification", "Đã tồn tại địa chỉ email này!");
 				return _mvShare;
 			}else {
-				session.setAttribute("notification","Đăng ký tài khoản thành công");
+				session.setAttribute("notification","Đăng ký tài khoản thành công!");
 				accountService.AddAccount(user);
+				_mvShare.setViewName("redirect: ./dang-nhap");
 				return _mvShare;
 			}
 		}
@@ -68,15 +81,15 @@ public class TaiKhoanController {
 		
 		@RequestMapping(value = "/dang-nhap", method = RequestMethod.POST )
 		public ModelAndView Login(HttpSession session,@ModelAttribute("user") Users user) {
-			 user = accountService.CheckAccount(user);
-			if(user !=null ){
+			user = accountService.CheckAccount(user);
+			if(user!=null){
 				_mvShare.setViewName("redirect:/");
 				session.setAttribute("LoginInfo", user);
 				//lưu id khách hàng vào session
 				session.setAttribute("kh",user.getId_kh());
-//				session.setAttribute("count", giohangDao.Count(user.getId_kh()));
+				session.setAttribute("count", giohangDao.Count(user.getId_kh()));
 			}else {
-				_mvShare.addObject("statusLogin","Đăng nhập thất bại !");
+				session.setAttribute("notification","Email hoặc mật khẩu bạn nhập chưa đúng. Vui lòng thử lại!");
 			}		
 			return _mvShare;	
 		}
@@ -96,10 +109,11 @@ public class TaiKhoanController {
 			chitiet.addObject("khachhang", HomeService.GetDataChiTietKhachHang(id_kh));
 			return chitiet;
 		}
-		
-		//trả về trang chỉnh sửa chi tiết
+
+		//hien trang chinh sua
+
 		@RequestMapping(value="/chinh-sua-chi-tiet", method=RequestMethod.GET, params="id_kh")
-		public ModelAndView ChinhSua(int id_kh) {
+		public ModelAndView ChinhSuaChiTiet(int id_kh) {
 			ModelAndView chitiet = new ModelAndView("user/account/chinhsuachitiet");
 			chitiet.addObject("khachhang", HomeService.GetDataChiTietKhachHang(id_kh));
 			return chitiet;

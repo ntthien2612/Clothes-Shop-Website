@@ -41,7 +41,7 @@
     
     .row.content{
     
-    	height: 55	0px
+    	height: 550px
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -57,7 +57,7 @@
 <body>
 
 <body>
-	<div class="container">
+	<div class="container" style="width:100%">
 		<div id="gototop"></div>
 		
 		<%@include file="/WEB-INF/views/layouts/admin/admin_header.jsp" %>

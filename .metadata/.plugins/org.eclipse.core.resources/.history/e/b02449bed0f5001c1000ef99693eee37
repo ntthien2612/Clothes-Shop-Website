@@ -1,0 +1,8 @@
+package ClothesShop.Entity;
+
+public class NhatKy {
+private int id;
+private int id_dh;
+private Date thoigianupdate;
+private String trangthai;
+}

@@ -1,0 +1,14 @@
+package ClothesShop.Service.User;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ThanhToanImpl {
+@Autowired
+ThanhToanDao thanhtoanDao;
+	public Object MuaHang(int id) {
+		
+	}
+
+}

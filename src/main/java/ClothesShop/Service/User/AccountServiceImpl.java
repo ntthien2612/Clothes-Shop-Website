@@ -4,9 +4,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ClothesShop.Dao.AdminDao;
+
 import ClothesShop.Dao.UsersDao;
-import ClothesShop.Entity.Admin;
 import ClothesShop.Entity.Users;
 @Service
 public class AccountServiceImpl implements IAccountService {
@@ -15,9 +14,7 @@ public class AccountServiceImpl implements IAccountService {
 	
 // thêm người dùng	
 	public int AddAccount(Users user) {
-		
 		user.setPass(BCrypt.hashpw(user.getPass(), BCrypt.gensalt(12)));
-		
 		return usersDao.AddAccount(user);
 	}
 	
@@ -36,5 +33,4 @@ public class AccountServiceImpl implements IAccountService {
 		
 
 	}
-
 }

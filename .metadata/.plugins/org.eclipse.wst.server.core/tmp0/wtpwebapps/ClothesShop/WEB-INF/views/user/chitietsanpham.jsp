@@ -6,14 +6,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Chi Tiết</title>
 </head>
 <body>
 	<c:forEach var="sanpham" items="${sanpham }" varStatus="index">
 	<div style="float: left; width: 40%; height: 40%;">
 	<img style="width: 400px; height: 400px; border-radius: 10px"
-					src="<c:url value= "${sanpham.hinhanh }"/>">
+					src="<c:url value= "/assets/user/img/${sanpham.hinhanh }"/>">
 	</div>
 	<div style="width: 58%; float: right">
 	<b>Tên sản phẩm: </b>${sanpham.ten_sp }</br>
@@ -28,8 +28,18 @@
 	</select></br>
 	<b>Mô tả sản phẩm: </b>	${sanpham.mota }</br>
 	<b>Số lượng: </b>
+	
 	<input type="number" name="soluong_them" min="1" value="1" style="height: 30px; padding: 0; margin: 0; border-radius: 10px">
-	<input type="submit" value="Thêm giỏ hàng" style="height: 30px; padding: 0; margin: 0; background: blue; color: white; border: none; border-radius: 10px">
+	
+	<!-- <button type="submit" style="height: 30px; padding: 0; margin: 0; background: blue; color: white; border: none; border-radius: 10px">Thêm giỏ hàng</button>
+	 -->
+	 <c:if test="${not empty LoginInfo }">
+		<button type="submit" style="height: 30px; padding: 0; margin: 0; background: blue; color: white; border: none; border-radius: 10px">Thêm giỏ hàng</button>
+		</c:if>
+	<c:if test="${ empty LoginInfo }">
+		<button style="height: 30px; padding: 0; margin: 0; background: blue; color: white; border: none; border-radius: 10px">
+		<a href="<c:url value="/dang-nhap" />" style="color:white">Thêm giỏ hàng</a></button>
+		</c:if>
 	</form>
 	</div>
 </c:forEach>

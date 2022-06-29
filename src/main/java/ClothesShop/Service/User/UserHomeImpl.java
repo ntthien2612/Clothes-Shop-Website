@@ -16,9 +16,8 @@ import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.GioHang;
 import ClothesShop.Entity.SanPham;
 import ClothesShop.Entity.Users;
-
 @Service
-public class UserHomeImpl implements UserIHome {
+public class UserHomeImpl implements UserIHome{
 	@Autowired
 	private SanPhamDao sanphamDao;
 	@Autowired
@@ -65,6 +64,10 @@ public class UserHomeImpl implements UserIHome {
 //	thay đổi thông tin khác hàng
 	public int ChinhSuaKhachHang(Users khachhang) {
 		return usersDao.ChinhSuaKhachHang(khachhang);
+	}
+
+	public List<DanhMuc> laytenDanhMuc(int id) { 
+		return sanphamDao.laytenDanhMuc(id);
 	}
 
 }

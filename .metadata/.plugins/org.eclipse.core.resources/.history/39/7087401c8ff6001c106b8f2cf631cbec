@@ -1,0 +1,27 @@
+package ClothesShop.Controller.Admin;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+
+import ClothesShop.Service.Admin.BaoCaoImpl;
+
+@Controller
+public class BaoCaoController {
+	@Autowired
+	BaoCaoImpl baocaoImpl;
+	public ModelAndView _mvShare = new ModelAndView();
+	
+	@RequestMapping(value = "/admin/baocao")
+	public ModelAndView BaoCao() {
+		_mvShare.addObject("thongkesp", baocaoImpl.ThongKeSanPham());
+		_mvShare.addObject("thongkedh", baocaoImpl.ThongKeDonHang());
+		_mvShare.addObject("count_dh", baocaoImpl.DemTongDH());
+		_mvShare.addObject("tongtien", baocaoImpl.TongDH());
+		_mvShare.setViewName("admin/admin_baocao");
+		return _mvShare;
+	}
+}

@@ -11,14 +11,7 @@
 
 	<div style="margin-bottom: 300px">
 
-			<div class="well well-small">
-				<ul class="nav nav-list">
-				<c:forEach var="danhmuc" items="${danhmuc }" varStatus="index" >
-					<li><a href="./sanpham?id=${danhmuc.id_dm }">
-					<span class="icon-chevron-right" ></span>${danhmuc.ten_dm }</a></li>
-				</c:forEach>
-				</ul>
-			</div>
+			
 		<c:forEach var="sanpham" items="${sanpham }" varStatus="index">
 			<div>
 				<ul style="list-style: none;">

@@ -7,15 +7,16 @@ import org.springframework.jdbc.core.RowMapper;
 
 public class MapperGioHang  implements RowMapper<String[]>{
 	public String[] mapRow(ResultSet rs, int rowNum) throws SQLException {
-		String[] list = new String[8];
-		list[0] = String.valueOf(rs.getInt("id"));
-		list[1] = String.valueOf(rs.getInt("giohang.id_sp"));
-		list[2] = rs.getString("ten_sp");
-		list[3] = String.valueOf(rs.getInt("gia"));
-		list[4] = rs.getString("hinhanh");
-		list[5] = String.valueOf(rs.getInt("id_kh"));
-		list[6] = rs.getString("size");
-		list[7] = String.valueOf(rs.getInt("soluong_them"));
+		String[] list = new String[9];
+		list[0] = rs.getString("id");
+		list[1] = rs.getString("giohang.id_kh");
+		list[2] = rs.getString("hinhanh");
+		list[3] = rs.getString("ten_sp");
+		list[4] = rs.getString("gia");
+		list[5] = rs.getString("soluong_them");
+		list[6] = String.valueOf(Integer.parseInt(list[4])*Integer.parseInt(list[5]));
+		list[7] = rs.getString("id_sp");
+		list[8] = rs.getString("size");
 		return list;
 	}
 }

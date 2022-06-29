@@ -1,63 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/views/layouts/user/taglib.jsp" %>   
-<head>
-<title>Thanh Toán</title>
-</head>
-<body>
-<div class="row">
-	<div class="span12">
-	<div class="well well-small">
-	<hr class="soften"/>	
-<h1 style="text-align: center"><b>Chi Tiết Đơn Hàng</b></h1>
-<p><b>Thông tin khách hàng:</b></p>
- <table class="table table-bordered table-hover" style="margin-top: 20px;">
-			<tr>
-				<th style="width: 150px">Họ & Tên: </th>
-				<td>${LoginInfo.ten_kh}</td>
-			</tr>
-			<tr>
-				<th>Email: </th>
-				<td>${LoginInfo.email_kh}</td>
-			</tr>
-			<tr>
-				<th>Địa Chỉ: </th>
-				<td>${LoginInfo.diachi}</td>
-			</tr>
-			<tr>
-				<th>Phone: </th>
-				<td>${LoginInfo.sdt}</td>
-			</tr>
-		</table>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
+<head><title>Chi Tiết Đơn Hàng</title></head>
+<div class="container-fluid text-center" style="border: 1px solid black">
+	<div class="row content">
+		
+		<div style="text-align: left;">
+			<h1>
+				<b>Chi Tiết Đơn Hàng</b>
+			</h1>
+			
+			</table><hr></br>
 <p><b>Thông tin mua hàng:</b></p>
-	<table class="table table-bordered table-condensed">
+	<table style="width: 100%;margin-left:1%" border="1">
               <thead>
-                <tr>
-                  <th style="width: 70px">Hình ảnh</th>
-                  <th>Tên Sản Phẩm</th>
-                  <th>Size</th>
-                  <th>Giá bán</th>
-                  <th>Số lượng </th>
-                  <th>Tổng tiền</th>
+                <tr >
+                  <th style="width: 15%">Hình ảnh</th>
+                  <th style="width: 25%">Tên Sản Phẩm</th>
+                  <th style="width: 15%">Size</th>
+                  <th style="width: 15%">Giá bán</th>
+                  <th style="width: 15%">Số lượng </th>
+                  <th style="width: 15%">Tổng tiền</th>
 				</tr>
               </thead>
               <tbody>
-              <form action="muahang" method="get" modelAttribute="donhang">
-				<c:forEach var="giohang" items="${ giohang }">
+				<c:forEach var="chitietdonhang" items="${ chitietdonhang }">
 					<tr>
-					<td><img style="width: 70px; height: 70px;"
-						src="<c:url value= "/assets/user/img/${giohang[4] }"/>"></td>
-	                  <td>${giohang[2] }</td>
-	                  <td>${giohang[6] }</td>
-	                  <td>${giohang[3] }</td>
-	                  <td>${giohang[7] }</td>
-	                  <td>${giohang[7] * giohang[3] } ₫</td>
+					<td><img style="width: 100%; height: 100%;"
+						src="<c:url value= "/assets/user/img/${chitietdonhang[4] }"/>"></td>
+	                  <td>${chitietdonhang[8] }</td>
+	                  <td>${chitietdonhang[6] }</td>
+	                  <td>${chitietdonhang[7] }</td>
+	                  <td>${chitietdonhang[5] }</td>
+	                  <td><fmt:formatNumber type="number" groupingUsed="true"
+										value="${chitietdonhang[7] * chitietdonhang[5] }" /> ₫ </td>
 	               
 	                </tr>
 				</c:forEach>
 				</tbody>
             </table><br/>
+            
+            <b style="float:right; margin-right: 20%">Tổng cộng: <fmt:formatNumber type="number" groupingUsed="true"
+										value="${tongtien}" /> ₫ </b>
+            
+		</div>
+	</div>
 </div>
-</div>
-</div>
-</body>

@@ -19,12 +19,7 @@ import ClothesShop.Entity.Users;
 @Repository
 public class GioHangDao extends BaseDao{
 	
-//	public int Count(String email) {
-//		int count = 0;
-//		String sql = "SELECT COUNT(*) FROM khachhang where email_kh='" + email + "'";
-//		count = _jdbcTemplate.queryForObject(sql, Integer.class);
-//		return count;
-//	}
+
 	public int ThemGioHang(GioHang giohang) {
 		String sql_sp="insert into giohang (id_kh, id_sp, size, soluong_them) values("+giohang.getId_kh()+","+giohang.getId_sp()+",'"+giohang.getSize()+"',"+giohang.getSoluong_them()+")";
 		int list_sp = _jdbcTemplate.update(sql_sp.toString());

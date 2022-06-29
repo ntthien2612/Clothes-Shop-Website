@@ -6,15 +6,26 @@ import java.sql.Timestamp;
 public class DonHang {
 	private int id_dh;
 	private int id_kh;
-	private Timestamp thoigian_mua;
 	private int tongtien;
-	private String trangthai;
+	private String trangthai= "Chờ xác nhận";
 	private String ten_kh;
+	private Timestamp thoigian_mua;
 	private String email_kh;
 	private String sdt;
 	private String diachi;
+	
+	
 	public DonHang() {
 		super();
+
+	}
+	
+
+	public Timestamp getThoigian_mua() {
+		return thoigian_mua;
+	}
+	public void setThoigian_mua(Timestamp thoigian_mua) {
+		this.thoigian_mua = thoigian_mua;
 	}
 	public int getId_dh() {
 		return id_dh;
@@ -27,12 +38,6 @@ public class DonHang {
 	}
 	public void setId_kh(int id_kh) {
 		this.id_kh = id_kh;
-	}
-	public Timestamp getThoigian_mua() {
-		return thoigian_mua;
-	}
-	public void setThoigian_mua(Timestamp thoigian_mua) {
-		this.thoigian_mua = thoigian_mua;
 	}
 	public int getTongtien() {
 		return tongtien;

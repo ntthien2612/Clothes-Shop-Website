@@ -41,7 +41,7 @@
     
     .row.content{
     
-    	height: 55	0px
+    	height: 550px
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */

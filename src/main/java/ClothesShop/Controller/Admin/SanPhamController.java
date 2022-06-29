@@ -133,39 +133,41 @@ public class SanPhamController {
 	}
 
 	// xu ly chinh sua san pham
-	@RequestMapping(value = "/admin/chinhsua", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-	public ModelAndView SuaSanPham(@ModelAttribute("sanpham") SanPham sanpham,
-			@RequestParam(value = "image", required = false) MultipartFile file, HttpServletRequest request) {
+		@RequestMapping(value = "/admin/chinhsua", method = RequestMethod.POST)
+		public ModelAndView SuaSanPham(@ModelAttribute("sanpham") SanPham sanpham,
+				@RequestParam(value = "image", required = false) MultipartFile file, HttpServletRequest request) {
 
-		String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
-		System.out.println(pathdir);
-		String filename = String.valueOf(new Date().getTime()) + file.getOriginalFilename();
+			String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
+			//System.out.println(pathdir);
+			String filename = String.valueOf(new Date().getTime()) + file.getOriginalFilename();
+			if(!file.getOriginalFilename().isEmpty()) {
+				sanpham.setHinhanh(filename);
+			}
+			try {
+				byte[] bytes = file.getBytes();
+				File dir = new File(pathdir);
+				if (!dir.exists()) {
+					dir.mkdir();
+				}
 
-		try {
-			byte[] bytes = file.getBytes();
-			File dir = new File(pathdir);
-			if (!dir.exists()) {
-				dir.mkdir();
+				File serverFile = new File(pathdir + File.separator + filename);
+				System.out.println(serverFile.getAbsolutePath());
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+				stream.write(bytes);
+				stream.close();
+
+				
+
+			} catch (IOException e) {
+
+				e.printStackTrace();
 			}
 
-			File serverFile = new File(pathdir + File.separator + filename);
-			System.out.println(serverFile.getAbsolutePath());
-			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
-			stream.write(bytes);
-			stream.close();
+			int count = sanphamHomeImpl.UpdateSanPham(sanpham);
 
-			sanpham.setHinhanh(filename);
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
+			_mvShare.setViewName("redirect:/admin/quanlysanpham");
+			return _mvShare;
 		}
-
-		int count = sanphamHomeImpl.UpdateSanPham(sanpham);
-		_mvShare.setViewName("redirect:/admin/quanlysanpham");
-		return _mvShare;
-	}
-
 //tim kiem san pham trang admin
 	@RequestMapping(value = "admin/timsp", method = RequestMethod.GET, params = "ten_sp", produces = "application/x-www-form-urlencoded;charset=UTF-8")
 	public ModelAndView TimKiemSanPham(String ten_sp) {

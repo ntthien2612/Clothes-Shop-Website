@@ -208,9 +208,10 @@ public class SanPhamDao extends BaseDao {
 	// xu ly chinh sua san pham
 	public int UpdateSanPham(SanPham sanpham) {
 		try {
-			String sql = "UPDATE sanpham SET `id_dm`=" + sanpham.getId_dm() + ",`ten_sp`='" + sanpham.getTen_sp()
-					+ "',`gia`=" + sanpham.getGia() + ",`hinhanh`='" + sanpham.getHinhanh() + "',`mota`='"
-					+ sanpham.getMota() + "' WHERE id_sp=" + sanpham.getId_sp();
+			String sql ;
+			if(sanpham.getHinhanh() != null)
+			 sql = "UPDATE sanpham SET `id_dm`="+sanpham.getId_dm()+",`ten_sp`='"+sanpham.getTen_sp()+"',`gia`="+sanpham.getGia()+",`hinhanh`='"+sanpham.getHinhanh()+"',`mota`='"+sanpham.getMota()+"' WHERE id_sp="+sanpham.getId_sp();
+			else sql = "UPDATE sanpham SET `id_dm`="+sanpham.getId_dm()+",`ten_sp`='"+sanpham.getTen_sp()+"',`gia`="+sanpham.getGia()+",`mota`='"+sanpham.getMota()+"' WHERE id_sp="+sanpham.getId_sp();
 			int list = _jdbcTemplate.update(sql.toString());
 			return list;
 		} catch (EmptyResultDataAccessException e) {
@@ -218,6 +219,7 @@ public class SanPhamDao extends BaseDao {
 		}
 
 	}
+	
 
 //	tìm sản phẩm theo tên
 	public List<String[]> TimSanPham(String ten_sp) {

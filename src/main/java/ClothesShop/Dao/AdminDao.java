@@ -47,7 +47,7 @@ public class AdminDao extends BaseDao {
 			String sql = "SELECT COUNT(*) FROM admin where taikhoan='" + email + "'";
 			int count = _jdbcTemplate.queryForObject(sql, Integer.class);
 			return count;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -70,7 +70,7 @@ public class AdminDao extends BaseDao {
 			String sql = "SELECT COUNT(*) FROM admin where taikhoan='" + email + "'";
 			count = _jdbcTemplate.queryForObject(sql, Integer.class);
 			return count;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -95,6 +95,48 @@ public class AdminDao extends BaseDao {
 			return list;
 		} catch (EmptyResultDataAccessException e) {
 			return null;
+		}
+	}
+
+	public List<Admin> XoaNhanVien(int idnv) {
+		try {
+			List<Admin> list_sp = new ArrayList<Admin>();
+			String sql_sp = "delete from admin where id_ad=" + idnv;
+			int delete = _jdbcTemplate.update(sql_sp.toString());
+			return list_sp;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	public List<Admin> LayAdmin(int idnv) {
+		try {
+			List<Admin> list = new ArrayList<Admin>();
+			String sql = "select * from admin where id_ad=" + idnv;
+			list = _jdbcTemplate.query(sql, new MapperAdmin());
+			return list;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	public Admin GetAdminByAcc(String pass_cu, int id) {
+		try {
+			String sql = "SELECT * FROM admin WHERE id_ad = "+id;
+			Admin result = _jdbcTemplate.queryForObject(sql, new MapperAdmin());
+			return result;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
+	}
+
+	public int SetAccountAdmin(String pass_moi, int id, Admin admin) {
+		try {
+			String sql = "update admin set pass='"+admin.getPass()+"' where id_ad="+id;
+			int update = _jdbcTemplate.update(sql.toString());
+			return update;
+		} catch (Exception e) {
+			return 0;
 		}
 	}
 

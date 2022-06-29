@@ -54,18 +54,18 @@
 					<div class="form-group">
 						<label for="email">Email:</label> <input required="true"
 							type="email" class="form-control" id="email" name="taikhoan"
-							value="" style="margin-left: 10px" placeholder="Nhập email" />
+							value="" style="margin-left: 10px" placeholder="Nhập email" required/>
 					</div>
 					<div class="form-group">
 						<label for="pwd">Mật Khẩu:</label> <input required="true"
 							type="password" class="form-control" id="pwd" name="pass"
 							minlength="6" style="margin-left: 20px"
-							placeholder="Nhập mật khẩu" />
+							placeholder="Nhập mật khẩu" required />
 					</div>
 					<div class="form-group">
 						<label for="pwd">Tên:</label> <input required="true" type="text"
 							class="form-control" id="pwd" name="hoten" minlength="6"
-							style="margin-left: 10px" placeholder="Nhập tên" />
+							style="margin-left: 10px" placeholder="Nhập tên" required />
 					</div>
 					<p style="height: 30px; color: red">${ statusLogin }</p>
 					<button type="submit" class="btn btn-success"

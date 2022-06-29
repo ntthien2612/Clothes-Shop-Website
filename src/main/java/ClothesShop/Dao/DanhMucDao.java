@@ -89,15 +89,30 @@ public class DanhMucDao extends BaseDao {
 					+ danhmuc.getId_dm();
 			int update = _jdbcTemplate.update(sql.toString());
 			return update;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
-	
+
 	public int Count(String tendm) {
-		int count = 0;
-		String sql = "SELECT COUNT(*) FROM danhmuc where ten_dm='" + tendm + "'";
-		count = _jdbcTemplate.queryForObject(sql, Integer.class);
-		return count;
+		try {
+			int count = 0;
+			String sql = "SELECT COUNT(*) FROM danhmuc where ten_dm='" + tendm + "'";
+			count = _jdbcTemplate.queryForObject(sql, Integer.class);
+			return count;
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+
+	public List<DanhMuc> TenDanhMuc(int dm) {
+		try {
+			List<DanhMuc> list = new ArrayList<DanhMuc>();
+			String sql = "select * from danhmuc where id_dm=" + dm;
+			list = _jdbcTemplate.query(sql, new MapperDanhMuc());
+			return list;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 }

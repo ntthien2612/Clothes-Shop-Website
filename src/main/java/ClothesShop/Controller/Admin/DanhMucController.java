@@ -1,9 +1,6 @@
 package ClothesShop.Controller.Admin;
 
-<<<<<<< HEAD
-=======
 import javax.servlet.http.HttpServletRequest;
->>>>>>> 8ede62c5e4e7c5c7be7abb3679113e2650c1289a
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,42 +27,22 @@ public class DanhMucController {
 	@Autowired
 	DanhMucDao danhmucDao;
 	public ModelAndView _mvShare = new ModelAndView();
-<<<<<<< HEAD
-	
-//xu ly them danh muc
+
+	//xu ly them danh muc
 		@RequestMapping(value = "admin/quanlydanhmucSP", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-		public ModelAndView CreateDanhMuc(@ModelAttribute("danhmuc") DanhMuc danhmuc) {
-			int count = danhmucHomeImpl.AddDanhMuc(danhmuc);
+		public ModelAndView CreateDanhMuc(HttpSession session, @ModelAttribute("danhmuc") DanhMuc danhmuc) {
 			int check = danhmucDao.Count(danhmuc.getTen_dm());
-			if (count > 0) {// them it nhat dc 1 dong
-				_mvShare.addObject("status", "Thêm danh mục thành công !");
-=======
->>>>>>> 8ede62c5e4e7c5c7be7abb3679113e2650c1289a
-
-//xu ly them danh muc
-	@RequestMapping(value = "admin/quanlydanhmucSP", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-	public ModelAndView CreateDanhMuc(@ModelAttribute("danhmuc") DanhMuc danhmuc) {
-		int count = danhmucHomeImpl.AddDanhMuc(danhmuc);
-		if (count > 0) {// them it nhat dc 1 dong
-			_mvShare.addObject("status", "Thêm danh mục thành công !");
-
-		} else {
-			_mvShare.addObject("status", "Thêm danh mục thất bại !");
+			if(check!=0) {
+				session.setAttribute("notification","Tên danh mục này đã tồn tại!");
+				_mvShare.setViewName("redirect:/admin/quanlydanhmucSP");
+				return _mvShare;
+			}else {
+				danhmucHomeImpl.AddDanhMuc(danhmuc);
+				session.setAttribute("notification","Thêm danh mục sản phẩm thành công!");
+				_mvShare.setViewName("redirect:/admin/quanlydanhmucSP");
+				return _mvShare;
+			}
 		}
-<<<<<<< HEAD
-// trang danh muc
-	@RequestMapping(value = "/admin/quanlydanhmucSP", method = RequestMethod.GET)
-	public ModelAndView DanhMuc() {
-			_mvShare.addObject("danhmuc", new DanhMuc());// tao 1 doi tuong danh muc moi
-			_mvShare.addObject("danhsach", danhmucHomeImpl.GetDataHienDanhMuc());//danhsach do ra o var va items ben file jsp
-			_mvShare.setViewName("admin/admin_danhmuc");
-			return _mvShare;
-=======
-		_mvShare.setViewName("redirect:/admin/quanlydanhmucSP");
-		return _mvShare;
->>>>>>> 8ede62c5e4e7c5c7be7abb3679113e2650c1289a
-	}
-
 // trang danh muc
 	@RequestMapping(value = "/admin/quanlydanhmucSP", method = RequestMethod.GET)
 	public ModelAndView DanhMuc(HttpSession session, HttpServletRequest request) {

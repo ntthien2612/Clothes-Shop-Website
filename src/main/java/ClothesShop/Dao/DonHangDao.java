@@ -31,7 +31,7 @@ public class DonHangDao extends BaseDao {
 			String sql_sp = "update donhang set trangthai='Đang giao' where id_dh=" + don;
 			int list_sp = _jdbcTemplate.update(sql_sp.toString());
 			return list_sp;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -43,7 +43,7 @@ public class DonHangDao extends BaseDao {
 					+ java.time.LocalDateTime.now() + "'," + "'Đang giao')";
 			int list_sp = _jdbcTemplate.update(sql_sp.toString());
 			return list_sp;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -72,5 +72,5 @@ public class DonHangDao extends BaseDao {
 			return null;
 		}
 	}
-
+	
 }

@@ -32,6 +32,7 @@ public class AdminDangKyController {
 			public ModelAndView CreateAcc(HttpSession session, @ModelAttribute("admin") Admin admin) {
 					session.setAttribute("notification","Đăng ký tài khoản thành công");
 					accountService.AddAccountAdmin(admin);
+					_mvShare.setViewName("redirect: ./quanlynhanvien");
 					return _mvShare;
 				
 

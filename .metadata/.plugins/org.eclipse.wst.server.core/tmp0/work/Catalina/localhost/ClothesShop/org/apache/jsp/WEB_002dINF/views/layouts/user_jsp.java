@@ -30,7 +30,11 @@ public final class user_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_dependants.put("jar:file:/C:/DevPrograms/ClothesShop/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ClothesShop/WEB-INF/lib/jstl-1.2.jar!/META-INF/fmt.tld", Long.valueOf(1153359882000L));
     _jspx_dependants.put("/WEB-INF/lib/jstl-1.2.jar", Long.valueOf(1654499598573L));
     _jspx_dependants.put("/WEB-INF/views/layouts/user/footer.jsp", Long.valueOf(1656402775199L));
+<<<<<<< HEAD
     _jspx_dependants.put("/WEB-INF/views/layouts/user/header.jsp", Long.valueOf(1656411544546L));
+=======
+    _jspx_dependants.put("/WEB-INF/views/layouts/user/header.jsp", Long.valueOf(1656473388625L));
+>>>>>>> 63bcaf6cf8f3a519b3eefb9636e3ee22d7259deb
     _jspx_dependants.put("/WEB-INF/lib/sitemesh-2.4.1.jar", Long.valueOf(1654092477537L));
     _jspx_dependants.put("/WEB-INF/lib/spring-webmvc-5.3.18.jar", Long.valueOf(1654051976030L));
   }
@@ -721,7 +725,9 @@ public final class user_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_005fif_005f3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("					<li class=\"\"><a href=\"./donhang\">Đơn hàng</a></li>\r\n");
+          out.write("					<li class=\"\"><a href=\"./donhang?idkh=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${LoginInfo.id_kh}", java.lang.String.class, (javax.servlet.jsp.PageContext)_jspx_page_context, null));
+          out.write("\">Đơn hàng</a></li>\r\n");
           out.write("					");
           int evalDoAfterBody = _jspx_th_c_005fif_005f3.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

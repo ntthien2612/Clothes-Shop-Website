@@ -68,7 +68,9 @@ tr:nth-child(even) {
 		<tablea a style="margin-left: 20%; height: 70px">
 			<tr>
 				<td><b>Tên danh mục: </b></td>
+
 				<td><input type="text" name="ten_dm" placeholder="Nhập tên danh mục sản phẩm" style="width: 300px" required/></td>
+
 			</tr>
 			<tr><td></td><td><c:if test="${not empty notification}">
 						<p style="color: red; font-size: 16px;"><i>${notification }</i></p>

@@ -45,6 +45,7 @@ public class SanPhamController {
 		if (session.getAttribute("AdminLoginInfo") != null) {
 			_mvShare.setViewName("admin/admin_danhsachsanpham");
 			_mvShare.addObject("danhsachsanpham", sanphamHomeImpl.GetDataDanhSachSanPham());
+			_mvShare.addObject("locdanhmuc", HomeService.GetDataDanhMuc());
 			return _mvShare;
 		} else {
 			_mvShare.setViewName("redirect: ../login/");
@@ -99,26 +100,6 @@ public class SanPhamController {
 			session.setAttribute("notification", "Thêm sản phẩm thành công");
 			_mvShare.setViewName("redirect: ./quanlysanpham");
 		}
-//		String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
-//		System.out.println(pathdir);
-//		String filename = String.valueOf(new Date().getTime()) + file.getOriginalFilename();
-//		try {
-//			byte[] bytes = file.getBytes();
-//			File dir = new File(pathdir);
-//			if (!dir.exists()) {
-//				dir.mkdir();
-//			}
-//			File serverFile = new File(pathdir + File.separator + filename);
-//			System.out.println(serverFile.getAbsolutePath());
-//			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
-//			stream.write(bytes);
-//			stream.close();
-//			sanpham.setHinhanh(filename);
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		_mvShare.setViewName("redirect: ./quanlysanpham");
 		return _mvShare;
 	}
 
@@ -192,7 +173,17 @@ public class SanPhamController {
 	@RequestMapping(value = "admin/timsp", method = RequestMethod.GET, params = "ten_sp", produces = "application/x-www-form-urlencoded;charset=UTF-8")
 	public ModelAndView TimKiemSanPham(String ten_sp) {
 		ModelAndView sanpham = new ModelAndView("admin/admin_danhsachsanpham");
+		sanpham.addObject("locdanhmuc", HomeService.GetDataDanhMuc());
 		sanpham.addObject("sanphamtim", sanphamHomeImpl.TimSanPham(ten_sp));
+		return sanpham;
+	}
+//loc san pham theo danh muc
+	@RequestMapping(value = "admin/loc_danhmuc", method = RequestMethod.GET, params = "dm", produces = "application/x-www-form-urlencoded;charset=UTF-8")
+	public ModelAndView LocDanhMuc(int dm) {
+		ModelAndView sanpham = new ModelAndView("admin/admin_danhsachsanpham");
+		sanpham.addObject("locsanpham", sanphamHomeImpl.LocDanhMuc(dm));
+		sanpham.addObject("tendm", sanphamHomeImpl.TenDanhMuc(dm));
+		sanpham.addObject("locdanhmuc", HomeService.GetDataDanhMuc());
 		return sanpham;
 	}
 }

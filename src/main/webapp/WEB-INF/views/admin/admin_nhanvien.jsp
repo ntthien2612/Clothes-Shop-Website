@@ -68,11 +68,14 @@ tr:nth-child(even) {
     <tr><th style="width: 20%">ID</th><th style="width: 30%">Tài khoản</th><th style="width: 30%">Họ tên</th></tr>
     
     <c:forEach var="timkiem_ad" items="${timkiem_ad}" varStatus="index">
-      <tr><td>${timkiem_ad.id_ad }</td><td>${timkiem_ad.taikhoan }</td><td>${timkiem_ad.hoten }</td></tr>
+      <tr><td>${timkiem_ad.id_ad }</td><td>${timkiem_ad.taikhoan }</td><td>${timkiem_ad.hoten }</td>
+      <td><a href="xoanhanvien?idnv=${timkiem_ad.id_ad }">Xóa</a></td>
+      <td><a href="doimatkhau?idnv=${timkiem_ad.id_ad }">Đổi mật khẩu</a></td></tr>
     </c:forEach>
     
     <c:forEach var="admin" items="${admin}" varStatus="index">
-    <tr><td>${admin.id_ad }</td><td>${admin.taikhoan }</td><td>${admin.hoten }</td></tr>
+    <tr><td>${admin.id_ad }</td><td>${admin.taikhoan }</td><td>${admin.hoten }</td><td><a href="xoanhanvien?idnv=${admin.id_ad }">Xóa</a></td>
+    <td><a href="doimatkhau?idnv=${admin.id_ad }">Đổi mật khẩu</a></td></tr>
     </c:forEach>
     </table>
     </div>

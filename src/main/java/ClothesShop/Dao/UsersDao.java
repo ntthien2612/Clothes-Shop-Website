@@ -67,7 +67,7 @@ public class UsersDao extends BaseDao {
 					+ "',sdt='" + khachhang.getSdt() + "'where id_kh=" + khachhang.getId_kh();
 			int update = _jdbcTemplate.update(sql.toString());
 			return update;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
@@ -79,17 +79,23 @@ public class UsersDao extends BaseDao {
 			String sql = "SELECT COUNT(*) FROM khachhang where email_kh='" + email + "'";
 			count = _jdbcTemplate.queryForObject(sql, Integer.class);
 			return count;
-		} catch (EmptyResultDataAccessException e) {
+		} catch (Exception e) {
 			return 0;
 		}
 	}
 
+
 	public int checkLogin(Users kh) {
-		int check;
-		if (kh.getEmail_kh() == "" || kh.getTen_kh() == "" || kh.getDiachi() == "" || kh.getPass() == ""|| kh.getSdt() == "")
-			check = 0;
-		else
-			check = 1;
-		return check;
+		try {
+			int check;
+			if (kh.getEmail_kh() == "" || kh.getTen_kh() == "" || kh.getDiachi() == "" || kh.getPass() == ""
+					|| kh.getSdt() == "")
+				check = 0;
+			else
+				check = 1;
+			return check;
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 }

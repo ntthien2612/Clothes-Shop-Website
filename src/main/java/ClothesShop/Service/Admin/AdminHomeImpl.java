@@ -27,5 +27,11 @@ public class AdminHomeImpl implements AdminIHome {
 	public List<Admin> GetDataTimKiemAdmin(String tenad) {
 		return adminDao.GetDataTimKiemAdmin(tenad);
 	}
+	public List<Admin> XoaNhanVien(int idnv) {
+		return adminDao.XoaNhanVien(idnv);
+	}
+	public List<Admin> LayAdmin(int idnv) {
+		return adminDao.LayAdmin(idnv);
+	}
 
 }

@@ -72,31 +72,51 @@ tr:nth-child(even) {
 <th colspan="2" style="text-align: center">Tùy chọn</th>
 </tr>
 
-<c:forEach var="danhsachsanpham" items="${danhsachsanpham}" varStatus="index">
-<tr>
-<td style="width: 20%"><textarea style="width: 100%; height: 100%; border: none; resize: none">${danhsachsanpham[2] }</textarea></td>
-<td style="width: 10%;text-align: center">${danhsachsanpham[6] }</td>
-<td style="width: 10%;text-align: center">${danhsachsanpham[3] }</td>
-<td style="width: 10%"><img style="width: 100%; height: 65px;"
-src="<c:url value= "/assets/user/img/${danhsachsanpham[4] }"/>"></td>
-<td><textarea style="width: 100%; height: 100%; border: none; resize: none">${danhsachsanpham[5] }</textarea></td>
-<td style="width: 10%; text-align: center"><a href="<c:url value='chinhsua_sp?id_chinhsua=${danhsachsanpham[0] }' />">Chỉnh sửa</a></td>
-<td style="width: 10%; text-align: center"><a href="<c:url value='xoa_sp?id_xoa=${danhsachsanpham[0] }' />">Xóa</a></td></tr>
-</c:forEach>
+					<!-- loc san pham theo ten -->
+					<c:forEach var="sanphamtim" items="${sanphamtim}" varStatus="index">
+						<tr>
+							<td style="width: 20%"><textarea
+									style="width: 100%; height: 100%; border: none; resize: none">${sanphamtim[2] }</textarea></td>
+							<td style="width: 10%; text-align: center">${sanphamtim[6] }</td>
+							<td style="width: 10%; text-align: center">${sanphamtim[3] }</td>
+							<td style="width: 10%"><img
+								style="width: 100%; height: 65px;"
+								src="<c:url value= "/assets/user/img/${sanphamtim[4] }"/>"></td>
+							<td><textarea
+									style="width: 100%; height: 100%; border: none; resize: none">${sanphamtim[5] }</textarea></td>
+							<td style="width: 10%; text-align: center"><a
+								href="<c:url value='chinhsua_sp?id_chinhsua=${sanphamtim[0] }' />">Chỉnh
+									sửa</a></td>
+							<td style="width: 10%; text-align: center"><a
+								href="<c:url value='xoa_sp?id_xoa=${sanphamtim[0] }' />">Xóa</a></td>
+						</tr>
+					</c:forEach>
 
-<c:forEach var="sanphamtim" items="${sanphamtim}" varStatus="index">
-<tr>
-<td style="width: 20%"><textarea style="width: 100%; height: 100%; border: none; resize: none">${sanphamtim[2] }</textarea></td>
-<td style="width: 10%;text-align: center">${sanphamtim[6] }</td>
-<td style="width: 10%;text-align: center">${sanphamtim[3] }</td>
-<td style="width: 10%"><img style="width: 100%; height: 65px;"
-src="<c:url value= "/assets/user/img/${sanphamtim[4] }"/>"></td>
-<td><textarea style="width: 100%; height: 100%; border: none; resize: none">${sanphamtim[5] }</textarea></td>
-<td style="width: 10%; text-align: center"><a href="<c:url value='chinhsua_sp?id_chinhsua=${sanphamtim[0] }' />">Chỉnh sửa</a></td>
-<td style="width: 10%; text-align: center"><a href="<c:url value='xoa_sp?id_xoa=${sanphamtim[0] }' />">Xóa</a></td></tr>
-</c:forEach>
-</table>
-    </div>
-    </div>
-  </div>
+					<!-- loc san pham theo danh muc -->
+					<c:forEach var="locsanpham" items="${locsanpham}" varStatus="index">
+						<tr>
+							<td style="width: 20%"><textarea
+									style="width: 100%; height: 100%; border: none; resize: none">${locsanpham[2] }</textarea></td>
+							<td style="width: 10%; text-align: center">${locsanpham[6] }</td>
+							<td style="width: 10%; text-align: center">${locsanpham[3] }</td>
+							<td style="width: 10%"><img
+								style="width: 100%; height: 65px;"
+								src="<c:url value= "/assets/user/img/${locsanpham[4] }"/>"></td>
+							<td><textarea
+									style="width: 100%; height: 100%; border: none; resize: none">${locsanpham[5] }</textarea></td>
+							<td style="width: 10%; text-align: center"><a
+								href="<c:url value='chinhsua_sp?id_chinhsua=${locsanpham[0] }' />">Chỉnh
+									sửa</a></td>
+							<td style="width: 10%; text-align: center"><a
+								href="<c:url value='xoa_sp?id_xoa=${locsanpham[0] }' />">Xóa</a></td>
+						</tr>
+					</c:forEach>
+				</table>
+				<c:if test="${empty locsanpham }">
+					<p style="color: red">Không có sản phẩm</p>
+				</c:if>
+				
+			</div>
+		</div>
+	</div>
 </div>

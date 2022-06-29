@@ -64,6 +64,7 @@ public class TaiKhoanController {
 			}else {
 				session.setAttribute("notification","Đăng ký tài khoản thành công!");
 				accountService.AddAccount(user);
+				_mvShare.setViewName("redirect: ./dang-nhap");
 				return _mvShare;
 			}
 		}
@@ -108,7 +109,6 @@ public class TaiKhoanController {
 			chitiet.addObject("khachhang", HomeService.GetDataChiTietKhachHang(id_kh));
 			return chitiet;
 		}
-		//hien trang chinh sua
 		@RequestMapping(value="/chinh-sua-chi-tiet", method=RequestMethod.GET, params="id_kh")
 		public ModelAndView ChinhSuaChiTiet(int id_kh) {
 			ModelAndView chitiet = new ModelAndView("user/account/chinhsuachitiet");

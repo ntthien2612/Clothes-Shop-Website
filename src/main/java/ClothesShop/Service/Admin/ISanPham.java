@@ -3,6 +3,7 @@ package ClothesShop.Service.Admin;
 import java.util.List;
 
 import ClothesShop.Entity.ChiTietSanPham;
+import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Entity.SanPham;
 
 public interface ISanPham {
@@ -15,4 +16,5 @@ public interface ISanPham {
 	public List<String[]> GetDataSuaSanPham(int id_chinhsua);
 	public int UpdateSanPham(SanPham sanpham);
 	public List<String[]> TimSanPham(String ten_sp);
+	public List<DanhMuc> TenDanhMuc(int dm);
 }

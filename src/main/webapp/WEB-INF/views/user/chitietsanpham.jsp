@@ -13,7 +13,7 @@
 	<c:forEach var="sanpham" items="${sanpham }" varStatus="index">
 	<div style="float: left; width: 40%; height: 40%;">
 	<img style="width: 400px; height: 400px; border-radius: 10px"
-					src="<c:url value= "/assets/user/img/${sanpham.hinhanh }"/>">
+					src="<c:url value= "/image/${sanpham.hinhanh }"/>">
 	</div>
 	<div style="width: 58%; float: right">
 	<b>Tên sản phẩm: </b>${sanpham.ten_sp }</br>

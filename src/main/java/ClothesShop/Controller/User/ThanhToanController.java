@@ -50,7 +50,7 @@ public class ThanhToanController {
 			thanhtoanimpl.SaveChiTietDonHang(id_dh, size, sp.getGia(), id_sp, soluong);
 			i++;
 		}
-		_mvShare.setViewName("user/index");
+		_mvShare.setViewName("redirect: ./donhang?id_kh=" + donhang.getId_kh());
 		return _mvShare;
 	}
 

@@ -34,7 +34,7 @@
 								<td style="width: 15%">
 								<img
 										style="width: 100%; height: 100%;"
-										src="<c:url value= "/assets/user/img/${hienthithanhtoan[2] }"/>"></td>
+										src="<c:url value= "/image/${hienthithanhtoan[2] }"/>"></td>
 								<td >${hienthithanhtoan[3] }</td>
 								<input name="soluong<%out.print(i); %>" value="${hienthithanhtoan[5] }" hidden/>
 								<input name="id_sp<%out.print(i); %>" value="${hienthithanhtoan[7] }" hidden/>

@@ -29,7 +29,7 @@
 						<div class="item">
 					</c:if>
 							<img style="width: 100%"
-								src="<c:url value= "/assets/user/img/${sanpham.hinhanh}"/>"
+								src="<c:url value= "/image/${sanpham.hinhanh}"/>"
 								alt="bootstrap ecommerce templates">
 						</div>
 						</c:forEach>

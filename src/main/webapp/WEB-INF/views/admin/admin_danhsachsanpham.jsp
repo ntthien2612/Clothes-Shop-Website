@@ -92,7 +92,7 @@
 							<td style="width: 10%; text-align: center">${danhsachsanpham[3] }</td>
 							<td style="width: 10%"><img
 								style="width: 100%; height: 65px;"
-								src="<c:url value= "/assets/user/img/${danhsachsanpham[4] }"/>"></td>
+								src="<c:url value= "/image/${danhsachsanpham[4] }"/>"></td>
 							<td><textarea
 									style="width: 100%; height: 100%; border: none; resize: none">${danhsachsanpham[5] }</textarea></td>
 							<td style="width: 10%; text-align: center"><a
@@ -112,7 +112,7 @@
 							<td style="width: 10%; text-align: center">${sanphamtim[3] }</td>
 							<td style="width: 10%"><img
 								style="width: 100%; height: 65px;"
-								src="<c:url value= "/assets/user/img/${sanphamtim[4] }"/>"></td>
+								src="<c:url value= "/image/${sanphamtim[4] }"/>"></td>
 							<td><textarea
 									style="width: 100%; height: 100%; border: none; resize: none">${sanphamtim[5] }</textarea></td>
 							<td style="width: 10%; text-align: center"><a
@@ -132,7 +132,7 @@
 							<td style="width: 10%; text-align: center">${locsanpham[3] }</td>
 							<td style="width: 10%"><img
 								style="width: 100%; height: 65px;"
-								src="<c:url value= "/assets/user/img/${locsanpham[4] }"/>"></td>
+								src="<c:url value= "/image/${locsanpham[4] }"/>"></td>
 							<td><textarea
 									style="width: 100%; height: 100%; border: none; resize: none">${locsanpham[5] }</textarea></td>
 							<td style="width: 10%; text-align: center"><a

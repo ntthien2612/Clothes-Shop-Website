@@ -61,7 +61,7 @@
 		<tr ><td><b>Giá sản phẩm: </b></td>
 		<td><input type="text" name="gia" value="${edit_sanpham[3] }" style="width: 100%"></td></tr>
 		<tr><td><b>Hình sản phẩm: </b></td>
-		<td><img style="width: 100px; height: 100px; border-radius: 10px" src="<c:url value= "/assets/user/img/${edit_sanpham[4] }"/>"><input 
+		<td><img style="width: 100px; height: 100px; border-radius: 10px" src="<c:url value= "/image/${edit_sanpham[4] }"/>"><input 
 		 name="image" type="file" path="hinhanh" /></td></tr>
 		<tr><td><b>Mô tả sản phẩm: </b></td>
 		<td><textarea name="mota" style="resize: none; width: 100%;">${edit_sanpham[5] }</textarea></td></tr>

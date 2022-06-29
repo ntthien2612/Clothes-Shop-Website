@@ -83,7 +83,7 @@
 				<c:forEach var="chitietdonhang" items="${ chitietdonhang }">
 					<tr>
 					<td><img style="width: 70px; height: 70px;"
-						src="<c:url value= "/assets/user/img/${chitietdonhang[4] }"/>"></td>
+						src="<c:url value= "/image/${chitietdonhang[4] }"/>"></td>
 	                  <td>${chitietdonhang[8] }</td>
 	                  <td style="text-align: center">${chitietdonhang[6] }</td>
 	                  <td style="text-align: center">${chitietdonhang[7] }</td>

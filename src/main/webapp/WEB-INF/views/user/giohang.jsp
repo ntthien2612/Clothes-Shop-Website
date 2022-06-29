@@ -35,7 +35,7 @@
 
 									<td style="width: 10%"><img
 										style="width: 100%; height: 65px;"
-										src="<c:url value= "/assets/user/img/${giohang[2] }"/>"></td>
+										src="<c:url value= "/image/${giohang[2] }"/>"></td>
 									<td>${giohang[3] }</td>
 									<td>${giohang[8] }</td>
 									<td><fmt:formatNumber type="number" groupingUsed="true"

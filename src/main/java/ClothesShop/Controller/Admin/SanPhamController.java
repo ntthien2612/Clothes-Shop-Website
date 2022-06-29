@@ -69,8 +69,9 @@ public class SanPhamController {
 	@RequestMapping(value = "admin/themsanpham", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
 	public ModelAndView CreateSanPham(@ModelAttribute("sanpham") SanPham sanpham,
 			@RequestParam(value = "image", required = false) MultipartFile file, HttpServletRequest request) {
-		String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
-		System.out.println(pathdir);
+//		String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
+//		System.out.println(pathdir);
+		String pathdir = System.getProperty("catalina.home")+"/img/";
 		String filename = String.valueOf(new Date().getTime()) + file.getOriginalFilename();
 		try {
 			byte[] bytes = file.getBytes();

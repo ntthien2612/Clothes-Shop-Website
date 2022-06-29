@@ -21,8 +21,10 @@ import ClothesShop.Service.User.GioHangImpl;
 public class GioHangController {
 	@Autowired
 	GioHangImpl giohangImpl;
-	@Autowired GioHangDao giohangDao;
+	@Autowired
+	GioHangDao giohangDao;
 	public ModelAndView _mvShare = new ModelAndView();
+
 	@Autowired
 	AccountServiceImpl accountService = new AccountServiceImpl();
 
@@ -45,15 +47,12 @@ public class GioHangController {
 	@RequestMapping(value = "/giohang", method = RequestMethod.GET, params = "id_kh")
 	public ModelAndView GioHang(int id_kh, HttpSession session, HttpServletRequest request) {
 			ModelAndView giohang = new ModelAndView("user/giohang");
-			if (session.getAttribute("AdminLoginInfo") != null) {
+			if (session.getAttribute("LoginInfo") != null) {
 			giohang.addObject("giohang", giohangImpl.HienGioHang(id_kh));
 			return giohang;
-		} else {
-			_mvShare.setViewName("redirect: ./dang-nhap");
-			return _mvShare;
 		}
+			return new ModelAndView("user/dangnhap");
 	}
-
 	// cong so luong
 	@RequestMapping(value = "/cong", method = RequestMethod.GET, params = "idsp")
 	public ModelAndView CongGioHang(int idsp, int idkh) {

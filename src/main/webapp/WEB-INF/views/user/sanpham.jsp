@@ -18,7 +18,7 @@
 					<li
 						style="width: 150px; height: 320px; float: left; margin: 10px; border: 1px solid blue; border-radius: 10px">
 						<img style="width: 100%; height: 170px; border-radius: 10px"
-						src="<c:url value= "/assets/user/img/${sanpham.hinhanh}"/>">
+						src="<c:url value= "image/${sanpham.hinhanh}"/>">
 						<p
 							style="color: #000; text-align: center; font-size: 12px; height: 50px; margin-top: 15px">
 							<b> ${sanpham.ten_sp } </b>

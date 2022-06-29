@@ -1,8 +1,0 @@
-package ClothesShop.Dao;
-
-import org.springframework.stereotype.Repository;
-
-@Repository
-public class BaoCaoDao {
-
-}

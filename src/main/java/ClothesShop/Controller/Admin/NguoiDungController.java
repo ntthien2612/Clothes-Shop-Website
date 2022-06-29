@@ -1,5 +1,8 @@
 package ClothesShop.Controller.Admin;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Controller;
@@ -12,17 +15,23 @@ import ClothesShop.Service.Admin.NguoiDungImpl;
 
 @Controller
 public class NguoiDungController {
-@Autowired
-NguoiDungImpl nguoidungImpl;
-public ModelAndView _mvShare = new ModelAndView();
+	@Autowired
+	NguoiDungImpl nguoidungImpl;
+	public ModelAndView _mvShare = new ModelAndView();
+
 //trang quan ly nguoi dung
 	@RequestMapping(value = "/admin/quanlynguoidung")
-	public ModelAndView NguoiDung() {
-		_mvShare.addObject("khachhang", nguoidungImpl.GetDataKhachHang());
-		_mvShare.setViewName("admin/admin_nguoidung");
-		return _mvShare;
+	public ModelAndView NguoiDung(HttpSession session, HttpServletRequest request) {
+		if (session.getAttribute("AdminLoginInfo") != null) {
+			_mvShare.addObject("khachhang", nguoidungImpl.GetDataKhachHang());
+			_mvShare.setViewName("admin/admin_nguoidung");
+			return _mvShare;
+		} else {
+			_mvShare.setViewName("redirect: ../login/");
+			return _mvShare;
+		}
 	}
-	
+
 //	tìm kiếm người dùng
 	@RequestMapping(value = "/admin/timkiem", method = RequestMethod.GET, params = "tenkh", produces = "application/x-www-form-urlencoded;charset=UTF-8")
 	public ModelAndView TimKiemNguoiDung(String tenkh) {

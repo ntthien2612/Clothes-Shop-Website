@@ -83,15 +83,15 @@ Navigation Bar Section
 			</a>
 			<div class="nav-collapse">
 				<ul class="nav">
-					<li class=""><a href="./">Trang chủ </a></li>
+					<li><a href="./">Trang chủ </a></li>
 					<li class=""><a href="./sanpham">Sản phẩm</a></li>
 					<c:if test="${ not empty LoginInfo }">
 					<li class=""><a href="./donhang">Đơn hàng</a></li>
 					</c:if>
 				</ul>
 				
-				<form action="sanpham" method="GET" modelAttribute="sanpham" class="navbar-search pull-left" style="margin-left: 25%;">
-					<input type="text" placeholder="Search" class="search-query span2" name="noidung" />
+				<form action="sanpham" method="GET" modelAttribute="sanpham" class="navbar-search pull-left" style="float: right">
+					<input type="text" placeholder="Search" class="search-query span2" name="noidung" style="width: 300px"/>
 					<button type="submit">Tìm</button>
 				</form>
 				

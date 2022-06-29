@@ -1,0 +1,16 @@
+127.0.0.1 - - [29/Jun/2022:08:44:59 +0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:08:45:02 +0700] "GET /ClothesShop/ HTTP/1.1" 200 8755
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:08:45:02 +0700] "GET /ClothesShop/1656253754229anh-hoa-dep-1.jpg HTTP/1.1" 404 604
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:08:45:02 +0700] "GET /ClothesShop/assets/user/assets/img/white_leather.png HTTP/1.1" 404 604
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:08:45:05 +0700] "GET /ClothesShop/admin/ HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:08:45:05 +0700] "GET /ClothesShop/login/ HTTP/1.1" 200 2369
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:08:45:07 +0700] "GET /ClothesShop/login/dang-nhap?taikhoan=admin%40gmail.com&pass=123456 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:08:45:07 +0700] "GET /ClothesShop/admin/?statusLogin= HTTP/1.1" 200 4233
+127.0.0.1 - - [29/Jun/2022:09:02:46 +0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:09:02:47 +0700] "GET /ClothesShop/ HTTP/1.1" 200 8755
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:09:02:47 +0700] "GET /ClothesShop/1656253754229anh-hoa-dep-1.jpg HTTP/1.1" 404 604
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:09:02:47 +0700] "GET /ClothesShop/assets/user/assets/img/white_leather.png HTTP/1.1" 404 604
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:09:02:50 +0700] "GET /ClothesShop/admin/ HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:09:02:50 +0700] "GET /ClothesShop/login/ HTTP/1.1" 200 2369
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:09:02:52 +0700] "GET /ClothesShop/login/dang-nhap?taikhoan=admin%40gmail.com&pass=123456 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [29/Jun/2022:09:02:52 +0700] "GET /ClothesShop/admin/?statusLogin= HTTP/1.1" 200 4233

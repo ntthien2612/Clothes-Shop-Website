@@ -31,8 +31,8 @@
 				</a>
 			</p>
 			<p>
-				<a class="nav-link" href="#"> <i
-					class="bi bi-question-circle-fill"></i> Quản Lý Phản Hồi
+				<a class="nav-link" href="quanlynhanvien"> <i
+					class="bi bi-question-circle-fill"></i> Quản Lý Nhân Viên
 				</a>
 			</p>
 			<p>
@@ -89,7 +89,6 @@
 	                  <td style="text-align: center">${chitietdonhang[7] }</td>
 	                  <td style="text-align: center">${chitietdonhang[5] }</td>
 	                  <td style="text-align: center">${chitietdonhang[7] * chitietdonhang[5] } ₫</td>
-	               
 	                </tr>
 				</c:forEach>
 				</tbody>

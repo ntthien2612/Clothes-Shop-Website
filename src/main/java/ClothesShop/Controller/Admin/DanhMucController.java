@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ClothesShop.Dao.DanhMucDao;
 import ClothesShop.Entity.DanhMuc;
 import ClothesShop.Service.Admin.AdminHomeImpl;
 import ClothesShop.Service.Admin.DanhMucImpl;
@@ -23,20 +24,24 @@ public class DanhMucController {
 	AdminHomeImpl AdminService;
 	@Autowired
 	DanhMucImpl danhmucHomeImpl = new DanhMucImpl();
+	@Autowired
+	DanhMucDao danhmucDao;
 	public ModelAndView _mvShare = new ModelAndView();
 
 //xu ly them danh muc
 	@RequestMapping(value = "admin/quanlydanhmucSP", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-	public ModelAndView CreateDanhMuc(@ModelAttribute("danhmuc") DanhMuc danhmuc) {
-		int count = danhmucHomeImpl.AddDanhMuc(danhmuc);
-		if (count > 0) {// them it nhat dc 1 dong
-			_mvShare.addObject("status", "Thêm danh mục thành công !");
-
-		} else {
-			_mvShare.addObject("status", "Thêm danh mục thất bại !");
+	public ModelAndView CreateDanhMuc(HttpSession session, @ModelAttribute("danhmuc") DanhMuc danhmuc) {
+		int check = danhmucDao.Count(danhmuc.getTen_dm());
+		if(check!=0) {
+			session.setAttribute("notification","Tên danh mục này đã tồn tại!");
+			_mvShare.setViewName("redirect:/admin/quanlydanhmucSP");
+			return _mvShare;
+		}else {
+			danhmucHomeImpl.AddDanhMuc(danhmuc);
+			session.setAttribute("notification","Thêm danh mục sản phẩm thành công!");
+			_mvShare.setViewName("redirect:/admin/quanlydanhmucSP");
+			return _mvShare;
 		}
-		_mvShare.setViewName("redirect:/admin/quanlydanhmucSP");
-		return _mvShare;
 	}
 
 // trang danh muc
@@ -72,9 +77,16 @@ public class DanhMucController {
 
 	// xu ly chinh sua
 	@RequestMapping(value = "/admin/chinhsuadanhmuc", method = RequestMethod.POST, produces = "application/x-www-form-urlencoded;charset=UTF-8")
-	public ModelAndView EditDanhMuc(@ModelAttribute("danhmuc") DanhMuc danhmuc) {
-		int count = danhmucHomeImpl.ChinhSuaDanhMuc(danhmuc);
-		_mvShare.setViewName("redirect:/admin/quanlydanhmucSP");
+	public ModelAndView EditDanhMuc(HttpSession session, @ModelAttribute("danhmuc") DanhMuc danhmuc) {
+		int check = danhmucDao.Count(danhmuc.getTen_dm());
+		if(check!=0) {
+			session.setAttribute("notification","Tên danh mục này đã tồn tại!");
+			_mvShare.setViewName("/admin/chinhsua_danhmuc");
+		}else {
+			danhmucHomeImpl.ChinhSuaDanhMuc(danhmuc);
+			session.setAttribute("notification","Sửa danh mục sản phẩm thành công!");
+			_mvShare.setViewName("redirect:/admin/quanlydanhmucSP");
+		}
 		return _mvShare;
 	}
 }

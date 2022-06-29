@@ -11,13 +11,14 @@
 
 	<div style="margin-bottom: 300px">
 
-		<%-- 		<c:forEach var="danhmuc" items="${ danhmuc }" varStatus="index"> --%>
-		<!-- 			<div -->
-		<!-- 				style="font-weight: border:; color: #fff; background-color: #ee4d2d; font-size: 20px; height: 50px; width: 100px; padding-left: 20px; line-height: 50px; margin: 15px 0px"> -->
-		<%-- 				${ danhmuc.ten_dm }</div> --%>
-
-		<%-- 		</c:forEach> --%>
-
+			<div class="well well-small">
+				<ul class="nav nav-list">
+				<c:forEach var="danhmuc" items="${danhmuc }" varStatus="index" >
+					<li><a href="./sanpham?id=${danhmuc.id_dm }">
+					<span class="icon-chevron-right" ></span>${danhmuc.ten_dm }</a></li>
+				</c:forEach>
+				</ul>
+			</div>
 		<c:forEach var="sanpham" items="${sanpham }" varStatus="index">
 			<div>
 				<ul style="list-style: none;">

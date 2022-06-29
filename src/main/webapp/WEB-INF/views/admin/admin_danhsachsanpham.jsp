@@ -1,9 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid ;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	
+}
+</style>
 <div class="container-fluid text-center" style="border: 1px solid black">    
   <div class="row content">
-    <div class="col-sm-2 sidenav" style="text-align: left">
+    <div class="col-sm-2 sidenav" style="text-align: left;height:150%">
       <p><a class="nav-link active" href="./">
               <i class="bi bi-house-fill"></i>
               Trang Chủ
@@ -37,12 +54,16 @@
     <div class="col-sm-10 text-left"> 
     <h1 style="text-align: center"><b>Danh sách sản phẩm</b></h1><hr>
     <a href="./themsanpham"><button style="margin-bottom: 1%;">Thêm sản phẩm</button></a>
+    <c:if test="${not empty notification}">
+						<p style="color: red; font-size: 16px;"><i>${notification }</i></p>
+						<%session.setAttribute("notification", null); %>
+					</c:if>
     <form action="timsp" method="get" style="margin-bottom: 10px">
     <input type="text" name="ten_sp" placeholder="Vui lòng nhập tên sản phẩm" style="width: 300px" onchange="this.form.submit()">
     <button type="submit">Tìm</button>
     </form>
-    <div style="width: 101%;height: 300px;overflow-y: scroll;scroll-behavior: smooth;">
-    <table border="1" style="width: 100%">
+    <div style="width: 101%;height: 450px;overflow-y: scroll;scroll-behavior: smooth;">
+    <table border="1" style="width: 100%;border: 1px solid">
 <tr><th style="text-align: center">Tên sản phẩm</th>
 <th style="text-align: center">Danh mục</th>
 <th style="text-align: center">Giá</th>

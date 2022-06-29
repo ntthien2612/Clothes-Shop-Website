@@ -2,9 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
+
+
 <div class="container-fluid text-center" style="border: 1px solid black">
+
 	<div class="row content">
-		<div class="col-sm-2 sidenav" style="text-align: left">
+		<div class="col-sm-2 sidenav" style="text-align: left; height:150%">
 			<p>
 				<a class="nav-link active" href="./"> <i
 					class="bi bi-house-fill"></i> Trang Chủ
@@ -43,48 +46,52 @@
 		</div>
 		<div class="col-sm-10 text-left">
 			<div style="float: left; width: 49%; height: 100%">
-				<h1>
+				<h1 style="text-align: center">
 					<b>Thêm sản phẩm</b>
 				</h1>
 				<hr>
-				<form:form action="themsanpham" method="POST" modelAttribute="sanpham" enctype="multipart/form-data">
+				<form action="themsanpham" method="POST" modelAttribute="sanpham" enctype="multipart/form-data">
 					<table style="height: 250px">
 						<tr>
 							<td><b>Tên sản phẩm: </b></td>
-							<td><form:input type="text" path="ten_sp" style="width: 100%; height: 30px"/></td>
+							<td><input type="text" name="ten_sp" style="width: 100%; height: 30px" required/></td>
 						</tr>
 						<tr>
 							<td><b>Danh mục sản phẩm: </b></td>
-							<td><form:select path="id_dm" style="width: 100%; height: 30px">
+							<td><select name="id_dm" style="width: 100%; height: 30px">
 									<c:forEach var="danhmuc" items="${danhmuc }" varStatus="index">
 										<option value="${danhmuc.id_dm }">${danhmuc.ten_dm }</option>
 									</c:forEach>
-								</form:select></td>
+								</select></td>
 						</tr>
 						<tr>
 							<td><b>Giá sản phẩm: </b></td>
-							<td><form:input type="text" path="gia" style="width: 100%; height: 30px"/></td>
+							<td><input type="text" path="gia" style="width: 100%; height: 30px" required/></td>
 						</tr>
 						<tr>
 							<td><b>Hình sản phẩm: </b></td>
-							<td><input name="image" type="file" path="hinhanh" /></td>
+							<td><input name="image" type="file" path="hinhanh" required/></td>
 						</tr>
 						<tr>
 							<td><b>Mô tả sản phẩm: </b></td>
-							<td><form:textarea type="text" path="mota" style="resize: none; width: 100%; height: 30px"></form:textarea></td>
+							<td><textarea type="text" path="mota" style="resize: none; width: 100%; height: 30px" required></textarea></td>
 						</tr>
+						<tr><td></td><td><c:if test="${not empty notification}">
+						<p style="color: red; font-size: 16px;"><i>${notification }</i></p>
+						<%session.setAttribute("notification", null); %>
+					</c:if></td></tr>
 						<tr>
 							<td></td>
 							<td><button type="submit" class="btn block">Lưu</button>
 							<button type="reset" class="btn block">Reset</button></td>
 						</tr>
 					</table>
-				</form:form>
+				</form>
 			</div>
 			<div style="float: right; width: 49%; height: 100%">
 
 
-				<h1>
+				<h1 style="text-align: center">
 					<b>Thêm chi tiết sản phẩm</b>
 				</h1>
 				<hr>

@@ -17,39 +17,41 @@ import ClothesShop.Entity.Users;
 
 @Repository
 public class AdminDao extends BaseDao {
-	
-	//them khach hang
-		public int AddAccountAdmin(Admin admin)
-		{
-			StringBuffer sql = new StringBuffer();
-			sql.append("INSERT ");
-			sql.append("INTO admin ");
-			sql.append("( ");
-			sql.append("	id_ad, ");
-			sql.append("	taikhoan, ");
-			sql.append("	pass, ");
-			sql.append("	hoten ");
-			sql.append(") ");
-			sql.append("VALUES ");
-			sql.append("( ");
-			sql.append("	'"+admin.getId_ad()+"', ");
-			sql.append("	'"+admin.getTaikhoan()+"', ");
-			sql.append("	'"+admin.getPass()+"', ");
-			sql.append("	'"+admin.getHoten()+"' ");
-			sql.append(")");
-			
-			int insert = _jdbcTemplate.update(sql.toString());
-			return insert;
-		}
-	
+
+	// them khach hang
+	public int AddAccountAdmin(Admin admin) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("INSERT ");
+		sql.append("INTO admin ");
+		sql.append("( ");
+		sql.append("	id_ad, ");
+		sql.append("	taikhoan, ");
+		sql.append("	pass, ");
+		sql.append("	hoten ");
+		sql.append(") ");
+		sql.append("VALUES ");
+		sql.append("( ");
+		sql.append("	'" + admin.getId_ad() + "', ");
+		sql.append("	'" + admin.getTaikhoan() + "', ");
+		sql.append("	'" + admin.getPass() + "', ");
+		sql.append("	'" + admin.getHoten() + "' ");
+		sql.append(")");
+
+		int insert = _jdbcTemplate.update(sql.toString());
+		return insert;
+	}
+
 	// kiem tra email trung
 	public int CountTaiKhoan(String email) {
-		String sql = "SELECT COUNT(*) FROM admin where taikhoan='" + email + "'";
-		int count = _jdbcTemplate.queryForObject(sql, Integer.class);
-		return count;
+		try {
+			String sql = "SELECT COUNT(*) FROM admin where taikhoan='" + email + "'";
+			int count = _jdbcTemplate.queryForObject(sql, Integer.class);
+			return count;
+		} catch (EmptyResultDataAccessException e) {
+			return 0;
+		}
 	}
-	
-	
+
 //	kiểm tra tài khoản admin
 	public Admin GetAdminByAcc(Admin admin) {
 		try {
@@ -59,30 +61,41 @@ public class AdminDao extends BaseDao {
 		} catch (EmptyResultDataAccessException e) {
 			return null;
 		}
-		 
-		
-	}
-	//Kiem tra tai khoan trung
-	public int Count(String email) {
-		int count = 0;
-		String sql = "SELECT COUNT(*) FROM admin where taikhoan='" + email + "'";
-		count = _jdbcTemplate.queryForObject(sql, Integer.class);
-		return count;
 	}
 
-	//danh sach admin
+	// Kiem tra tai khoan trung
+	public int Count(String email) {
+		try {
+			int count = 0;
+			String sql = "SELECT COUNT(*) FROM admin where taikhoan='" + email + "'";
+			count = _jdbcTemplate.queryForObject(sql, Integer.class);
+			return count;
+		} catch (EmptyResultDataAccessException e) {
+			return 0;
+		}
+	}
+
+	// danh sach admin
 	public List<Admin> GetDataDanhSachAdmin() {
-		List<Admin> list = new ArrayList<Admin>();
-		String sql = "select * from admin";
-		list = _jdbcTemplate.query(sql, new MapperAdmin());
-		return list;
+		try {
+			List<Admin> list = new ArrayList<Admin>();
+			String sql = "select * from admin";
+			list = _jdbcTemplate.query(sql, new MapperAdmin());
+			return list;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 
 	public List<Admin> GetDataTimKiemAdmin(String tenad) {
-		 List<Admin> list = new ArrayList<Admin>();
-		String sql = "select * from admin where hoten LIKE '%" +tenad+"%'";
-		list = _jdbcTemplate.query(sql, new MapperAdmin());
-		return list;
+		try {
+			List<Admin> list = new ArrayList<Admin>();
+			String sql = "select * from admin where hoten LIKE '%" + tenad + "%'";
+			list = _jdbcTemplate.query(sql, new MapperAdmin());
+			return list;
+		} catch (EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 
 }

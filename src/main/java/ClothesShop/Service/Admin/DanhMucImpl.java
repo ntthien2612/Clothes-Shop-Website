@@ -34,4 +34,8 @@ public class DanhMucImpl implements IDanhMuc {
 	public int ChinhSuaDanhMuc(DanhMuc danhmuc) {
 		return danhmucDao.ChinhSuaDanhMuc(danhmuc);
 	}
+	
+	public int Count(String tendm) {
+		return danhmucDao.Count(tendm);
+	}
 }

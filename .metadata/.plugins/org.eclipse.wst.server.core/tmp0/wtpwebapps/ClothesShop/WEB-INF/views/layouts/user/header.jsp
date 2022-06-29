@@ -83,7 +83,7 @@ Navigation Bar Section
 			</a>
 			<div class="nav-collapse">
 				<ul class="nav">
-					<li class=""><a href="./">Trang chủ </a></li>
+					<li><a href="./">Trang chủ </a></li>
 					<li class=""><a href="./sanpham">Sản phẩm</a></li>
 					<c:if test="${ not empty LoginInfo }">
 					<li class=""><a href="./donhang">Đơn hàng</a></li>

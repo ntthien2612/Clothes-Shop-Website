@@ -1,8 +1,0 @@
-package ClothesShop.Controller.Admin;
-
-import org.springframework.stereotype.Controller;
-
-@Controller
-public class BaoCaoController {
-
-}

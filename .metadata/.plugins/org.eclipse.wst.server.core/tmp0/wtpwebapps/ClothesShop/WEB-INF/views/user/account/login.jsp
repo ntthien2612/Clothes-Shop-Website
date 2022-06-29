@@ -27,6 +27,10 @@
 				<div class="span4" style="width: 100%;">
 					<div class="well" style="width: 90%; height: 350px">
 						<h3 style="text-align: center">Đăng nhập tài khoản</h3>
+						<c:if test="${not empty notification}">
+						<p style="color: red; font-size: 16px; text-align: center;"><i>${notification }</i></p>
+						<%session.setAttribute("notification", null); %>
+					</c:if>
 						<form:form action="dang-nhap" method="POST" modelAttribute="user">
 							<table style="margin-left: 25%">
 								<tr>
@@ -42,8 +46,10 @@
 								</tr>
 								<tr>
 									<td></td>
-									<td><button type="submit" class="btn block">Đăng
-											nhập</button></td>
+									<td>
+										<button type="submit" class="btn block">Đăng nhập</button>
+										<button class="btn block"><a href="<c:url value="/dang-ky" />" style="color:black">Đăng ký</a></button>	
+									</td>
 								</tr>
 							</table>
 

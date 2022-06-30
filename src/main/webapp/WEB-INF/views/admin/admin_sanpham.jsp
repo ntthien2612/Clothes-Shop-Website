@@ -66,7 +66,7 @@
 						</tr>
 						<tr>
 							<td><b>Giá sản phẩm: </b></td>
-							<td><input type="text" path="gia" style="width: 100%; height: 30px" required/></td>
+							<td><input name= "gia" type="text" path="gia" style="width: 100%; height: 30px" required/></td>
 						</tr>
 						<tr>
 							<td><b>Hình sản phẩm: </b></td>
@@ -74,7 +74,7 @@
 						</tr>
 						<tr>
 							<td><b>Mô tả sản phẩm: </b></td>
-							<td><textarea type="text" path="mota" style="resize: none; width: 100%; height: 30px" required></textarea></td>
+							<td><textarea name="mota" type="text" path="mota" style="resize: none; width: 100%; height: 30px" required></textarea></td>
 						</tr>
 						<tr><td></td><td><c:if test="${not empty notification}">
 						<p style="color: red; font-size: 16px;"><i>${notification }</i></p>

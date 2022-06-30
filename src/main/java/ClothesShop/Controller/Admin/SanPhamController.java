@@ -78,7 +78,8 @@ public class SanPhamController {
 			session.setAttribute("notification", "Tên sản phẩm đã tồn tại");
 			_mvShare.setViewName("redirect:/admin/themsanpham");
 		}else {
-			String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
+			//String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
+			String pathdir = System.getProperty("catalina.home")+"/img/";
 			System.out.println(pathdir);
 			String filename = String.valueOf(new Date().getTime()) + file.getOriginalFilename();
 			try {
@@ -142,7 +143,8 @@ public class SanPhamController {
 		public ModelAndView SuaSanPham(@ModelAttribute("sanpham") SanPham sanpham,
 				@RequestParam(value = "image", required = false) MultipartFile file, HttpServletRequest request) {
 
-			String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
+			//String pathdir = request.getSession().getServletContext().getRealPath("/") + "assets\\user\\img\\";
+			String pathdir = System.getProperty("catalina.home")+"/img/";
 			//System.out.println(pathdir);
 			String filename = String.valueOf(new Date().getTime()) + file.getOriginalFilename();
 			if(!file.getOriginalFilename().isEmpty()) {

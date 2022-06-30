@@ -26,11 +26,7 @@ public class GioHangDao extends BaseDao {
 					+ giohang.getId_sp() + ",'" + giohang.getSize() + "'," + giohang.getSoluong_them() + ")";
 			int list_sp = _jdbcTemplate.update(sql_sp.toString());
 			return list_sp;
-<<<<<<< HEAD
-		} catch (EmptyResultDataAccessException e) {
-=======
 		} catch (Exception e) {
->>>>>>> 63bcaf6cf8f3a519b3eefb9636e3ee22d7259deb
 			return 0;
 		}
 	}
@@ -54,11 +50,7 @@ public class GioHangDao extends BaseDao {
 			String sql = "update giohang set soluong_them=soluong_them+1 where id=" + idsp;
 			int list = _jdbcTemplate.update(sql.toString());
 			return list;
-<<<<<<< HEAD
-		} catch (EmptyResultDataAccessException e) {
-=======
 		} catch (Exception e) {
->>>>>>> 63bcaf6cf8f3a519b3eefb9636e3ee22d7259deb
 			return 0;
 		}
 	}
@@ -69,11 +61,8 @@ public class GioHangDao extends BaseDao {
 			String sql = "update giohang set soluong_them=soluong_them-1 where id=" + idsp;
 			int list = _jdbcTemplate.update(sql.toString());
 			return list;
-<<<<<<< HEAD
-		} catch (EmptyResultDataAccessException e) {
-=======
 		} catch (Exception e) {
->>>>>>> 63bcaf6cf8f3a519b3eefb9636e3ee22d7259deb
+
 			return 0;
 		}
 	}
